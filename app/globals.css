@@ -1,26 +1,123 @@
 @import "tailwindcss";
 
+@theme {
+  /* Colors from DESIGN.md */
+  --color-surface: #f8f9ff;
+  --color-surface-dim: #d4dae7;
+  --color-surface-bright: #f8f9ff;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #eef4ff;
+  --color-surface-container: #e8eefb;
+  --color-surface-container-high: #e2e8f5;
+  --color-surface-container-highest: #dce3ef;
+  --color-on-surface: #151c25;
+  --color-on-surface-variant: #3e484e;
+  --color-inverse-surface: #2a313a;
+  --color-inverse-on-surface: #eaf1fe;
+  --color-outline: #6e797f;
+  --color-outline-variant: #bdc8cf;
+  --color-surface-tint: #006684;
+  --color-primary: #006684;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #3bafda;
+  --color-on-primary-container: #003f52;
+  --color-inverse-primary: #68d3ff;
+  --color-secondary: #914c00;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #ff8a00;
+  --color-on-secondary-container: #613100;
+  --color-tertiary: #5b5f61;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #a0a3a6;
+  --color-on-tertiary-container: #363a3c;
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+  --color-primary-fixed: #bee9ff;
+  --color-primary-fixed-dim: #68d3ff;
+  --color-on-primary-fixed: #001f2a;
+  --color-on-primary-fixed-variant: #004d64;
+  --color-secondary-fixed: #ffdcc4;
+  --color-secondary-fixed-dim: #ffb77f;
+  --color-on-secondary-fixed: #2f1500;
+  --color-on-secondary-fixed-variant: #6f3900;
+  --color-tertiary-fixed: #e0e3e6;
+  --color-tertiary-fixed-dim: #c4c7ca;
+  --color-on-tertiary-fixed: #191c1e;
+  --color-on-tertiary-fixed-variant: #44474a;
+  --color-background: #f8f9ff;
+  --color-on-background: #151c25;
+  --color-surface-variant: #dce3ef;
+
+  /* Typography */
+  --font-inter: var(--font-inter);
+  --font-sans: var(--font-inter);
+
+  /* Spacing & Radius */
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2rem;
+  
+  /* Custom shadows and animations */
+  --animate-pulse-soft: pulse-soft 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-bounce-slow: bounce-slow 3s infinite;
+  --animate-fade-in-up: fade-in-up 1s ease-out forwards;
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(-5%); animation-timing-function: cubic-bezier(0.8, 0, 1, 1); }
+  50% { transform: translateY(0); animation-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #f8f9ff;
+  --foreground: #151c25;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), sans-serif;
 }
+
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-top-color: rgba(255, 255, 255, 0.8);
+  border-left-color: rgba(255, 255, 255, 0.8);
+}
+
+.glass-dark {
+  background: rgba(21, 28, 37, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.text-gradient-primary {
+  background: linear-gradient(135deg, #006684 0%, #3BAFDA 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-gradient-primary {
+  background: linear-gradient(135deg, #006684 0%, #3BAFDA 100%);
+}
+
+.bg-gradient-secondary {
+  background: linear-gradient(135deg, #914c00 0%, #FF8A00 100%);
+}
+

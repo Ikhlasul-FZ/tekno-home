@@ -1,65 +1,466 @@
+"use client";
+
 import Image from "next/image";
+import { useState, useEffect } from "react";
+import ProjectGrid from "@/components/ProjectGrid";
+
+
+
 
 export default function Home() {
+
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
+    <div className="flex flex-col min-h-screen">
+      {/* Navbar */}
+      <nav className={`fixed top-0 w-full z-50 transition-all duration-500 px-6 ${scrolled
+        ? "py-4 glass border-b border-outline-variant/30 shadow-lg"
+        : "py-6 bg-transparent border-b border-transparent"
+        }`}>
+        <div className="max-w-7xl mx-auto flex justify-between items-center">
+          <div className="flex items-center gap-2">
+            <div className="w-10 h-10 bg-gradient-primary rounded-xl flex items-center justify-center text-white font-bold">TH</div>
+            <span className={`text-xl font-bold tracking-tight transition-colors duration-500 ${scrolled ? "text-on-surface" : "text-on-surface"}`}>Tekno <span className="text-primary">Home</span></span>
+          </div>
+
+          <div className="hidden md:flex items-center gap-8 text-on-surface-variant font-medium">
+            <a href="#services" className="hover:text-primary transition-colors py-2">Layanan</a>
+            <a href="#process" className="hover:text-primary transition-colors py-2">Alur Kerja</a>
+            <a href="#testimonials" className="hover:text-primary transition-colors py-2">Testimoni</a>
+          </div>
+
           <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="https://wa.me/6282299359184"
             target="_blank"
             rel="noopener noreferrer"
+            className={`bg-gradient-secondary text-white px-6 py-2.5 rounded-full font-semibold transition-all duration-500 active:scale-95 inline-block ${scrolled ? "shadow-lg shadow-secondary/20" : "shadow-none"}`}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
+            Hubungi Sekarang
           </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+
         </div>
+      </nav>
+
+      <main>
+        {/* Hero Section */}
+        <section className="relative min-h-screen flex items-center pt-20 pb-12 px-6 overflow-hidden">
+          <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] -z-10 animate-pulse-soft"></div>
+          <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[120px] -z-10 animate-pulse-soft"></div>
+
+          <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center w-full">
+            <div className="space-y-8 animate-fade-in-up">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest">
+                <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                Layanan Cepat, Selesai di Hari yang Sama
+              </div>
+              <h1 className="text-5xl md:text-7xl font-bold text-on-surface leading-[1.05] tracking-tight">
+                Servis <span className="text-gradient-primary">Water Heater</span> & Kompor Listrik Terpercaya
+              </h1>
+              <p className="text-xl text-on-surface-variant leading-relaxed max-w-lg">
+                Servis, pasang, dan perawatan profesional 24/7. Teknisi ahli kami siap mengembalikan kenyamanan rumah Anda.
+              </p>
+
+              <div className="flex flex-wrap gap-4 pt-4">
+                <a
+                  href="https://wa.me/6282299359184"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-gradient-primary text-white px-10 py-5 rounded-2xl font-bold text-lg hover:shadow-2xl hover:shadow-primary/20 transition-all active:scale-95 inline-block text-center"
+                >
+                  Pesan Sekarang
+                </a>
+
+
+
+                <button className="glass px-10 py-5 rounded-2xl font-bold text-lg border border-primary/20 text-primary hover:bg-primary/5 transition-all active:scale-95">
+                  Konsultasi Gratis
+                </button>
+              </div>
+            </div>
+
+            <div className="relative animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+
+              <div className="relative aspect-square rounded-[40px] overflow-hidden shadow-2xl border-4 border-white/20">
+                <Image
+                  src="/hero.png"
+                  alt="Teknisi profesional sedang bekerja"
+                  fill
+                  priority
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
+              {/* Floating Badge */}
+              <div className="absolute -bottom-8 -left-8 glass p-8 rounded-3xl shadow-2xl border border-white/50 max-w-[240px] animate-bounce-slow">
+                <div className="flex items-center gap-5">
+                  <div className="w-14 h-14 bg-secondary/10 rounded-2xl flex items-center justify-center text-secondary">
+                    <i className="fi fi-rr-bolt text-2xl"></i>
+                  </div>
+
+                  <div>
+                    <p className="text-xs font-bold text-on-surface-variant uppercase tracking-widest">Darurat</p>
+                    <p className="text-lg font-black text-on-surface italic underline">Respon 60 Menit</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        {/* Stats Section */}
+        <section className="px-6 py-10">
+          <div className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { label: "Panggil ke rumah", val: "Teknisi", icon: "fi fi-rr-map-marker-home" },
+              { label: "Tanya-tanya gratis", val: "Konsultasi", icon: "fi fi-rr-headset" },
+              { label: "Ekspres & Bergaransi", val: "Cepat", icon: "fi fi-rr-time-fast" },
+              { label: "Ahli bertahun-tahun", val: "Berpengalaman", icon: "fi fi-rr-shield-check" }
+            ].map((stat, i) => (
+              <div key={i} className="glass p-8 rounded-3xl text-center border border-primary/5 hover:border-primary/20 transition-all hover:translate-y-[-4px]">
+                <div className="w-12 h-12 bg-primary/5 rounded-2xl flex items-center justify-center text-primary mx-auto mb-4 text-2xl">
+                  <i className={stat.icon}></i>
+                </div>
+                <h3 className="text-xl font-bold text-on-surface mb-1">{stat.val}</h3>
+                <p className="text-sm text-on-surface-variant font-medium">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+
+        {/* Services Section */}
+        <section id="services" className="py-24 px-6 bg-surface-container-low/30 relative">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+              <div className="space-y-4">
+                <div className="inline-block bg-primary text-white px-6 py-3 rounded-xl font-bold text-xl shadow-lg shadow-primary/20">
+                  Layanan Service
+                </div>
+                <h2 className="text-4xl md:text-5xl font-bold text-on-surface tracking-tight">Solusi Masalah Peralatan Anda</h2>
+                <p className="text-lg text-on-surface-variant max-w-2xl">Solusi cepat untuk kendala kompor gas dan water heater Anda.</p>
+
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                { title: "Masalah Api", desc: "Kompor mati, api kecil atau merah? Kami kembalikan normal cepat.", icon: "fi fi-rr-flame" },
+                { title: "Kinerja Pengapian", desc: "Susah nyala & api tidak merata? Langsung stabil dan siap pakai.", icon: "fi fi-rr-settings" },
+                { title: "Komponen & Kebersihan", desc: "Pemantik mati atau kotor? Kami bersihkan & perbaiki sampai normal.", icon: "fi fi-rr-vacuum" },
+                { title: "Kondisi Ekstrem", desc: "Bekas ledakan atau banjir? Kami tangani aman & tuntas.", icon: "fi fi-rr-exclamation" },
+                { title: "Restorasi Unit", desc: "Kompor lama mati? Kami hidupkan kembali seperti baru.", icon: "fi fi-rr-refresh" },
+                { title: "Servis Water Heater", desc: "Tidak panas, mati total, atau korslet? Kami perbaiki cepat & aman.", icon: "fi fi-rr-water" }
+              ].map((service, i) => (
+                <div key={i} className="glass p-8 rounded-[32px] border border-primary/5 hover:border-primary/20 transition-all hover:translate-y-[-4px] group">
+                  <div className="w-16 h-16 bg-primary/5 rounded-2xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-all duration-500 text-3xl">
+                    <i className={service.icon}></i>
+                  </div>
+
+                  <h3 className="text-xl font-bold text-on-surface mb-3">{service.title}</h3>
+                  <p className="text-on-surface-variant leading-relaxed">{service.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+
+        {/* Why Choose Us */}
+        <section className="py-24 px-6">
+          <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+            <div className="relative">
+              <div className="rounded-[40px] overflow-hidden shadow-2xl">
+                <Image src="/team.png" alt="Tim kami" width={600} height={400} className="object-cover" />
+              </div>
+              <div className="absolute -top-10 -right-10 glass p-8 rounded-3xl shadow-2xl border border-white/40">
+                <p className="text-5xl font-black text-primary">100%</p>
+                <p className="text-sm font-bold text-on-surface-variant uppercase tracking-widest">Tingkat Kepuasan</p>
+              </div>
+
+            </div>
+
+            <div className="space-y-10">
+              <h2 className="text-4xl font-bold text-on-surface">Mengapa Pemilik Rumah Memilih TeknoHome</h2>
+              <div className="space-y-8">
+                {[
+                  { title: "Berlisensi & Bergaransi", desc: "Ketenangan total untuk setiap servis. Kualitas pengerjaan terjamin.", icon: "fi fi-rr-shield-check" },
+                  { title: "Harga Transparan", desc: "Tanpa biaya tersembunyi. Estimasi harga jujur di awal.", icon: "fi fi-rr-money" },
+                  { title: "Jadwal Fleksibel", desc: "Tersedia pagi, siang, atau sore menyesuaikan waktu Anda.", icon: "fi fi-rr-calendar-clock" }
+                ].map((item, i) => (
+                  <div key={i} className="flex gap-6">
+                    <div className="flex-shrink-0 w-14 h-14 bg-primary/5 rounded-2xl flex items-center justify-center text-primary text-3xl">
+                      <i className={item.icon}></i>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-bold text-on-surface mb-2">{item.title}</h3>
+                      <p className="text-on-surface-variant leading-relaxed">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Our Projects Section */}
+        <section id="projects" className="py-24 px-6 bg-surface-container-low/30">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16 space-y-4">
+              <div className="inline-block bg-primary/10 text-primary px-4 py-1.5 rounded-full font-bold text-xs uppercase tracking-widest">
+                Portofolio Kami
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold text-on-surface tracking-tight">Hasil Pekerjaan Kami</h2>
+              <p className="text-lg text-on-surface-variant max-w-2xl mx-auto">Dokumentasi perbaikan dan pemasangan tim TeknoHome di berbagai lokasi.</p>
+            </div>
+
+            <ProjectGrid />
+          </div>
+        </section>
+
+
+
+        {/* Process Section */}
+
+        <section id="process" className="py-24 px-6 bg-surface-container-highest relative overflow-hidden">
+          {/* Decorative backgrounds */}
+          <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+          <div className="absolute -top-24 -right-24 w-96 h-96 bg-primary/5 rounded-full blur-[120px]"></div>
+          <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-secondary/5 rounded-full blur-[120px]"></div>
+
+          <div className="max-w-7xl mx-auto relative">
+            <div className="text-center mb-16 space-y-4">
+              <h2 className="text-4xl md:text-5xl font-bold text-on-surface tracking-tight">Pemesanan Mudah & Aman</h2>
+              <p className="text-lg text-on-surface-variant max-w-2xl mx-auto">Transparan dan nyaman di setiap tahapan layanan kami.</p>
+            </div>
+
+
+            <div className="grid md:grid-cols-2 gap-8 items-start">
+              {/* Cara Pemesanan */}
+              <div className="bg-white rounded-[40px] p-8 md:p-12 shadow-2xl shadow-primary/5 border border-primary/10 relative group hover:border-primary/30 transition-all duration-500">
+                <div className="absolute top-8 right-8 w-16 h-16 bg-primary/5 rounded-2xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 text-3xl">
+                  <i className="fi fi-rr-comment-alt"></i>
+                </div>
+
+                <h3 className="text-2xl md:text-3xl font-bold text-on-surface mb-8">Cara Pemesanan</h3>
+                <ul className="space-y-6">
+                  {[
+                    "Konsultasi via WA/Telepon ke admin.",
+                    "Survei lokasi & penawaran harga rinci.",
+                    "Deal & penjadwalan proses pengerjaan."
+                  ].map((item, i) => (
+
+                    <li key={i} className="flex gap-5 items-start">
+                      <div className="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold text-sm">
+                        {i + 1}
+                      </div>
+                      <p className="text-on-surface-variant leading-relaxed pt-1">{item}</p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Metode Pembayaran */}
+              <div className="space-y-8">
+                <div className="bg-white rounded-[40px] p-8 md:p-12 shadow-2xl shadow-secondary/5 border border-secondary/10 relative group hover:border-secondary/30 transition-all duration-500">
+                  <div className="absolute top-8 right-8 w-16 h-16 bg-secondary/5 rounded-2xl flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-white transition-all duration-500 text-3xl">
+                    <i className="fi fi-rr-credit-card"></i>
+                  </div>
+
+                  <h3 className="text-2xl md:text-3xl font-bold text-on-surface mb-8">Metode Pembayaran</h3>
+                  <ul className="space-y-6">
+                    {[
+                      "Bayar DP 50% (Transfer atau Cash).",
+                      "Proses pengerjaan oleh tim teknisi ahli.",
+                      "Pelunasan setelah proyek selesai sempurna."
+                    ].map((item, i) => (
+
+                      <li key={i} className="flex gap-5 items-start">
+                        <div className="flex-shrink-0 w-8 h-8 bg-secondary text-white rounded-full flex items-center justify-center font-bold text-sm">
+                          {i + 1}
+                        </div>
+                        <p className="text-on-surface-variant leading-relaxed pt-1">{item}</p>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Satisfaction Guarantee Badge */}
+                <div className="bg-gradient-secondary p-8 rounded-[32px] flex items-center justify-between text-white shadow-xl shadow-secondary/20 overflow-hidden relative group">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700"></div>
+                  <div className="relative z-10">
+                    <p className="text-4xl font-black mb-1">100%</p>
+                    <p className="text-sm font-bold uppercase tracking-widest opacity-80">Jaminan Kepuasan</p>
+                  </div>
+                  <div className="relative z-10 text-right border-l border-white/20 pl-8">
+                    <p className="text-xl font-bold">SATISFACTION</p>
+                    <p className="text-xl font-light">GUARANTEE</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Testimonials Section */}
+        <section id="testimonials" className="py-24 px-6 bg-surface">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16 space-y-4">
+              <div className="inline-block bg-secondary/10 text-secondary px-4 py-1.5 rounded-full font-bold text-xs uppercase tracking-widest">
+                Testimoni Pelanggan
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold text-on-surface tracking-tight">Apa Kata Mereka?</h2>
+              <p className="text-lg text-on-surface-variant max-w-2xl mx-auto">Kepercayaan Anda adalah prioritas kami. Berikut adalah ulasan dari mereka yang telah menggunakan layanan kami.</p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {[
+                { name: "Ibu Sarah", loc: "Jakarta Selatan", quote: "Sangat puas dengan servis kompor gasnya. Teknisi datang tepat waktu dan pengerjaan sangat rapi.", stars: 5 },
+                { name: "Bpk. Andi", loc: "Depok", quote: "Water heater saya yang mati total sekarang normal lagi. Harga sangat jujur dan transparan sesuai kesepakatan.", stars: 5 },
+                { name: "Ibu Rina", loc: "Tangerang", quote: "Respon admin sangat cepat. Pagi pesan, siang sudah beres dikerjakan. Teknisi juga ramah dan profesional.", stars: 5 }
+              ].map((t, i) => (
+                <div key={i} className="glass p-10 rounded-[40px] border border-primary/5 hover:border-primary/20 transition-all duration-500 relative flex flex-col group">
+                  <div className="flex gap-1 mb-6">
+                    {[...Array(t.stars)].map((_, j) => (
+                      <i key={j} className="fi fi-rr-star text-secondary text-xl"></i>
+                    ))}
+                  </div>
+
+                  <p className="text-on-surface-variant text-lg italic leading-relaxed mb-8 flex-1">"{t.quote}"</p>
+                  <div className="flex items-center gap-4 border-t border-outline-variant/30 pt-6">
+                    <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center text-white font-bold">
+                      {t.name.charAt(0)}
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-on-surface">{t.name}</h4>
+                      <p className="text-xs text-on-surface-variant font-medium uppercase tracking-wider">{t.loc}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+
+
+        {/* CTA Section */}
+        <section className="px-6 py-16">
+          <div className="max-w-7xl mx-auto rounded-[40px] overflow-hidden relative bg-gradient-primary p-12 md:p-24 text-center text-white">
+            <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+            <div className="relative space-y-8">
+              <h2 className="text-4xl md:text-6xl font-black">Butuh perbaikan segera? <br /> Kami siap membantu.</h2>
+              <p className="text-xl text-primary-fixed-dim max-w-2xl mx-auto">Jangan biarkan peralatan rusak mengganggu aktivitas Anda. Teknisi kami siaga memberikan layanan cepat dan handal.</p>
+              <div className="flex flex-wrap justify-center gap-6">
+                <a
+                  href="https://wa.me/6282299359184"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white text-primary px-10 py-5 rounded-2xl font-bold text-xl hover:shadow-2xl transition-all hover:translate-y-[-2px] active:scale-95 inline-block"
+                >
+                  Hubungi Kami Sekarang
+                </a>
+
+
+                <button className="bg-white/20 backdrop-blur-md text-white px-10 py-5 rounded-2xl font-bold text-xl hover:bg-white/30 transition-all active:scale-95">
+                  Jadwalkan Nanti
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </section>
       </main>
+
+      {/* Footer */}
+      <footer className="bg-surface-container-highest py-20 px-6 border-t border-outline-variant/30">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+          <div className="space-y-6">
+            <div className="flex items-center gap-2">
+              <div className="w-10 h-10 bg-gradient-primary rounded-xl flex items-center justify-center text-white font-bold">TH</div>
+              <span className="text-xl font-bold text-on-surface tracking-tight">Tekno<span className="text-primary">Home</span></span>
+            </div>
+            <p className="text-on-surface-variant max-w-sm">Solusi layanan rumah profesional untuk water heater dan kompor listrik Anda. Terpercaya, cepat, dan bersertifikat.</p>
+          </div>
+
+          <div className="md:justify-self-center">
+            <h4 className="font-bold text-on-surface mb-6">Layanan Kami</h4>
+            <ul className="space-y-4 text-on-surface-variant">
+              <li><a href="#" className="hover:text-primary transition-colors">Servis Water Heater</a></li>
+              <li><a href="#" className="hover:text-primary transition-colors">Servis Kompor Listrik</a></li>
+              <li><a href="#" className="hover:text-primary transition-colors">Layanan Darurat</a></li>
+            </ul>
+          </div>
+
+          <div className="md:justify-self-end">
+            <h4 className="font-bold text-on-surface mb-6">Info Kontak</h4>
+            <ul className="space-y-6 text-on-surface-variant">
+              <li className="flex gap-4 items-start">
+                <div className="w-10 h-10 bg-primary/5 rounded-xl flex items-center justify-center text-primary flex-shrink-0 text-xl">
+                  <i className="fi fi-rr-phone-call"></i>
+                </div>
+
+                <div>
+                  <p className="text-xs font-bold text-primary uppercase tracking-widest mb-1">Telepon 24/7</p>
+                  <p className="text-lg font-black text-on-surface underline decoration-primary/30">082299359184</p>
+                </div>
+              </li>
+
+              <li className="flex gap-4 items-start">
+                <div className="w-10 h-10 bg-primary/5 rounded-xl flex items-center justify-center text-primary flex-shrink-0 text-xl">
+                  <i className="fi fi-rr-marker"></i>
+                </div>
+
+                <div>
+                  <p className="text-xs font-bold text-primary uppercase tracking-widest mb-1">Alamat Kantor</p>
+                  <p className="text-sm font-medium leading-relaxed">Jl. Raya Perjuangan No. 88, Bekasi Barat<br />Area Layanan: Jabodetabek</p>
+                </div>
+              </li>
+
+              <li className="flex gap-4 pt-2 md:justify-end">
+                <a href="#" className="w-10 h-10 bg-surface rounded-full flex items-center justify-center border border-outline-variant/30 text-on-surface-variant hover:text-primary transition-colors">
+                  <i className="fi fi-brands-twitter text-lg"></i>
+                </a>
+                <a href="#" className="w-10 h-10 bg-surface rounded-full flex items-center justify-center border border-outline-variant/30 text-on-surface-variant hover:text-primary transition-colors">
+                  <i className="fi fi-brands-instagram text-lg"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+
+
+
+        </div>
+        <div className="max-w-7xl mx-auto pt-8 border-t border-outline-variant/30 text-center text-on-surface-variant text-sm">
+          © 2026 Tekno Home. Perawatan profesional untuk rumah Anda.
+        </div>
+
+      </footer>
+
+      {/* Floating WhatsApp Button */}
+      <a
+        href="https://wa.me/6282299359184"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-8 right-8 z-[60] group"
+      >
+        <div className="absolute inset-0 bg-secondary rounded-full animate-pulse-slow opacity-40"></div>
+        <div className="relative glass w-16 h-16 rounded-full flex items-center justify-center text-secondary shadow-2xl border border-secondary/20 hover:scale-110 transition-transform duration-300 text-3xl">
+          <i className="fi fi-brands-whatsapp"></i>
+        </div>
+      </a>
     </div>
   );
 }

@@ -381,7 +381,7 @@ export default function Home() {
         {/* Contact & Location Section */}
         <section id="contact" className="py-24 px-6 bg-surface-container-low/30 relative overflow-hidden">
           <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/5 rounded-full blur-[120px] -z-10"></div>
-          
+
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16 space-y-4">
               <div className="inline-block bg-primary text-white px-6 py-2 rounded-xl font-bold text-sm uppercase tracking-widest shadow-lg shadow-primary/20">

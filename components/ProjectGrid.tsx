@@ -1,11 +1,11 @@
 "use client";
- 
+
 import Image from "next/image";
 import { useState, useEffect } from "react";
- 
+
 export default function ProjectGrid() {
   const [isModalOpen, setIsModalOpen] = useState(false);
- 
+
   // Disable scroll when modal is open
   useEffect(() => {
     if (isModalOpen) {
@@ -17,16 +17,16 @@ export default function ProjectGrid() {
       document.body.style.overflow = "unset";
     };
   }, [isModalOpen]);
- 
+
   const projects = [
     { src: "/img1.webp", title: "Servis Kompor" },
     { src: "/img2.webp", title: "Pemasangan Water Heater" },
     { src: "/img3.webp", title: "Restorasi Unit" },
     { src: "/img4.webp", title: "Maintenance Rutin" },
-    { src: "/img5.webp", title: "Perbaikan Kompor Listrik" },
-    { src: "/img6.webp", title: "Instalasi Water Heater" },
-    { src: "/img7.webp", title: "Service Panggilan" },
-    { src: "/img8.webp", title: "Cek Berkala" },
+    { src: "/ars1.webp", title: "Perbaikan Kompor Listrik" },
+    { src: "/ars12.webp", title: "Instalasi Water Heater" },
+    { src: "/ars13.webp", title: "Service Panggilan" },
+    { src: "/ars14.webp", title: "Cek Berkala" },
     { src: "/img9.webp", title: "Cek Berkala" },
     { src: "/img10.webp", title: "Cek Berkala" },
     { src: "/img11.webp", title: "Cek Berkala" },
@@ -62,18 +62,18 @@ export default function ProjectGrid() {
     { src: "/ars (11).webp", title: "Cek Berkala" },
     { src: "/ars (12).webp", title: "Cek Berkala" },
   ];
- 
+
   // Show only first 8 in the main grid
   const previewProjects = projects.slice(0, 8);
- 
+
   return (
     <div className="space-y-12">
       {/* Main Preview Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {previewProjects.map((project, i) => (
-          <div 
-            key={i} 
-            className="group relative aspect-[3/4] rounded-[32px] overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:translate-y-[-8px] animate-fade-in" 
+          <div
+            key={i}
+            className="group relative aspect-[3/4] rounded-[32px] overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:translate-y-[-8px] animate-fade-in"
             style={{ animationDelay: `${i * 100}ms` }}
           >
             <Image
@@ -89,7 +89,7 @@ export default function ProjectGrid() {
           </div>
         ))}
       </div>
- 
+
       {/* "See All" Button */}
       <div className="text-center">
         <button
@@ -102,16 +102,16 @@ export default function ProjectGrid() {
           </div>
         </button>
       </div>
- 
+
       {/* Modal Gallery */}
       {isModalOpen && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8">
           {/* Backdrop */}
-          <div 
+          <div
             className="absolute inset-0 bg-on-surface/40 backdrop-blur-md animate-fade-in"
             onClick={() => setIsModalOpen(false)}
           ></div>
-          
+
           {/* Modal Content */}
           <div className="relative w-full max-w-7xl h-[90vh] glass-dark rounded-[40px] border border-white/20 shadow-2xl flex flex-col overflow-hidden animate-fade-in-up">
             {/* Modal Header */}
@@ -120,20 +120,20 @@ export default function ProjectGrid() {
                 <h3 className="text-3xl font-black text-white">Galeri Portofolio</h3>
                 <p className="text-white/60 font-medium">Dokumentasi hasil pengerjaan tim TeknoHome</p>
               </div>
-              <button 
+              <button
                 onClick={() => setIsModalOpen(false)}
                 className="w-14 h-14 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition-all active:scale-90"
               >
                 <i className="fi fi-rr-cross text-xl"></i>
               </button>
             </div>
- 
+
             {/* Modal Scrollable Grid */}
             <div className="flex-1 overflow-y-auto p-8 custom-scrollbar">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pb-12">
                 {projects.map((project, i) => (
-                  <div 
-                    key={i} 
+                  <div
+                    key={i}
                     className="group relative aspect-[3/4] rounded-3xl overflow-hidden border border-white/10"
                   >
                     <Image

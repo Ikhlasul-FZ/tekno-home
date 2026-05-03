@@ -378,6 +378,60 @@ export default function Home() {
             </div>
           </div>
         </section>
+        {/* Contact & Location Section */}
+        <section id="contact" className="py-24 px-6 bg-surface-container-low/30 relative overflow-hidden">
+          <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/5 rounded-full blur-[120px] -z-10"></div>
+          
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16 space-y-4">
+              <div className="inline-block bg-primary text-white px-6 py-2 rounded-xl font-bold text-sm uppercase tracking-widest shadow-lg shadow-primary/20">
+                Hubungi Kami
+              </div>
+              <h2 className="text-4xl md:text-5xl font-black text-on-surface tracking-tight">Kunjungi Kantor Kami</h2>
+              <p className="text-lg text-on-surface-variant max-w-2xl mx-auto">Tim kami siap membantu Anda secara langsung maupun melalui layanan panggilan ke rumah.</p>
+            </div>
+
+            <div className="grid lg:grid-cols-12 gap-12 items-stretch">
+              {/* Contact Info Cards */}
+              <div className="lg:col-span-5 space-y-6">
+                {[
+                  { label: "Telepon & WA", val: "0822-9935-9184", icon: "fi fi-rr-phone-call", sub: "Tersedia 24 Jam" },
+                  { label: "Email Bisnis", val: "halo@teknohome.com", icon: "fi fi-rr-envelope", sub: "Respon dalam 2 jam" },
+                  { label: "Alamat Kantor", val: "Jl. Raya Perjuangan No. 88, Bekasi Barat", icon: "fi fi-rr-marker", sub: "Jabodetabek Area" },
+                  { label: "Jam Operasional", val: "Senin - Minggu: 24 Jam", icon: "fi fi-rr-clock", sub: "Layanan Darurat Siaga" }
+                ].map((item, i) => (
+                  <div key={i} className="glass p-8 rounded-[32px] border border-primary/5 hover:border-primary/20 transition-all group flex items-center gap-6">
+                    <div className="w-16 h-16 bg-primary/5 rounded-2xl flex items-center justify-center text-primary text-2xl group-hover:bg-primary group-hover:text-white transition-all duration-500">
+                      <i className={item.icon}></i>
+                    </div>
+                    <div>
+                      <p className="text-xs font-black text-primary uppercase tracking-widest mb-1">{item.label}</p>
+                      <h4 className="text-xl font-bold text-on-surface">{item.val}</h4>
+                      <p className="text-sm text-on-surface-variant font-medium mt-1">{item.sub}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Google Maps Embed */}
+              <div className="lg:col-span-7 relative group min-h-[400px]">
+                <div className="absolute inset-0 bg-primary/10 rounded-[40px] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                <div className="relative h-full w-full rounded-[40px] overflow-hidden border-8 border-white shadow-2xl">
+                  <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126922.84666504245!2d106.9168903390625!3d-6.22956899999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698c69784df463%3A0xc62b46797f374780!2sBekasi%20Barat%2C%20Kota%20Bks%2C%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1714731234567!5m2!1sid!2sid" 
+                    width="100%" 
+                    height="100%" 
+                    style={{ border: 0 }} 
+                    allowFullScreen={true} 
+                    loading="lazy" 
+                    referrerPolicy="no-referrer-when-downgrade"
+                    className="grayscale-[20%] hover:grayscale-0 transition-all duration-700"
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
 
 

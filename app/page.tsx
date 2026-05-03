@@ -397,7 +397,7 @@ export default function Home() {
                 {[
                   { label: "Telepon & WA", val: "0822-9935-9184", icon: "fi fi-rr-phone-call", sub: "Tersedia 24 Jam" },
                   { label: "Email Bisnis", val: "halo@teknohome.com", icon: "fi fi-rr-envelope", sub: "Respon dalam 2 jam" },
-                  { label: "Alamat Kantor", val: "Jl. Raya Perjuangan No. 88, Bekasi Barat", icon: "fi fi-rr-marker", sub: "Jabodetabek Area" },
+                  { label: "Alamat Kantor", val: "Jl. Gunungsari No.15, Surabaya", icon: "fi fi-rr-marker", sub: "Wonokromo, Jawa Timur 60242" },
                   { label: "Jam Operasional", val: "Senin - Minggu: 24 Jam", icon: "fi fi-rr-clock", sub: "Layanan Darurat Siaga" }
                 ].map((item, i) => (
                   <div key={i} className="glass p-8 rounded-[32px] border border-primary/5 hover:border-primary/20 transition-all group flex items-center gap-6">
@@ -418,7 +418,7 @@ export default function Home() {
                 <div className="absolute inset-0 bg-primary/10 rounded-[40px] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                 <div className="relative h-full w-full rounded-[40px] overflow-hidden border-8 border-white shadow-2xl">
                   <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126922.84666504245!2d106.9168903390625!3d-6.22956899999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698c69784df463%3A0xc62b46797f374780!2sBekasi%20Barat%2C%20Kota%20Bks%2C%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1714731234567!5m2!1sid!2sid" 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.4463886463022!2d112.72363597537674!3d-7.303641671802792!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fb835ad5ba07%3A0x21e2cf98ef703d2c!2sJl.%20Gunungsari%20No.15%2C%20RT.06%2FRW.08%2C%20Sawunggaling%2C%20Kec.%20Wonokromo%2C%20Surabaya%2C%20Jawa%20Timur%2060242!5e0!3m2!1sen!2sid!4v1777798189039!5m2!1sen!2sid" 
                     width="100%" 
                     height="100%" 
                     style={{ border: 0 }} 
@@ -504,7 +504,7 @@ export default function Home() {
 
                 <div>
                   <p className="text-xs font-bold text-primary uppercase tracking-widest mb-1">Alamat Kantor</p>
-                  <p className="text-sm font-medium leading-relaxed">Jl. Raya Perjuangan No. 88, Bekasi Barat<br />Area Layanan: Jabodetabek</p>
+                  <p className="text-sm font-medium leading-relaxed">Jl. Gunungsari No.15, Sawunggaling, Kec. Wonokromo, Surabaya<br />Area Layanan: Surabaya & Sekitarnya</p>
                 </div>
               </li>
 

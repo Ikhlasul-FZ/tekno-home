@@ -28,14 +28,14 @@ export default function TestimonialCarousel() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const totalPages = Math.ceil(testimonials.length / itemsPerView);
+  const maxIndex = Math.max(0, testimonials.length - itemsPerView);
 
   const next = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+    setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
   };
 
   const prev = () => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
   };
 
   // Calculate visible testimonials (looping logic or just slide)
@@ -97,7 +97,7 @@ export default function TestimonialCarousel() {
 
       {/* Indicators */}
       <div className="flex justify-center gap-3 mt-8">
-        {testimonials.map((_, i) => (
+        {[...Array(maxIndex + 1)].map((_, i) => (
           <button
             key={i}
             onClick={() => setCurrentIndex(i)}

@@ -184,10 +184,13 @@ export default function Home() {
                   <span className="relative">Pesan Layanan Sekarang</span>
                 </a>
 
-                <button className="glass px-8 lg:px-10 py-4 lg:py-5 rounded-2xl font-bold text-lg lg:text-xl border border-outline-variant/50 text-on-surface hover:bg-white transition-all active:scale-95 flex items-center justify-center gap-3 group">
+                <a 
+                  href="#projects"
+                  className="glass px-8 lg:px-10 py-4 lg:py-5 rounded-2xl font-bold text-lg lg:text-xl border border-outline-variant/50 text-on-surface hover:bg-white transition-all active:scale-95 flex items-center justify-center gap-3 group"
+                >
                   Lihat Hasil Kerja
                   <i className="fi fi-rr-arrow-right text-xl lg:text-2xl group-hover:translate-x-2 transition-transform"></i>
-                </button>
+                </a>
               </div>
             </div>
           </div>

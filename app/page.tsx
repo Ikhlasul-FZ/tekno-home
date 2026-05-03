@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import ProjectGrid from "@/components/ProjectGrid";
+import TestimonialCarousel from "@/components/TestimonialCarousel";
 
 
 
@@ -339,9 +340,9 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Testimonials Section */}
-        <section id="testimonials" className="py-24 px-6 bg-surface">
-          <div className="max-w-7xl mx-auto">
+        {/* Testimonials Section (Carousel) */}
+        <section id="testimonials" className="py-24 px-6 bg-surface overflow-hidden">
+          <div className="max-w-7xl mx-auto relative">
             <div className="text-center mb-16 space-y-4">
               <div className="inline-block bg-secondary/10 text-secondary px-4 py-1.5 rounded-full font-bold text-xs uppercase tracking-widest">
                 Testimoni Pelanggan
@@ -350,34 +351,9 @@ export default function Home() {
               <p className="text-lg text-on-surface-variant max-w-2xl mx-auto">Kepercayaan Anda adalah prioritas kami. Berikut adalah ulasan dari mereka yang telah menggunakan layanan kami.</p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8">
-              {[
-                { name: "Ibu Grace", loc: "Cilandak, Jkt", quote: "Sudah jadi langganan kalau ada kompor listrik & water heater ngadat. Soalnya bisa dipanggil kapan aja saya butuh cepat.", stars: 5 },
-                { name: "Ibu Indri", loc: "Sawangan, Dpk", quote: "Teknisi datang tepat waktu dan jelasin masalahnya dengan jelas. Sekarang water heater saya nyala stabil dan aman.", stars: 5 },
-                { name: "Mama Hana", loc: "Kebayoran lama, Jkt", quote: "Awalnya ragu, tapi ternyata hasilnya memuaskan. Kompor saya jadi normal lagi, dan harganya juga transparan, nggak ada biaya tambahan aneh-aneh.", stars: 5 },
-                { name: "Bpk. Hendra", loc: "Rungkut, Sby", quote: "Panggil teknisi untuk maintenance rutin water heater. Pengerjaan sangat detail sampai dibersihkan kerak-keraknya. Sekarang suhu airnya stabil lagi.", stars: 5 },
-                { name: "Ibu Maya", loc: "Gubeng, Sby", quote: "Restorasi kompor peninggalan orang tua yang tadinya macet total. Sekarang jadi kinclong dan nyala apinya biru sempurna. Terima kasih TeknoHome!", stars: 5 },
-                { name: "Bpk. Agus", loc: "Darmo, Sby", quote: "Layanan daruratnya mantap. Kompor gas bocor di hari Minggu tetap dilayani dengan cepat. Teknisi sangat tenang dan solutif.", stars: 5 }
-              ].map((t, i) => (
-                <div key={i} className="glass p-10 rounded-[40px] border border-primary/5 hover:border-primary/20 transition-all duration-500 relative flex flex-col group">
-                  <div className="flex gap-1 mb-6">
-                    {[...Array(t.stars)].map((_, j) => (
-                      <i key={j} className="fi fi-rr-star text-secondary text-xl"></i>
-                    ))}
-                  </div>
-
-                  <p className="text-on-surface-variant text-lg italic leading-relaxed mb-8 flex-1">"{t.quote}"</p>
-                  <div className="flex items-center gap-4 border-t border-outline-variant/30 pt-6">
-                    <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center text-white font-bold">
-                      {t.name.charAt(0)}
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-on-surface">{t.name}</h4>
-                      <p className="text-xs text-on-surface-variant font-medium uppercase tracking-wider">{t.loc}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
+            {/* Carousel Container */}
+            <div className="relative group px-4 md:px-16">
+              <TestimonialCarousel />
             </div>
           </div>
         </section>

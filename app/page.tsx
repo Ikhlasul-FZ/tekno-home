@@ -23,137 +23,149 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       {/* Navbar */}
       <nav className={`fixed top-0 w-full z-50 transition-all duration-500 px-6 ${scrolled
-        ? "py-4 glass border-b border-outline-variant/30 shadow-lg"
-        : "py-6 bg-transparent border-b border-transparent"
+        ? "py-3 glass border-b border-outline-variant/20 shadow-xl"
+        : "py-6 bg-transparent"
         }`}>
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-gradient-primary rounded-xl flex items-center justify-center text-white font-bold">TH</div>
-            <span className={`text-xl font-bold tracking-tight transition-colors duration-500 ${scrolled ? "text-on-surface" : "text-on-surface"}`}>Tekno <span className="text-primary">Home</span></span>
+          <div className="flex items-center gap-3">
+            <div className="w-11 h-11 bg-gradient-primary rounded-xl flex items-center justify-center text-white font-bold shadow-lg shadow-primary/20">TH</div>
+            <span className="text-2xl font-black tracking-tighter text-on-surface">Tekno<span className="text-primary font-medium">Home</span></span>
           </div>
 
-          <div className="hidden md:flex items-center gap-8 text-on-surface-variant font-medium">
-            <a href="#services" className="hover:text-primary transition-colors py-2">Layanan</a>
-            <a href="#process" className="hover:text-primary transition-colors py-2">Alur Kerja</a>
-            <a href="#testimonials" className="hover:text-primary transition-colors py-2">Testimoni</a>
+          <div className="hidden md:flex items-center gap-10 text-on-surface-variant font-semibold">
+            <a href="#services" className="hover:text-primary transition-all py-2 relative group">
+              Layanan
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+            </a>
+            <a href="#process" className="hover:text-primary transition-all py-2 relative group">
+              Alur Kerja
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+            </a>
+            <a href="#testimonials" className="hover:text-primary transition-all py-2 relative group">
+              Testimoni
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+            </a>
           </div>
 
           <a
             href="https://wa.me/6282299359184"
             target="_blank"
             rel="noopener noreferrer"
-            className={`bg-gradient-secondary text-white px-6 py-2.5 rounded-full font-semibold transition-all duration-500 active:scale-95 inline-block ${scrolled ? "shadow-lg shadow-secondary/20" : "shadow-none"}`}
+            className="group relative bg-gradient-secondary text-white px-8 py-3 rounded-full font-bold transition-all duration-300 hover:shadow-2xl hover:shadow-secondary/30 active:scale-95 overflow-hidden"
           >
-            Hubungi Sekarang
+            <span className="relative z-10">Hubungi Sekarang</span>
+            <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform"></div>
           </a>
-
-
         </div>
       </nav>
 
       <main>
         {/* Hero Section */}
-        <section className="relative h-screen min-h-[700px] flex items-center pt-20 px-6 overflow-hidden">
+        <section className="relative h-screen min-h-[750px] flex flex-col justify-center pt-20 px-6 overflow-hidden">
           {/* Enhanced Background Decorations */}
-          <div className="absolute top-[-10%] left-[-5%] w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] -z-10 animate-pulse-soft"></div>
-          <div className="absolute bottom-[-10%] right-[-5%] w-[600px] h-[600px] bg-secondary/10 rounded-full blur-[120px] -z-10 animate-pulse-soft"></div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] -z-20"></div>
+          <div className="absolute top-[-15%] left-[-10%] w-[800px] h-[800px] bg-primary/5 rounded-full blur-[140px] -z-10 animate-pulse-soft"></div>
+          <div className="absolute bottom-[-15%] right-[-10%] w-[800px] h-[800px] bg-secondary/5 rounded-full blur-[140px] -z-10 animate-pulse-soft"></div>
+          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.02] -z-20"></div>
 
           <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-16 items-center w-full">
-            <div className="lg:col-span-7 space-y-10 animate-fade-in-up">
-              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/50 backdrop-blur-md border border-primary/10 shadow-sm">
+            <div className="lg:col-span-7 space-y-12 animate-fade-in-up">
+              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/80 backdrop-blur-xl border border-primary/10 shadow-sm">
                 <span className="relative flex h-3 w-3">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
                 </span>
-                <span className="text-primary text-xs font-bold uppercase tracking-[0.2em]">Service 24/7 • Jabodetabek</span>
+                <span className="text-primary text-xs font-black uppercase tracking-[0.25em]">Premium Home Service • 24/7</span>
               </div>
               
               <div className="space-y-6">
-                <h1 className="text-5xl md:text-8xl font-black text-on-surface leading-[0.95] tracking-tight">
-                  Kenyamanan <br />
-                  <span className="text-gradient-primary">Rumah Anda</span> <br />
-                  Adalah Prioritas.
+                <h1 className="text-6xl md:text-8xl font-black text-on-surface leading-[0.9] tracking-tight">
+                  Rumah Nyaman, <br />
+                  <span className="text-gradient-primary">Hati Tenang.</span>
                 </h1>
-                <p className="text-xl md:text-2xl text-on-surface-variant leading-relaxed max-w-2xl font-medium">
-                  Solusi profesional untuk <span className="text-primary font-bold">Water Heater</span> & <span className="text-secondary font-bold">Kompor Listrik</span>. 
-                  Teknisi ahli siaga 24 jam untuk mengembalikan kehangatan rumah Anda.
+                <p className="text-xl md:text-2xl text-on-surface-variant leading-relaxed max-w-xl font-medium opacity-90">
+                  Solusi ahli untuk <span className="text-primary font-bold">Water Heater</span> & <span className="text-secondary font-bold">Kompor</span>. 
+                  Teknisi bersertifikat kami siap mengembalikan kenyamanan Anda hari ini.
                 </p>
               </div>
 
-              <div className="flex flex-wrap gap-5">
+              <div className="flex flex-wrap gap-6">
                 <a
                   href="https://wa.me/6282299359184"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative px-10 py-5 bg-gradient-primary text-white rounded-2xl font-bold text-xl overflow-hidden shadow-2xl shadow-primary/20 transition-all hover:scale-[1.02] active:scale-95"
+                  className="group relative px-10 py-5 bg-gradient-primary text-white rounded-2xl font-bold text-xl overflow-hidden shadow-2xl shadow-primary/30 transition-all hover:scale-[1.05] active:scale-95"
                 >
                   <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
-                  <span className="relative">Pesan Layanan</span>
+                  <span className="relative">Pesan Layanan Sekarang</span>
                 </a>
 
-                <button className="glass px-10 py-5 rounded-2xl font-bold text-xl border border-outline-variant/50 text-on-surface hover:bg-white transition-all active:scale-95 flex items-center gap-3">
-                  Lihat Portofolio
-                  <i className="fi fi-rr-arrow-small-right text-2xl"></i>
+                <button className="glass px-10 py-5 rounded-2xl font-bold text-xl border border-outline-variant/50 text-on-surface hover:bg-white transition-all active:scale-95 flex items-center gap-3 group">
+                  Lihat Hasil Kerja
+                  <i className="fi fi-rr-arrow-right text-2xl group-hover:translate-x-2 transition-transform"></i>
                 </button>
               </div>
 
-              <div className="flex items-center gap-6 pt-4">
+              <div className="flex items-center gap-8 pt-4">
                 <div className="flex -space-x-4">
                   {[1, 2, 3, 4].map((i) => (
-                    <div key={i} className="w-12 h-12 rounded-full border-4 border-surface bg-primary/10 flex items-center justify-center text-primary font-bold text-xs">
-                      {i === 4 ? "5k+" : <i className="fi fi-rr-user text-sm"></i>}
+                    <div key={i} className="w-14 h-14 rounded-full border-4 border-surface bg-primary/10 flex items-center justify-center text-primary font-bold overflow-hidden shadow-lg">
+                      {i === 4 ? <span className="text-xs">5k+</span> : <i className="fi fi-rr-user text-lg"></i>}
                     </div>
                   ))}
                 </div>
-                <div className="text-sm">
-                  <p className="font-bold text-on-surface">Pelanggan Puas</p>
+                <div className="space-y-1">
                   <div className="flex items-center gap-1 text-secondary">
-                    <i className="fi fi-rr-star text-xs"></i>
-                    <i className="fi fi-rr-star text-xs"></i>
-                    <i className="fi fi-rr-star text-xs"></i>
-                    <i className="fi fi-rr-star text-xs"></i>
-                    <i className="fi fi-rr-star text-xs"></i>
-                    <span className="text-on-surface-variant ml-1 font-medium">4.9/5 (2.4k review)</span>
+                    {[...Array(5)].map((_, i) => (
+                      <i key={i} className="fi fi-rr-star text-sm"></i>
+                    ))}
+                    <span className="text-on-surface ml-2 font-black">4.9/5</span>
                   </div>
+                  <p className="text-sm font-bold text-on-surface-variant">2.4k+ Ulasan Pelanggan Puas</p>
                 </div>
               </div>
             </div>
 
             <div className="lg:col-span-5 relative animate-fade-in-up" style={{ animationDelay: '300ms' }}>
-              <div className="relative">
-                {/* Image 1: Stove */}
-                <div className="relative z-20 rounded-[48px] overflow-hidden shadow-[0_32px_64px_-16px_rgba(0,0,0,0.3)] border-8 border-white/30 transform rotate-2 hover:rotate-0 transition-transform duration-700">
+              <div className="relative group">
+                {/* Main Image: Stove */}
+                <div className="relative z-20 rounded-[56px] overflow-hidden shadow-[0_48px_80px_-16px_rgba(0,0,0,0.4)] border-[12px] border-white/40 transform group-hover:rotate-0 transition-all duration-700 rotate-2">
                   <Image
                     src="/stove-hero.png"
                     alt="Servis Kompor Modern"
                     width={500}
-                    height={600}
+                    height={650}
                     priority
                     className="object-cover aspect-[4/5]"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 </div>
 
-                {/* Image 2: Water Heater */}
-                <div className="absolute -bottom-16 -left-20 z-30 w-2/3 rounded-[40px] overflow-hidden shadow-2xl border-8 border-white/50 transform -rotate-3 hover:rotate-0 transition-transform duration-700">
+                {/* Secondary Image: Water Heater */}
+                <div className="absolute -bottom-12 -left-24 z-30 w-[70%] rounded-[48px] overflow-hidden shadow-2xl border-[10px] border-white/60 transform -rotate-6 group-hover:rotate-0 transition-all duration-700">
                   <Image
                     src="/water-heater-hero.png"
                     alt="Servis Water Heater"
                     width={400}
-                    height={500}
+                    height={400}
                     priority
                     className="object-cover aspect-square"
                   />
                 </div>
 
-                {/* Decorative Element */}
-                <div className="absolute -top-12 -right-12 w-32 h-32 bg-secondary/20 rounded-full blur-3xl animate-pulse"></div>
+                {/* Decorative Glowing Elements */}
+                <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary/30 rounded-full blur-[80px] -z-10 animate-pulse"></div>
+                <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-secondary/20 rounded-full blur-[80px] -z-10 animate-pulse"></div>
                 
-                {/* Floating Stats Badge */}
-                <div className="absolute top-1/2 -right-8 z-40 glass p-6 rounded-3xl shadow-2xl border border-white/50 animate-bounce-slow">
-                  <div className="text-center">
-                    <p className="text-3xl font-black text-primary">60</p>
-                    <p className="text-[10px] font-black text-on-surface-variant uppercase tracking-widest leading-none">Menit Sampai</p>
+                {/* Floating Badge */}
+                <div className="absolute top-1/3 -right-12 z-40 glass p-6 rounded-[32px] shadow-2xl border border-white/50 animate-bounce-slow">
+                  <div className="flex flex-col items-center gap-2">
+                    <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center text-primary">
+                      <i className="fi fi-rr-bolt text-2xl"></i>
+                    </div>
+                    <div className="text-center">
+                      <p className="text-3xl font-black text-primary leading-none">60</p>
+                      <p className="text-[10px] font-black text-on-surface-variant uppercase tracking-widest mt-1">Menit</p>
+                    </div>
                   </div>
                 </div>
               </div>

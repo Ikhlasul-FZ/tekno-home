@@ -105,24 +105,6 @@ export default function Home() {
                 </button>
               </div>
 
-              <div className="flex items-center gap-8 pt-4">
-                <div className="flex -space-x-4">
-                  {[1, 2, 3, 4].map((i) => (
-                    <div key={i} className="w-14 h-14 rounded-full border-4 border-surface bg-primary/10 flex items-center justify-center text-primary font-bold overflow-hidden shadow-lg">
-                      {i === 4 ? <span className="text-xs">5k+</span> : <i className="fi fi-rr-user text-lg"></i>}
-                    </div>
-                  ))}
-                </div>
-                <div className="space-y-1">
-                  <div className="flex items-center gap-1 text-secondary">
-                    {[...Array(5)].map((_, i) => (
-                      <i key={i} className="fi fi-rr-star text-sm"></i>
-                    ))}
-                    <span className="text-on-surface ml-2 font-black">4.9/5</span>
-                  </div>
-                  <p className="text-sm font-bold text-on-surface-variant">2.4k+ Ulasan Pelanggan Puas</p>
-                </div>
-              </div>
             </div>
 
             <div className="lg:col-span-5 relative animate-fade-in-up" style={{ animationDelay: '300ms' }}>
@@ -156,18 +138,6 @@ export default function Home() {
                 <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary/30 rounded-full blur-[80px] -z-10 animate-pulse"></div>
                 <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-secondary/20 rounded-full blur-[80px] -z-10 animate-pulse"></div>
                 
-                {/* Floating Badge */}
-                <div className="absolute top-1/3 -right-12 z-40 glass p-6 rounded-[32px] shadow-2xl border border-white/50 animate-bounce-slow">
-                  <div className="flex flex-col items-center gap-2">
-                    <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center text-primary">
-                      <i className="fi fi-rr-bolt text-2xl"></i>
-                    </div>
-                    <div className="text-center">
-                      <p className="text-3xl font-black text-primary leading-none">60</p>
-                      <p className="text-[10px] font-black text-on-surface-variant uppercase tracking-widest mt-1">Menit</p>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>

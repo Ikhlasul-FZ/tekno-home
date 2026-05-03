@@ -354,7 +354,10 @@ export default function Home() {
               {[
                 { name: "Ibu Grace", loc: "Cilandak, Jkt", quote: "Sudah jadi langganan kalau ada kompor listrik & water heater ngadat. Soalnya bisa dipanggil kapan aja saya butuh cepat.", stars: 5 },
                 { name: "Ibu Indri", loc: "Sawangan, Dpk", quote: "Teknisi datang tepat waktu dan jelasin masalahnya dengan jelas. Sekarang water heater saya nyala stabil dan aman.", stars: 5 },
-                { name: "Mama Hana", loc: "Kebayoran lama, Jkt", quote: "Awalnya ragu, tapi ternyata hasilnya memuaskan. Kompor saya jadi normal lagi, dan harganya juga transparan, nggak ada biaya tambahan aneh-aneh.", stars: 5 }
+                { name: "Mama Hana", loc: "Kebayoran lama, Jkt", quote: "Awalnya ragu, tapi ternyata hasilnya memuaskan. Kompor saya jadi normal lagi, dan harganya juga transparan, nggak ada biaya tambahan aneh-aneh.", stars: 5 },
+                { name: "Bpk. Hendra", loc: "Rungkut, Sby", quote: "Panggil teknisi untuk maintenance rutin water heater. Pengerjaan sangat detail sampai dibersihkan kerak-keraknya. Sekarang suhu airnya stabil lagi.", stars: 5 },
+                { name: "Ibu Maya", loc: "Gubeng, Sby", quote: "Restorasi kompor peninggalan orang tua yang tadinya macet total. Sekarang jadi kinclong dan nyala apinya biru sempurna. Terima kasih TeknoHome!", stars: 5 },
+                { name: "Bpk. Agus", loc: "Darmo, Sby", quote: "Layanan daruratnya mantap. Kompor gas bocor di hari Minggu tetap dilayani dengan cepat. Teknisi sangat tenang dan solutif.", stars: 5 }
               ].map((t, i) => (
                 <div key={i} className="glass p-10 rounded-[40px] border border-primary/5 hover:border-primary/20 transition-all duration-500 relative flex flex-col group">
                   <div className="flex gap-1 mb-6">

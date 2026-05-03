@@ -53,63 +53,107 @@ export default function Home() {
 
       <main>
         {/* Hero Section */}
-        <section className="relative min-h-screen flex items-center pt-20 pb-12 px-6 overflow-hidden">
-          <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] -z-10 animate-pulse-soft"></div>
-          <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[120px] -z-10 animate-pulse-soft"></div>
+        <section className="relative h-screen min-h-[700px] flex items-center pt-20 px-6 overflow-hidden">
+          {/* Enhanced Background Decorations */}
+          <div className="absolute top-[-10%] left-[-5%] w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] -z-10 animate-pulse-soft"></div>
+          <div className="absolute bottom-[-10%] right-[-5%] w-[600px] h-[600px] bg-secondary/10 rounded-full blur-[120px] -z-10 animate-pulse-soft"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] -z-20"></div>
 
-          <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center w-full">
-            <div className="space-y-8 animate-fade-in-up">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest">
-                <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-                Layanan Cepat, Selesai di Hari yang Sama
+          <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-16 items-center w-full">
+            <div className="lg:col-span-7 space-y-10 animate-fade-in-up">
+              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/50 backdrop-blur-md border border-primary/10 shadow-sm">
+                <span className="relative flex h-3 w-3">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+                </span>
+                <span className="text-primary text-xs font-bold uppercase tracking-[0.2em]">Service 24/7 • Jabodetabek</span>
               </div>
-              <h1 className="text-5xl md:text-7xl font-bold text-on-surface leading-[1.05] tracking-tight">
-                Servis <span className="text-gradient-primary">Water Heater</span> & Kompor Listrik Terpercaya
-              </h1>
-              <p className="text-xl text-on-surface-variant leading-relaxed max-w-lg">
-                Servis, pasang, dan perawatan profesional 24/7. Teknisi ahli kami siap mengembalikan kenyamanan rumah Anda.
-              </p>
+              
+              <div className="space-y-6">
+                <h1 className="text-5xl md:text-8xl font-black text-on-surface leading-[0.95] tracking-tight">
+                  Kenyamanan <br />
+                  <span className="text-gradient-primary">Rumah Anda</span> <br />
+                  Adalah Prioritas.
+                </h1>
+                <p className="text-xl md:text-2xl text-on-surface-variant leading-relaxed max-w-2xl font-medium">
+                  Solusi profesional untuk <span className="text-primary font-bold">Water Heater</span> & <span className="text-secondary font-bold">Kompor Listrik</span>. 
+                  Teknisi ahli siaga 24 jam untuk mengembalikan kehangatan rumah Anda.
+                </p>
+              </div>
 
-              <div className="flex flex-wrap gap-4 pt-4">
+              <div className="flex flex-wrap gap-5">
                 <a
                   href="https://wa.me/6282299359184"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-gradient-primary text-white px-10 py-5 rounded-2xl font-bold text-lg hover:shadow-2xl hover:shadow-primary/20 transition-all active:scale-95 inline-block text-center"
+                  className="group relative px-10 py-5 bg-gradient-primary text-white rounded-2xl font-bold text-xl overflow-hidden shadow-2xl shadow-primary/20 transition-all hover:scale-[1.02] active:scale-95"
                 >
-                  Pesan Sekarang
+                  <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                  <span className="relative">Pesan Layanan</span>
                 </a>
 
-
-
-                <button className="glass px-10 py-5 rounded-2xl font-bold text-lg border border-primary/20 text-primary hover:bg-primary/5 transition-all active:scale-95">
-                  Konsultasi Gratis
+                <button className="glass px-10 py-5 rounded-2xl font-bold text-xl border border-outline-variant/50 text-on-surface hover:bg-white transition-all active:scale-95 flex items-center gap-3">
+                  Lihat Portofolio
+                  <i className="fi fi-rr-arrow-small-right text-2xl"></i>
                 </button>
+              </div>
+
+              <div className="flex items-center gap-6 pt-4">
+                <div className="flex -space-x-4">
+                  {[1, 2, 3, 4].map((i) => (
+                    <div key={i} className="w-12 h-12 rounded-full border-4 border-surface bg-primary/10 flex items-center justify-center text-primary font-bold text-xs">
+                      {i === 4 ? "5k+" : <i className="fi fi-rr-user text-sm"></i>}
+                    </div>
+                  ))}
+                </div>
+                <div className="text-sm">
+                  <p className="font-bold text-on-surface">Pelanggan Puas</p>
+                  <div className="flex items-center gap-1 text-secondary">
+                    <i className="fi fi-rr-star text-xs"></i>
+                    <i className="fi fi-rr-star text-xs"></i>
+                    <i className="fi fi-rr-star text-xs"></i>
+                    <i className="fi fi-rr-star text-xs"></i>
+                    <i className="fi fi-rr-star text-xs"></i>
+                    <span className="text-on-surface-variant ml-1 font-medium">4.9/5 (2.4k review)</span>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div className="relative animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+            <div className="lg:col-span-5 relative animate-fade-in-up" style={{ animationDelay: '300ms' }}>
+              <div className="relative">
+                {/* Image 1: Stove */}
+                <div className="relative z-20 rounded-[48px] overflow-hidden shadow-[0_32px_64px_-16px_rgba(0,0,0,0.3)] border-8 border-white/30 transform rotate-2 hover:rotate-0 transition-transform duration-700">
+                  <Image
+                    src="/stove-hero.png"
+                    alt="Servis Kompor Modern"
+                    width={500}
+                    height={600}
+                    priority
+                    className="object-cover aspect-[4/5]"
+                  />
+                </div>
 
-              <div className="relative aspect-square rounded-[40px] overflow-hidden shadow-2xl border-4 border-white/20">
-                <Image
-                  src="/hero.png"
-                  alt="Teknisi profesional sedang bekerja"
-                  fill
-                  priority
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover"
-                />
-              </div>
-              {/* Floating Badge */}
-              <div className="absolute -bottom-8 -left-8 glass p-8 rounded-3xl shadow-2xl border border-white/50 max-w-[240px] animate-bounce-slow">
-                <div className="flex items-center gap-5">
-                  <div className="w-14 h-14 bg-secondary/10 rounded-2xl flex items-center justify-center text-secondary">
-                    <i className="fi fi-rr-bolt text-2xl"></i>
-                  </div>
+                {/* Image 2: Water Heater */}
+                <div className="absolute -bottom-16 -left-20 z-30 w-2/3 rounded-[40px] overflow-hidden shadow-2xl border-8 border-white/50 transform -rotate-3 hover:rotate-0 transition-transform duration-700">
+                  <Image
+                    src="/water-heater-hero.png"
+                    alt="Servis Water Heater"
+                    width={400}
+                    height={500}
+                    priority
+                    className="object-cover aspect-square"
+                  />
+                </div>
 
-                  <div>
-                    <p className="text-xs font-bold text-on-surface-variant uppercase tracking-widest">Darurat</p>
-                    <p className="text-lg font-black text-on-surface italic underline">Respon 60 Menit</p>
+                {/* Decorative Element */}
+                <div className="absolute -top-12 -right-12 w-32 h-32 bg-secondary/20 rounded-full blur-3xl animate-pulse"></div>
+                
+                {/* Floating Stats Badge */}
+                <div className="absolute top-1/2 -right-8 z-40 glass p-6 rounded-3xl shadow-2xl border border-white/50 animate-bounce-slow">
+                  <div className="text-center">
+                    <p className="text-3xl font-black text-primary">60</p>
+                    <p className="text-[10px] font-black text-on-surface-variant uppercase tracking-widest leading-none">Menit Sampai</p>
                   </div>
                 </div>
               </div>

@@ -352,9 +352,9 @@ export default function Home() {
 
             <div className="grid md:grid-cols-3 gap-8">
               {[
-                { name: "Ibu Sarah", loc: "Jakarta Selatan", quote: "Sangat puas dengan servis kompor gasnya. Teknisi datang tepat waktu dan pengerjaan sangat rapi.", stars: 5 },
-                { name: "Bpk. Andi", loc: "Depok", quote: "Water heater saya yang mati total sekarang normal lagi. Harga sangat jujur dan transparan sesuai kesepakatan.", stars: 5 },
-                { name: "Ibu Rina", loc: "Tangerang", quote: "Respon admin sangat cepat. Pagi pesan, siang sudah beres dikerjakan. Teknisi juga ramah dan profesional.", stars: 5 }
+                { name: "Ibu Grace", loc: "Cilandak, Jkt", quote: "Sudah jadi langganan kalau ada kompor listrik & water heater ngadat. Soalnya bisa dipanggil kapan aja saya butuh cepat.", stars: 5 },
+                { name: "Ibu Indri", loc: "Sawangan, Dpk", quote: "Teknisi datang tepat waktu dan jelasin masalahnya dengan jelas. Sekarang water heater saya nyala stabil dan aman.", stars: 5 },
+                { name: "Mama Hana", loc: "Kebayoran lama, Jkt", quote: "Awalnya ragu, tapi ternyata hasilnya memuaskan. Kompor saya jadi normal lagi, dan harganya juga transparan, nggak ada biaya tambahan aneh-aneh.", stars: 5 }
               ].map((t, i) => (
                 <div key={i} className="glass p-10 rounded-[40px] border border-primary/5 hover:border-primary/20 transition-all duration-500 relative flex flex-col group">
                   <div className="flex gap-1 mb-6">

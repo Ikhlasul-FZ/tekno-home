@@ -76,14 +76,14 @@ export default function Home() {
                 </span>
                 <span className="text-primary text-xs font-black uppercase tracking-[0.25em]">Premium Home Service • 24/7</span>
               </div>
-              
+
               <div className="space-y-6">
                 <h1 className="text-6xl md:text-8xl font-black text-on-surface leading-[0.9] tracking-tight">
                   Rumah Nyaman, <br />
                   <span className="text-gradient-primary">Hati Tenang.</span>
                 </h1>
                 <p className="text-xl md:text-2xl text-on-surface-variant leading-relaxed max-w-xl font-medium opacity-90">
-                  Solusi ahli untuk <span className="text-primary font-bold">Water Heater</span> & <span className="text-secondary font-bold">Kompor</span>. 
+                  Solusi ahli untuk <span className="text-primary font-bold">Water Heater</span> & <span className="text-secondary font-bold">Kompor</span>.
                   Teknisi bersertifikat kami siap mengembalikan kenyamanan Anda hari ini.
                 </p>
               </div>
@@ -137,7 +137,7 @@ export default function Home() {
                 {/* Decorative Glowing Elements */}
                 <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary/30 rounded-full blur-[80px] -z-10 animate-pulse"></div>
                 <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-secondary/20 rounded-full blur-[80px] -z-10 animate-pulse"></div>
-                
+
               </div>
             </div>
           </div>
@@ -207,7 +207,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
             <div className="relative">
               <div className="rounded-[40px] overflow-hidden shadow-2xl">
-                <Image src="/team.png" alt="Tim kami" width={600} height={400} className="object-cover" />
+                <Image src="/img5.webp" alt="Tim kami" width={600} height={400} className="object-cover" />
               </div>
               <div className="absolute -top-10 -right-10 glass p-8 rounded-3xl shadow-2xl border border-white/40">
                 <p className="text-5xl font-black text-primary">100%</p>

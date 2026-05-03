@@ -4,12 +4,14 @@ import { useState, useEffect } from "react";
 
 export default function TestimonialCarousel() {
   const testimonials = [
-    { name: "Ibu Grace", loc: "Cilandak, Jkt", quote: "Sudah jadi langganan kalau ada kompor listrik & water heater ngadat. Soalnya bisa dipanggil kapan aja saya butuh cepat.", stars: 5 },
-    { name: "Ibu Indri", loc: "Sawangan, Dpk", quote: "Teknisi datang tepat waktu dan jelasin masalahnya dengan jelas. Sekarang water heater saya nyala stabil dan aman.", stars: 5 },
-    { name: "Mama Hana", loc: "Kebayoran lama, Jkt", quote: "Awalnya ragu, tapi ternyata hasilnya memuaskan. Kompor saya jadi normal lagi, dan harganya juga transparan, nggak ada biaya tambahan aneh-aneh.", stars: 5 },
+    { name: "Ibu Grace", loc: "Sambikerep, Sby", quote: "Sudah jadi langganan kalau ada kompor listrik & water heater ngadat. Soalnya bisa dipanggil kapan aja saya butuh cepat.", stars: 5 },
+    { name: "Ibu Indri", loc: "Kenjeran, Sby", quote: "Teknisi datang tepat waktu dan jelasin masalahnya dengan jelas. Sekarang water heater saya nyala stabil dan aman.", stars: 5 },
+    { name: "Mama Hana", loc: "Wiyung, Sby", quote: "Awalnya ragu, tapi ternyata hasilnya memuaskan. Kompor saya jadi normal lagi, dan harganya juga transparan, nggak ada biaya tambahan aneh-aneh.", stars: 5 },
     { name: "Bpk. Hendra", loc: "Rungkut, Sby", quote: "Panggil teknisi untuk maintenance rutin water heater. Pengerjaan sangat detail sampai dibersihkan kerak-keraknya. Sekarang suhu airnya stabil lagi.", stars: 5 },
     { name: "Ibu Maya", loc: "Gubeng, Sby", quote: "Restorasi kompor peninggalan orang tua yang tadinya macet total. Sekarang jadi kinclong dan nyala apinya biru sempurna. Terima kasih TeknoHome!", stars: 5 },
-    { name: "Bpk. Agus", loc: "Darmo, Sby", quote: "Layanan daruratnya mantap. Kompor gas bocor di hari Minggu tetap dilayani dengan cepat. Teknisi sangat tenang dan solutif.", stars: 5 }
+    { name: "Bpk. Agus", loc: "Darmo, Sby", quote: "Layanan daruratnya mantap. Kompor gas bocor di hari Minggu tetap dilayani dengan cepat. Teknisi sangat tenang dan solutif.", stars: 5 },
+    { name: "Ibu Shinta", loc: "Mulyorejo, Sby", quote: "Sangat terbantu dengan layanan TeknoHome. Kompor gas yang apinya merah terus sekarang jadi biru bersih lagi. Teknisi juga kasih tips perawatan yang berguna.", stars: 5 },
+    { name: "Bpk. Farhan", loc: "Tandes, Sby", quote: "Layanan servis water heater terbaik di Surabaya. Proses booking via WA gampang banget, teknisi datang tepat waktu dan kerjanya profesional.", stars: 5 }
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);

@@ -42,7 +42,7 @@ export default function TestimonialCarousel() {
   // For simplicity, we'll use a sliding window approach with transform
 
   return (
-    <div className="relative">
+    <div className="relative group/carousel">
       <div className="overflow-hidden py-10">
         <div 
           className="flex transition-transform duration-700 ease-in-out"
@@ -56,22 +56,23 @@ export default function TestimonialCarousel() {
               className="px-3 flex-shrink-0"
               style={{ width: `${100 / itemsPerView}%` }}
             >
-              <div className="glass p-8 md:p-10 rounded-[40px] border border-primary/5 hover:border-primary/20 transition-all duration-500 h-full flex flex-col group min-h-[350px]">
-                <div className="flex gap-1 mb-6">
-                  {[...Array(t.stars)].map((_, j) => (
-                    <i key={j} className="fi fi-rr-star text-secondary text-xl"></i>
-                  ))}
+              <div className="glass p-6 md:p-10 rounded-[32px] md:rounded-[40px] border border-primary/5 hover:border-primary/20 transition-all duration-500 h-full flex flex-col group min-h-[300px] md:min-h-[350px]">
+                <div className="flex items-center gap-3 mb-6 md:mb-8">
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-secondary/20 rounded-full flex items-center justify-center text-secondary shadow-sm">
+                    <i className="fi fi-sr-thumbs-up text-lg md:text-xl"></i>
+                  </div>
+                  <span className="text-[10px] md:text-xs font-black text-secondary uppercase tracking-[0.2em]">Recommended</span>
                 </div>
-
-                <p className="text-on-surface-variant text-lg italic leading-relaxed mb-8 flex-1 line-clamp-4">"{t.quote}"</p>
+ 
+                <p className="text-on-surface-variant text-base md:text-lg italic leading-relaxed mb-6 md:mb-8 flex-1 line-clamp-6 md:line-clamp-4 font-medium text-balance">"{t.quote}"</p>
                 
-                <div className="flex items-center gap-4 border-t border-outline-variant/30 pt-6 mt-auto">
-                  <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center text-white font-bold shadow-lg shadow-primary/20">
+                <div className="flex items-center gap-3 md:gap-4 border-t border-outline-variant/20 pt-5 md:pt-6 mt-auto">
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-primary rounded-full flex items-center justify-center text-white font-bold shadow-lg shadow-primary/20 text-sm md:text-base">
                     {t.name.charAt(0)}
                   </div>
                   <div>
-                    <h4 className="font-bold text-on-surface">{t.name}</h4>
-                    <p className="text-xs text-on-surface-variant font-medium uppercase tracking-wider">{t.loc}</p>
+                    <h4 className="font-bold text-on-surface text-sm md:text-base leading-none mb-1">{t.name}</h4>
+                    <p className="text-[9px] md:text-xs text-on-surface-variant font-black uppercase tracking-widest opacity-70">{t.loc}</p>
                   </div>
                 </div>
               </div>
@@ -79,30 +80,32 @@ export default function TestimonialCarousel() {
           ))}
         </div>
       </div>
-
+ 
       {/* Navigation Buttons */}
-      <button 
-        onClick={prev}
-        className="absolute left-[-20px] md:left-[-60px] top-1/2 -translate-y-1/2 w-14 h-14 rounded-full glass border border-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all shadow-xl z-20 group active:scale-90"
-      >
-        <i className="fi fi-rr-angle-left text-2xl group-hover:-translate-x-1 transition-transform"></i>
-      </button>
-
-      <button 
-        onClick={next}
-        className="absolute right-[-20px] md:right-[-60px] top-1/2 -translate-y-1/2 w-14 h-14 rounded-full glass border border-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all shadow-xl z-20 group active:scale-90"
-      >
-        <i className="fi fi-rr-angle-right text-2xl group-hover:translate-x-1 transition-transform"></i>
-      </button>
-
+      <div className="flex justify-center md:block">
+        <button 
+          onClick={prev}
+          className="absolute -left-4 md:-left-16 top-1/2 -translate-y-1/2 w-11 h-11 md:w-16 md:h-16 rounded-full bg-white/90 backdrop-blur-md border border-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all shadow-xl z-20 group active:scale-90 opacity-100 md:opacity-0 md:group-hover/carousel:opacity-100"
+        >
+          <i className="fi fi-rr-angle-left text-lg md:text-2xl group-hover:-translate-x-1 transition-transform"></i>
+        </button>
+ 
+        <button 
+          onClick={next}
+          className="absolute -right-4 md:-right-16 top-1/2 -translate-y-1/2 w-11 h-11 md:w-16 md:h-16 rounded-full bg-white/90 backdrop-blur-md border border-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all shadow-xl z-20 group active:scale-90 opacity-100 md:opacity-0 md:group-hover/carousel:opacity-100"
+        >
+          <i className="fi fi-rr-angle-right text-lg md:text-2xl group-hover:translate-x-1 transition-transform"></i>
+        </button>
+      </div>
+ 
       {/* Indicators */}
-      <div className="flex justify-center gap-3 mt-8">
+      <div className="flex justify-center gap-2 md:gap-3 mt-4 md:mt-8">
         {[...Array(maxIndex + 1)].map((_, i) => (
           <button
             key={i}
             onClick={() => setCurrentIndex(i)}
-            className={`h-2.5 rounded-full transition-all duration-500 ${
-              currentIndex === i ? "w-10 bg-primary" : "w-2.5 bg-primary/20"
+            className={`h-1.5 md:h-2.5 rounded-full transition-all duration-500 ${
+              currentIndex === i ? "w-8 md:w-12 bg-primary" : "w-1.5 md:w-2.5 bg-primary/20"
             }`}
           ></button>
         ))}

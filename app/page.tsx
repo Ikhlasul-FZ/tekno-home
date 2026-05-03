@@ -11,6 +11,7 @@ import TestimonialCarousel from "@/components/TestimonialCarousel";
 export default function Home() {
 
   const [scrolled, setScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,124 +22,166 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen">
-      {/* Navbar */}
-      <nav className={`fixed top-0 w-full z-50 transition-all duration-500 px-6 ${scrolled
-        ? "py-3 glass border-b border-outline-variant/20 shadow-xl"
-        : "py-6 bg-transparent"
+    <div className="flex flex-col min-h-screen selection:bg-primary/20 selection:text-primary">
+      {/* Adaptive Sticky Navbar */}
+      <nav className={`fixed left-1/2 -translate-x-1/2 z-[999] transition-all duration-700 ${scrolled
+        ? "top-2 w-[95%] h-20 bg-white/90 backdrop-blur-2xl border border-primary/5 shadow-xl rounded-2xl"
+        : "top-6 w-[92%] max-w-7xl h-24 bg-white/10 backdrop-blur-md border border-white/20 rounded-[32px]"
         }`}>
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <div className="flex items-center gap-3">
-            <div className="w-11 h-11 bg-gradient-primary rounded-xl flex items-center justify-center text-white font-bold shadow-lg shadow-primary/20">TH</div>
-            <span className="text-2xl font-black tracking-tighter text-on-surface">Tekno<span className="text-primary font-medium">Home</span></span>
+        <div className="w-full h-full px-6 md:px-10 flex justify-between items-center relative">
+          <div className="flex items-center h-full">
+            <Image 
+              src="/logos1.png" 
+              alt="TeknoHome Logo" 
+              width={300} 
+              height={100} 
+              className={`object-contain transition-all duration-700 ${scrolled ? "h-16 w-auto" : "h-20 w-auto"} scale-150`}
+              priority
+            />
+          </div>
+ 
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-8 text-on-surface-variant font-semibold">
+            {["Layanan", "Alur Kerja", "Testimoni"].map((item) => (
+              <a
+                key={item}
+                href={`#${item.toLowerCase().replace(" ", "") === "layanan" ? "services" : item.toLowerCase().replace(" ", "") === "alurkerja" ? "process" : "testimonials"}`}
+                className="hover:text-primary transition-all py-2 relative group uppercase text-[10px] tracking-widest font-bold"
+              >
+                {item}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+              </a>
+            ))}
           </div>
 
-          <div className="hidden md:flex items-center gap-10 text-on-surface-variant font-semibold">
-            <a href="#services" className="hover:text-primary transition-all py-2 relative group">
-              Layanan
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+          <div className="flex items-center gap-3 md:gap-4">
+            <a
+              href="https://wa.me/6282299359184"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden sm:flex group relative bg-gradient-secondary text-white px-6 py-2.5 rounded-full font-bold transition-all duration-300 hover:shadow-2xl hover:shadow-secondary/30 active:scale-95 overflow-hidden text-xs"
+            >
+              <span className="relative z-10">Hubungi Sekarang</span>
+              <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform"></div>
             </a>
-            <a href="#process" className="hover:text-primary transition-all py-2 relative group">
-              Alur Kerja
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
-            </a>
-            <a href="#testimonials" className="hover:text-primary transition-all py-2 relative group">
-              Testimoni
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
-            </a>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="md:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 glass rounded-xl border border-primary/10 text-primary active:scale-90 transition-all"
+            >
+              <span className={`w-5 h-0.5 bg-current transition-all ${isMenuOpen ? "rotate-45 translate-y-2" : ""}`}></span>
+              <span className={`w-5 h-0.5 bg-current transition-all ${isMenuOpen ? "opacity-0" : ""}`}></span>
+              <span className={`w-5 h-0.5 bg-current transition-all ${isMenuOpen ? "-rotate-45 -translate-y-2" : ""}`}></span>
+            </button>
           </div>
 
-          <a
-            href="https://wa.me/6282299359184"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative bg-gradient-secondary text-white px-8 py-3 rounded-full font-bold transition-all duration-300 hover:shadow-2xl hover:shadow-secondary/30 active:scale-95 overflow-hidden"
-          >
-            <span className="relative z-10">Hubungi Sekarang</span>
-            <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform"></div>
-          </a>
+          {/* Floating Dropdown Menu (Mobile) */}
+          <div className={`absolute left-0 right-0 glass border border-primary/10 rounded-[32px] p-8 flex flex-col gap-6 shadow-2xl transition-all duration-500 md:hidden z-50 ${isMenuOpen ? "opacity-100 translate-y-2 scale-100" : "opacity-0 -translate-y-4 scale-95 pointer-events-none"} ${scrolled ? "top-16" : "top-24"}`}>
+            {["Layanan", "Alur Kerja", "Testimoni"].map((item, i) => (
+              <a
+                key={item}
+                href={`#${item.toLowerCase().replace(" ", "") === "layanan" ? "services" : item.toLowerCase().replace(" ", "") === "alurkerja" ? "process" : "testimonials"}`}
+                onClick={() => setIsMenuOpen(false)}
+                className="text-lg font-bold text-on-surface hover:text-primary transition-colors flex items-center justify-between group"
+              >
+                {item}
+                <i className="fi fi-rr-angle-small-right text-primary opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-2"></i>
+              </a>
+            ))}
+            <a
+              href="https://wa.me/6282299359184"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsMenuOpen(false)}
+              className="bg-gradient-primary text-white px-6 py-4 rounded-2xl font-bold text-center shadow-xl shadow-primary/20 active:scale-95 transition-all"
+            >
+              Konsultasi Sekarang
+            </a>
+          </div>
         </div>
       </nav>
 
       <main>
         {/* Hero Section */}
-        <section className="relative h-screen min-h-[750px] flex flex-col justify-center pt-20 px-6 overflow-hidden">
+        <section className="relative min-h-screen lg:min-h-[900px] flex flex-col justify-center pt-56 pb-20 lg:pt-48 px-6 overflow-hidden">
           {/* Enhanced Background Decorations */}
-          <div className="absolute top-[-15%] left-[-10%] w-[800px] h-[800px] bg-primary/5 rounded-full blur-[140px] -z-10 animate-pulse-soft"></div>
-          <div className="absolute bottom-[-15%] right-[-10%] w-[800px] h-[800px] bg-secondary/5 rounded-full blur-[140px] -z-10 animate-pulse-soft"></div>
+          <div className="absolute top-[-10%] left-[-10%] w-[400px] md:w-[800px] h-[400px] md:h-[800px] bg-primary/5 rounded-full blur-[80px] md:blur-[140px] -z-10 animate-pulse-soft"></div>
+          <div className="absolute bottom-[-10%] right-[-10%] w-[400px] md:w-[800px] h-[400px] md:h-[800px] bg-secondary/5 rounded-full blur-[80px] md:blur-[140px] -z-10 animate-pulse-soft"></div>
           <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.02] -z-20"></div>
 
-          <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-16 items-center w-full">
-            <div className="lg:col-span-7 space-y-12 animate-fade-in-up">
-              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/80 backdrop-blur-xl border border-primary/10 shadow-sm">
-                <span className="relative flex h-3 w-3">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
-                </span>
-                <span className="text-primary text-xs font-black uppercase tracking-[0.25em]">Premium Home Service • 24/7</span>
-              </div>
-
-              <div className="space-y-6">
-                <h1 className="text-6xl md:text-8xl font-black text-on-surface leading-[0.9] tracking-tight">
-                  Rumah Nyaman, <br />
-                  <span className="text-gradient-primary">Hati Tenang.</span>
-                </h1>
-                <p className="text-xl md:text-2xl text-on-surface-variant leading-relaxed max-w-xl font-medium opacity-90">
-                  Solusi ahli untuk <span className="text-primary font-bold">Water Heater</span> & <span className="text-secondary font-bold">Kompor</span>.
-                  Teknisi bersertifikat kami siap mengembalikan kenyamanan Anda hari ini.
-                </p>
-              </div>
-
-              <div className="flex flex-wrap gap-6">
-                <a
-                  href="https://wa.me/6282299359184"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative px-10 py-5 bg-gradient-primary text-white rounded-2xl font-bold text-xl overflow-hidden shadow-2xl shadow-primary/30 transition-all hover:scale-[1.05] active:scale-95"
-                >
-                  <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
-                  <span className="relative">Pesan Layanan Sekarang</span>
-                </a>
-
-                <button className="glass px-10 py-5 rounded-2xl font-bold text-xl border border-outline-variant/50 text-on-surface hover:bg-white transition-all active:scale-95 flex items-center gap-3 group">
-                  Lihat Hasil Kerja
-                  <i className="fi fi-rr-arrow-right text-2xl group-hover:translate-x-2 transition-transform"></i>
-                </button>
-              </div>
-
-            </div>
-
-            <div className="lg:col-span-5 relative animate-fade-in-up" style={{ animationDelay: '300ms' }}>
-              <div className="relative group">
+          <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 lg:gap-16 items-center w-full">
+            {/* Image Column (Order 1 on mobile, 2 on desktop) */}
+            <div className="lg:col-span-5 relative animate-fade-in-up order-1 lg:order-2 mb-8 lg:mb-0" style={{ animationDelay: '300ms' }}>
+              <div className="relative group max-w-[400px] md:max-w-[500px] mx-auto lg:max-w-none">
                 {/* Main Image: Stove */}
-                <div className="relative z-20 rounded-[56px] overflow-hidden shadow-[0_48px_80px_-16px_rgba(0,0,0,0.4)] border-[12px] border-white/40 transform group-hover:rotate-0 transition-all duration-700 rotate-2">
+                <div className="relative z-20 rounded-[40px] lg:rounded-[56px] overflow-hidden shadow-[0_32px_64px_-12px_rgba(0,0,0,0.3)] border-8 lg:border-[12px] border-white/40 transform lg:rotate-2 group-hover:rotate-0 transition-all duration-700">
                   <Image
                     src="/stove-hero.png"
                     alt="Servis Kompor Modern"
                     width={500}
                     height={650}
                     priority
-                    className="object-cover aspect-[4/5]"
+                    className="object-cover aspect-[4/5] w-full"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 </div>
 
                 {/* Secondary Image: Water Heater */}
-                <div className="absolute -bottom-12 -left-24 z-30 w-[70%] rounded-[48px] overflow-hidden shadow-2xl border-[10px] border-white/60 transform -rotate-6 group-hover:rotate-0 transition-all duration-700">
+                <div className="absolute -bottom-6 -left-6 md:-bottom-12 md:-left-12 lg:-left-24 z-30 w-[60%] md:w-[70%] rounded-[32px] lg:rounded-[48px] overflow-hidden shadow-2xl border-4 lg:border-[10px] border-white/60 transform -rotate-6 group-hover:rotate-0 transition-all duration-700">
                   <Image
                     src="/water-heater-hero.png"
                     alt="Servis Water Heater"
                     width={400}
                     height={400}
                     priority
-                    className="object-cover aspect-square"
+                    className="object-cover aspect-square w-full"
                   />
                 </div>
 
                 {/* Decorative Glowing Elements */}
-                <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary/30 rounded-full blur-[80px] -z-10 animate-pulse"></div>
-                <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-secondary/20 rounded-full blur-[80px] -z-10 animate-pulse"></div>
+                <div className="absolute -top-10 -right-10 w-32 md:w-40 h-32 md:h-40 bg-primary/30 rounded-full blur-[60px] md:blur-[80px] -z-10 animate-pulse"></div>
+                <div className="absolute -bottom-10 -left-10 w-32 md:w-40 h-32 md:h-40 bg-secondary/20 rounded-full blur-[60px] md:blur-[80px] -z-10 animate-pulse"></div>
+              </div>
+            </div>
 
+            {/* Text Column (Order 2 on mobile, 1 on desktop) */}
+            <div className="lg:col-span-7 space-y-8 md:space-y-12 animate-fade-in-up order-2 lg:order-1 text-center lg:text-left">
+              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/80 backdrop-blur-xl border border-primary/10 shadow-sm mx-auto lg:mx-0">
+                <span className="relative flex h-3 w-3">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+                </span>
+                <span className="text-primary text-[10px] md:text-xs font-black uppercase tracking-[0.2em] md:tracking-[0.25em]">Premium Home Service • 24/7</span>
+              </div>
+
+              <div className="space-y-4 md:space-y-6">
+                <h1 className="text-4xl md:text-6xl lg:text-8xl font-black text-on-surface leading-[1.1] lg:leading-[0.9] tracking-tight">
+                  Rumah Nyaman, <br />
+                  <span className="text-gradient-primary">Hati Tenang.</span>
+                </h1>
+                <p className="text-lg md:text-xl lg:text-2xl text-on-surface-variant leading-relaxed max-w-xl font-medium opacity-90 mx-auto lg:mx-0">
+                  Solusi ahli untuk <span className="text-primary font-bold">Water Heater</span> & <span className="text-secondary font-bold">Kompor</span>.
+                  Teknisi bersertifikat kami siap mengembalikan kenyamanan Anda hari ini.
+                </p>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center lg:justify-start">
+                <a
+                  href="https://wa.me/6282299359184"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative px-8 lg:px-10 py-4 lg:py-5 bg-gradient-primary text-white rounded-2xl font-bold text-lg lg:text-xl overflow-hidden shadow-2xl shadow-primary/30 transition-all hover:scale-[1.05] active:scale-95 text-center"
+                >
+                  <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                  <span className="relative">Pesan Layanan Sekarang</span>
+                </a>
+
+                <button className="glass px-8 lg:px-10 py-4 lg:py-5 rounded-2xl font-bold text-lg lg:text-xl border border-outline-variant/50 text-on-surface hover:bg-white transition-all active:scale-95 flex items-center justify-center gap-3 group">
+                  Lihat Hasil Kerja
+                  <i className="fi fi-rr-arrow-right text-xl lg:text-2xl group-hover:translate-x-2 transition-transform"></i>
+                </button>
               </div>
             </div>
           </div>
@@ -146,20 +189,20 @@ export default function Home() {
 
 
         {/* Stats Section */}
-        <section className="px-6 py-10">
-          <div className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-6">
+        <section className="px-6 py-12 md:py-16">
+          <div className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
             {[
               { label: "Panggil ke rumah", val: "Teknisi", icon: "fi fi-rr-map-marker-home" },
               { label: "Tanya-tanya gratis", val: "Konsultasi", icon: "fi fi-rr-headset" },
               { label: "Ekspres & Bergaransi", val: "Cepat", icon: "fi fi-rr-time-fast" },
               { label: "Ahli bertahun-tahun", val: "Berpengalaman", icon: "fi fi-rr-shield-check" }
             ].map((stat, i) => (
-              <div key={i} className="glass p-8 rounded-3xl text-center border border-primary/5 hover:border-primary/20 transition-all hover:translate-y-[-4px]">
-                <div className="w-12 h-12 bg-primary/5 rounded-2xl flex items-center justify-center text-primary mx-auto mb-4 text-2xl">
+              <div key={i} className="glass p-5 md:p-8 rounded-[32px] text-center border border-primary/5 hover:border-primary/20 transition-all duration-500 hover:translate-y-[-8px] group">
+                <div className="w-10 h-10 md:w-14 md:h-14 bg-gradient-primary/10 rounded-2xl flex items-center justify-center text-primary mx-auto mb-4 text-xl md:text-3xl transition-transform group-hover:scale-110 group-hover:rotate-6">
                   <i className={stat.icon}></i>
                 </div>
-                <h3 className="text-xl font-bold text-on-surface mb-1">{stat.val}</h3>
-                <p className="text-sm text-on-surface-variant font-medium">{stat.label}</p>
+                <h3 className="text-base md:text-xl font-black text-on-surface mb-1 tracking-tight">{stat.val}</h3>
+                <p className="text-[10px] md:text-sm text-on-surface-variant font-bold uppercase tracking-wider opacity-80">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -178,24 +221,22 @@ export default function Home() {
                 <p className="text-lg text-on-surface-variant max-w-2xl">Solusi cepat untuk kendala kompor gas dan water heater Anda.</p>
 
               </div>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            </div>            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
               {[
-                { title: "Masalah Api", desc: "Kompor mati, api kecil atau merah? Kami kembalikan normal cepat.", icon: "fi fi-rr-flame" },
-                { title: "Kinerja Pengapian", desc: "Susah nyala & api tidak merata? Langsung stabil dan siap pakai.", icon: "fi fi-rr-settings" },
-                { title: "Komponen & Kebersihan", desc: "Pemantik mati atau kotor? Kami bersihkan & perbaiki sampai normal.", icon: "fi fi-rr-vacuum" },
-                { title: "Kondisi Ekstrem", desc: "Bekas ledakan atau banjir? Kami tangani aman & tuntas.", icon: "fi fi-rr-exclamation" },
-                { title: "Restorasi Unit", desc: "Kompor lama mati? Kami hidupkan kembali seperti baru.", icon: "fi fi-rr-refresh" },
-                { title: "Servis Water Heater", desc: "Tidak panas, mati total, atau korslet? Kami perbaiki cepat & aman.", icon: "fi fi-rr-water" }
+                { title: "Masalah Api", desc: "Mati, api kecil/merah? Kami perbaiki.", icon: "fi fi-rr-flame" },
+                { title: "Pengapian", desc: "Susah nyala? Langsung stabil & siap.", icon: "fi fi-rr-settings" },
+                { title: "Kebersihan", desc: "Kotor/Macet? Kami bersihkan tuntas.", icon: "fi fi-rr-vacuum" },
+                { title: "Kondisi Ekstrem", desc: "Ledakan/Banjir? Kami tangani aman.", icon: "fi fi-rr-exclamation" },
+                { title: "Restorasi Unit", desc: "Unit lama mati? Kami hidupkan baru.", icon: "fi fi-rr-refresh" },
+                { title: "Servis Heater", desc: "Tidak panas/korslet? Kami atasi.", icon: "fi fi-rr-water" }
               ].map((service, i) => (
-                <div key={i} className="glass p-8 rounded-[32px] border border-primary/5 hover:border-primary/20 transition-all hover:translate-y-[-4px] group">
-                  <div className="w-16 h-16 bg-primary/5 rounded-2xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-all duration-500 text-3xl">
+                <div key={i} className="glass p-5 md:p-8 rounded-[32px] border border-primary/5 hover:border-primary/20 transition-all duration-500 hover:translate-y-[-8px] group">
+                  <div className="w-10 h-10 md:w-16 md:h-16 bg-gradient-primary/10 rounded-2xl flex items-center justify-center text-primary mb-4 md:mb-6 group-hover:bg-primary group-hover:text-white transition-all duration-500 text-xl md:text-3xl">
                     <i className={service.icon}></i>
                   </div>
 
-                  <h3 className="text-xl font-bold text-on-surface mb-3">{service.title}</h3>
-                  <p className="text-on-surface-variant leading-relaxed">{service.desc}</p>
+                  <h3 className="text-sm md:text-xl font-black text-on-surface mb-2 md:mb-3 leading-tight">{service.title}</h3>
+                  <p className="text-[10px] md:text-base text-on-surface-variant leading-relaxed opacity-80 line-clamp-3 md:line-clamp-none font-medium">{service.desc}</p>
                 </div>
               ))}
             </div>
@@ -204,35 +245,35 @@ export default function Home() {
 
 
         {/* Why Choose Us */}
-        <section className="py-24 px-6">
-          <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-            <div className="relative">
+        <section className="py-20 md:py-24 px-6 overflow-hidden">
+          <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+            <div className="relative mb-12 md:mb-0">
               <div className="rounded-[40px] overflow-hidden shadow-2xl">
                 <Image src="/img5.webp" alt="Tim kami" width={600} height={400} className="object-cover" />
               </div>
-              <div className="absolute -top-10 -right-10 glass p-8 rounded-3xl shadow-2xl border border-white/40">
-                <p className="text-5xl font-black text-primary">100%</p>
-                <p className="text-sm font-bold text-on-surface-variant uppercase tracking-widest">Tingkat Kepuasan</p>
+              <div className="absolute -top-4 -right-2 md:-top-10 md:-right-10 glass p-5 md:p-8 rounded-2xl md:rounded-3xl shadow-2xl border border-white/40 animate-bounce-slow">
+                <p className="text-3xl md:text-5xl font-black text-primary">100%</p>
+                <p className="text-[10px] md:text-sm font-bold text-on-surface-variant uppercase tracking-widest leading-tight">Tingkat<br className="md:hidden" /> Kepuasan</p>
               </div>
 
             </div>
 
-            <div className="space-y-10">
-              <h2 className="text-4xl font-bold text-on-surface">Mengapa Pemilik Rumah Memilih TeknoHome</h2>
-              <div className="space-y-8">
+            <div className="space-y-8 md:space-y-10 text-center md:text-left">
+              <h2 className="text-3xl md:text-4xl font-black text-on-surface leading-tight">Mengapa Memilih <span className="text-primary">TeknoHome</span>?</h2>
+              <div className="space-y-6 md:space-y-8">
                 {[
                   { title: "Berlisensi & Bergaransi", desc: "Ketenangan total untuk setiap servis. Kualitas pengerjaan terjamin.", icon: "fi fi-rr-shield-check" },
                   { title: "Harga Transparan", desc: "Tanpa biaya tersembunyi. Estimasi harga jujur di awal.", icon: "fi fi-rr-money" },
                   { title: "Jadwal Fleksibel", desc: "Tersedia pagi, siang, atau sore menyesuaikan waktu Anda.", icon: "fi fi-rr-calendar-clock" }
                 ].map((item, i) => (
-                  <div key={i} className="flex gap-6">
-                    <div className="flex-shrink-0 w-14 h-14 bg-primary/5 rounded-2xl flex items-center justify-center text-primary text-3xl">
+                  <div key={i} className="flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-6 group">
+                    <div className="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 bg-gradient-primary/10 rounded-2xl flex items-center justify-center text-primary text-2xl md:text-3xl group-hover:bg-primary group-hover:text-white transition-all duration-300">
                       <i className={item.icon}></i>
                     </div>
 
-                    <div>
-                      <h3 className="text-xl font-bold text-on-surface mb-2">{item.title}</h3>
-                      <p className="text-on-surface-variant leading-relaxed">{item.desc}</p>
+                    <div className="space-y-1">
+                      <h3 className="text-lg md:text-xl font-bold text-on-surface">{item.title}</h3>
+                      <p className="text-sm md:text-base text-on-surface-variant leading-relaxed opacity-85">{item.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -375,7 +416,6 @@ export default function Home() {
               <div className="lg:col-span-5 space-y-6">
                 {[
                   { label: "Telepon & WA", val: "0822-9935-9184", icon: "fi fi-rr-phone-call", sub: "Tersedia 24 Jam" },
-                  { label: "Email Bisnis", val: "halo@teknohome.com", icon: "fi fi-rr-envelope", sub: "Respon dalam 2 jam" },
                   { label: "Alamat Kantor", val: "Jl. Gunungsari No.15, Surabaya", icon: "fi fi-rr-marker", sub: "Wonokromo, Jawa Timur 60242" },
                   { label: "Jam Operasional", val: "Senin - Minggu: 24 Jam", icon: "fi fi-rr-clock", sub: "Layanan Darurat Siaga" }
                 ].map((item, i) => (
@@ -396,13 +436,13 @@ export default function Home() {
               <div className="lg:col-span-7 relative group min-h-[400px]">
                 <div className="absolute inset-0 bg-primary/10 rounded-[40px] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                 <div className="relative h-full w-full rounded-[40px] overflow-hidden border-8 border-white shadow-2xl">
-                  <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.4463886463022!2d112.72363597537674!3d-7.303641671802792!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fb835ad5ba07%3A0x21e2cf98ef703d2c!2sJl.%20Gunungsari%20No.15%2C%20RT.06%2FRW.08%2C%20Sawunggaling%2C%20Kec.%20Wonokromo%2C%20Surabaya%2C%20Jawa%20Timur%2060242!5e0!3m2!1sen!2sid!4v1777798189039!5m2!1sen!2sid" 
-                    width="100%" 
-                    height="100%" 
-                    style={{ border: 0 }} 
-                    allowFullScreen={true} 
-                    loading="lazy" 
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.4463886463022!2d112.72363597537674!3d-7.303641671802792!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fb835ad5ba07%3A0x21e2cf98ef703d2c!2sJl.%20Gunungsari%20No.15%2C%20RT.06%2FRW.08%2C%20Sawunggaling%2C%20Kec.%20Wonokromo%2C%20Surabaya%2C%20Jawa%20Timur%2060242!5e0!3m2!1sen!2sid!4v1777798189039!5m2!1sen!2sid"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen={true}
+                    loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                     className="grayscale-[20%] hover:grayscale-0 transition-all duration-700"
                   ></iframe>
@@ -446,9 +486,14 @@ export default function Home() {
       <footer className="bg-surface-container-highest py-20 px-6 border-t border-outline-variant/30">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
           <div className="space-y-6">
-            <div className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-gradient-primary rounded-xl flex items-center justify-center text-white font-bold">TH</div>
-              <span className="text-xl font-bold text-on-surface tracking-tight">Tekno<span className="text-primary">Home</span></span>
+            <div className="flex items-center">
+              <Image
+                src="/logos1.png"
+                alt="TeknoHome Logo Footer"
+                width={600}
+                height={200}
+                className="h-48 md:h-56 w-auto object-contain -ml-4"
+              />
             </div>
             <p className="text-on-surface-variant max-w-sm">Solusi layanan rumah profesional untuk water heater dan kompor listrik Anda. Terpercaya, cepat, dan bersertifikat.</p>
           </div>

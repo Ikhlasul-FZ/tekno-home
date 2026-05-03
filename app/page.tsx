@@ -32,11 +32,12 @@ export default function Home() {
           <div className="flex items-center h-full">
             <Image 
               src="/logos1.png" 
-              alt="TeknoHome Logo" 
+              alt="Tekno Home Services - Spesialis Servis Alat Rumah Tangga Surabaya" 
               width={300} 
               height={100} 
               className={`object-contain transition-all duration-700 ${scrolled ? "h-16 w-auto" : "h-20 w-auto"} scale-150`}
               priority
+              sizes="(max-width: 768px) 150px, 300px"
             />
           </div>
  
@@ -105,11 +106,21 @@ export default function Home() {
 
       <main>
         {/* Hero Section */}
-        <section className="relative min-h-screen lg:min-h-[900px] flex flex-col justify-center pt-56 pb-20 lg:pt-48 px-6 overflow-hidden">
+        <section className="relative min-h-screen lg:min-h-[900px] flex flex-col justify-center pt-32 pb-20 lg:pt-40 px-6 overflow-hidden">
           {/* Enhanced Background Decorations */}
           <div className="absolute top-[-10%] left-[-10%] w-[400px] md:w-[800px] h-[400px] md:h-[800px] bg-primary/5 rounded-full blur-[80px] md:blur-[140px] -z-10 animate-pulse-soft"></div>
           <div className="absolute bottom-[-10%] right-[-10%] w-[400px] md:w-[800px] h-[400px] md:h-[800px] bg-secondary/5 rounded-full blur-[80px] md:blur-[140px] -z-10 animate-pulse-soft"></div>
           <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.02] -z-20"></div>
+ 
+          <div className="max-w-7xl mx-auto w-full flex flex-col items-center lg:items-start relative z-10 mb-6 md:mb-8">
+            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/80 backdrop-blur-xl border border-primary/10 shadow-sm mx-auto lg:mx-0 animate-fade-in-up">
+              <span className="relative flex h-3 w-3">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+              </span>
+              <span className="text-primary text-[10px] md:text-xs font-black uppercase tracking-[0.2em] md:tracking-[0.25em]">Premium Home Service • 24/7</span>
+            </div>
+          </div>
 
           <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 lg:gap-16 items-center w-full">
             {/* Image Column (Order 1 on mobile, 2 on desktop) */}
@@ -119,23 +130,25 @@ export default function Home() {
                 <div className="relative z-20 rounded-[40px] lg:rounded-[56px] overflow-hidden shadow-[0_32px_64px_-12px_rgba(0,0,0,0.3)] border-8 lg:border-[12px] border-white/40 transform lg:rotate-2 group-hover:rotate-0 transition-all duration-700">
                   <Image
                     src="/stove-hero.png"
-                    alt="Servis Kompor Modern"
+                    alt="Layanan Profesional Servis Kompor Listrik di Surabaya - Tekno Home"
                     width={500}
                     height={650}
                     priority
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover aspect-[4/5] w-full"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 </div>
-
+ 
                 {/* Secondary Image: Water Heater */}
                 <div className="absolute -bottom-6 -left-6 md:-bottom-12 md:-left-12 lg:-left-24 z-30 w-[60%] md:w-[70%] rounded-[32px] lg:rounded-[48px] overflow-hidden shadow-2xl border-4 lg:border-[10px] border-white/60 transform -rotate-6 group-hover:rotate-0 transition-all duration-700">
                   <Image
                     src="/water-heater-hero.png"
-                    alt="Servis Water Heater"
+                    alt="Spesialis Servis Water Heater Ariston & Modena Surabaya - Tekno Home"
                     width={400}
                     height={400}
                     priority
+                    sizes="(max-width: 768px) 60vw, 30vw"
                     className="object-cover aspect-square w-full"
                   />
                 </div>
@@ -148,13 +161,6 @@ export default function Home() {
 
             {/* Text Column (Order 2 on mobile, 1 on desktop) */}
             <div className="lg:col-span-7 space-y-8 md:space-y-12 animate-fade-in-up order-2 lg:order-1 text-center lg:text-left">
-              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/80 backdrop-blur-xl border border-primary/10 shadow-sm mx-auto lg:mx-0">
-                <span className="relative flex h-3 w-3">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
-                </span>
-                <span className="text-primary text-[10px] md:text-xs font-black uppercase tracking-[0.2em] md:tracking-[0.25em]">Premium Home Service • 24/7</span>
-              </div>
 
               <div className="space-y-4 md:space-y-6">
                 <h1 className="text-4xl md:text-6xl lg:text-8xl font-black text-on-surface leading-[1.1] lg:leading-[0.9] tracking-tight">
@@ -162,7 +168,7 @@ export default function Home() {
                   <span className="text-gradient-primary">Hati Tenang.</span>
                 </h1>
                 <p className="text-lg md:text-xl lg:text-2xl text-on-surface-variant leading-relaxed max-w-xl font-medium opacity-90 mx-auto lg:mx-0">
-                  Solusi ahli untuk <span className="text-primary font-bold">Water Heater</span> & <span className="text-secondary font-bold">Kompor</span>.
+                  Solusi ahli untuk <span className="text-primary font-bold">Water Heater</span> & <span className="text-secondary font-bold">Kompor Listrik</span> (Free Standing & Tanam).
                   Teknisi bersertifikat kami siap mengembalikan kenyamanan Anda hari ini.
                 </p>
               </div>
@@ -218,12 +224,12 @@ export default function Home() {
                   Layanan Service
                 </div>
                 <h2 className="text-4xl md:text-5xl font-bold text-on-surface tracking-tight">Solusi Masalah Peralatan Anda</h2>
-                <p className="text-lg text-on-surface-variant max-w-2xl">Solusi cepat untuk kendala kompor gas dan water heater Anda.</p>
+                <p className="text-lg text-on-surface-variant max-w-2xl">Solusi cepat untuk kendala kompor listrik (free standing & tanam) serta water heater Anda.</p>
 
               </div>
             </div>            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
               {[
-                { title: "Masalah Api", desc: "Mati, api kecil/merah? Kami perbaiki.", icon: "fi fi-rr-flame" },
+                { title: "Kelistrikan", desc: "Mati total atau korslet? Kami perbaiki.", icon: "fi fi-rr-bolt" },
                 { title: "Pengapian", desc: "Susah nyala? Langsung stabil & siap.", icon: "fi fi-rr-settings" },
                 { title: "Kebersihan", desc: "Kotor/Macet? Kami bersihkan tuntas.", icon: "fi fi-rr-vacuum" },
                 { title: "Kondisi Ekstrem", desc: "Ledakan/Banjir? Kami tangani aman.", icon: "fi fi-rr-exclamation" },
@@ -489,10 +495,11 @@ export default function Home() {
             <div className="flex items-center">
               <Image
                 src="/logos1.png"
-                alt="TeknoHome Logo Footer"
+                alt="Logo Tekno Home Services Surabaya"
                 width={600}
                 height={200}
                 className="h-48 md:h-56 w-auto object-contain -ml-4"
+                sizes="(max-width: 768px) 300px, 600px"
               />
             </div>
             <p className="text-on-surface-variant max-w-sm">Solusi layanan rumah profesional untuk water heater dan kompor listrik Anda. Terpercaya, cepat, dan bersertifikat.</p>

@@ -4,14 +4,14 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: 'Tekno Home Services',
     short_name: 'TeknoHome',
-    description: 'Spesialis Servis Kompor Listrik & Water Heater Surabaya',
+    description: 'Jasa Servis Kompor Listrik & Water Heater Profesional Surabaya',
     start_url: '/',
     display: 'standalone',
     background_color: '#ffffff',
-    theme_color: '#1a56db',
+    theme_color: '#004aad',
     icons: [
       {
-        src: '/logos1.png',
+        src: '/icon.png',
         sizes: 'any',
         type: 'image/png',
       },

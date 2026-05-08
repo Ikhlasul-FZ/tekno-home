@@ -9,16 +9,16 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Tekno Home Services | Spesialis Servis Kompor Listrik & Water Heater Surabaya",
-  description: "Layanan servis peralatan rumah tangga profesional, handal, dan cepat di Surabaya. Teknisi bersertifikat untuk water heater (Ariston, Modena) dan kompor listrik. Garansi resmi!",
-  keywords: "servis water heater surabaya, servis kompor listrik surabaya, teknisi water heater ariston, perbaikan peralatan rumah tangga, tekno home services",
-  metadataBase: new URL("https://teknohome.com"),
+  description: "Spesialis Jasa Servis Kompor Listrik & Water Heater Surabaya. Teknisi Ahli, Pengerjaan di Tempat, Suku Cadang Original & Bergaransi. Solusi Cepat untuk Ariston, Modena & Brand Lainnya.",
+  keywords: "servis water heater surabaya, servis kompor listrik surabaya, teknisi water heater ariston, perbaikan peralatan rumah tangga, tekno home services, servis kompor tanam surabaya",
+  metadataBase: new URL("https://www.teknohomeservice.com"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "Tekno Home Services | Solusi Cepat Perbaikan Alat Rumah Tangga",
-    description: "Servis water heater dan kompor listrik profesional di Surabaya. Hubungi kami 24/7!",
-    url: "https://teknohome.com",
+    description: "Jasa servis water heater dan kompor listrik profesional 24 jam di Surabaya. Teknisi berpengalaman, respon cepat, dan bergaransi resmi.",
+    url: "https://www.teknohomeservice.com",
     siteName: "Tekno Home",
     locale: "id_ID",
     type: "website",
@@ -52,9 +52,9 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
               "name": "Tekno Home Services",
-              "image": "https://teknohome.com/logos1.png",
-              "@id": "https://teknohome.com",
-              "url": "https://teknohome.com",
+              "image": "https://www.teknohomeservice.com/logos1.png",
+              "@id": "https://www.teknohomeservice.com",
+              "url": "https://www.teknohomeservice.com",
               "telephone": "+6282299359184",
               "address": {
                 "@type": "PostalAddress",

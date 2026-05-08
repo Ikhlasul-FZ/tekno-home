@@ -26,8 +26,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Tekno Home Services | Servis Alat Rumah Tangga Surabaya",
-    description: \"Jasa servis water heater dan kompor listrik profesional 24 jam di Surabaya. Teknisi berpengalaman, respon cepat, dan bergaransi resmi.\",
-    title: \"Tekno Home Services | Servis Alat Rumah Tangga Surabaya\",
+    description: "Jasa servis water heater dan kompor listrik profesional 24 jam di Surabaya. Teknisi berpengalaman, respon cepat, dan bergaransi resmi.",
   },
   icons: {
     icon: [

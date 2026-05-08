@@ -38,6 +38,9 @@ export const metadata: Metadata = {
       { url: '/icon.png' },
     ],
   },
+  verification: {
+    google: "wBp-Sk22NGNKx2Oaz2hb1e0odWczOvY6boj0wZYwuus",
+  },
 };
 
 

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { getWhatsAppLink } from "@/utils/whatsapp";
 
 export default function ProjectGrid() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -172,8 +173,9 @@ export default function ProjectGrid() {
                 <p className="text-white/20 text-[8px] md:text-xs">Kualitas Layanan Premium & Terpercaya</p>
               </div>
               <a
-                href="https://wa.me/6282299359184"
+                href={getWhatsAppLink("portfolio")}
                 target="_blank"
+                rel="noopener noreferrer"
                 className="w-full md:w-auto px-10 py-4 bg-primary text-white rounded-2xl font-bold text-sm hover:bg-primary-dark transition-all flex items-center justify-center gap-3 shadow-xl shadow-primary/20 active:scale-95"
               >
                 <i className="fi fi-rr-whatsapp text-xl"></i>

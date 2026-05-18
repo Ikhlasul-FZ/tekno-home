@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import ProjectGrid from "@/components/ProjectGrid";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
+import { getWhatsAppLink } from "@/utils/whatsapp";
 
 
 
@@ -30,17 +31,17 @@ export default function Home() {
         }`}>
         <div className="w-full h-full px-6 md:px-10 flex justify-between items-center relative">
           <div className="flex items-center h-full">
-            <Image 
-              src="/logos1.png" 
-              alt="Tekno Home Services - Spesialis Servis Alat Rumah Tangga Surabaya" 
-              width={300} 
-              height={100} 
+            <Image
+              src="/logos1.png"
+              alt="Tekno Home Services - Spesialis Servis Alat Rumah Tangga Surabaya"
+              width={300}
+              height={100}
               className={`object-contain transition-all duration-700 ${scrolled ? "h-16 w-auto" : "h-20 w-auto"} scale-150`}
               priority
               sizes="(max-width: 768px) 150px, 300px"
             />
           </div>
- 
+
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8 text-on-surface-variant font-semibold">
@@ -58,7 +59,7 @@ export default function Home() {
 
           <div className="flex items-center gap-3 md:gap-4">
             <a
-              href="https://wa.me/6282299359184"
+              href={getWhatsAppLink("general")}
               target="_blank"
               rel="noopener noreferrer"
               className="hidden sm:flex group relative bg-gradient-secondary text-white px-6 py-2.5 rounded-full font-bold transition-all duration-300 hover:shadow-2xl hover:shadow-secondary/30 active:scale-95 overflow-hidden text-xs"
@@ -92,7 +93,7 @@ export default function Home() {
               </a>
             ))}
             <a
-              href="https://wa.me/6282299359184"
+              href={getWhatsAppLink("general")}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsMenuOpen(false)}
@@ -111,7 +112,7 @@ export default function Home() {
           <div className="absolute top-[-10%] left-[-10%] w-[400px] md:w-[800px] h-[400px] md:h-[800px] bg-primary/5 rounded-full blur-[80px] md:blur-[140px] -z-10 animate-pulse-soft"></div>
           <div className="absolute bottom-[-10%] right-[-10%] w-[400px] md:w-[800px] h-[400px] md:h-[800px] bg-secondary/5 rounded-full blur-[80px] md:blur-[140px] -z-10 animate-pulse-soft"></div>
           <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.02] -z-20"></div>
- 
+
           <div className="max-w-7xl mx-auto w-full flex flex-col items-center lg:items-start relative z-10 mb-6 md:mb-8">
             <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/80 backdrop-blur-xl border border-primary/10 shadow-sm mx-auto lg:mx-0 animate-fade-in-up">
               <span className="relative flex h-3 w-3">
@@ -139,7 +140,7 @@ export default function Home() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 </div>
- 
+
                 {/* Secondary Image: Water Heater */}
                 <div className="absolute -bottom-6 -left-6 md:-bottom-12 md:-left-12 lg:-left-24 z-30 w-[60%] md:w-[70%] rounded-[32px] lg:rounded-[48px] overflow-hidden shadow-2xl border-4 lg:border-[10px] border-white/60 transform -rotate-6 group-hover:rotate-0 transition-all duration-700">
                   <Image
@@ -175,7 +176,7 @@ export default function Home() {
 
               <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center lg:justify-start">
                 <a
-                  href="https://wa.me/6282299359184"
+                  href={getWhatsAppLink("hero")}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group relative px-8 lg:px-10 py-4 lg:py-5 bg-gradient-primary text-white rounded-2xl font-bold text-lg lg:text-xl overflow-hidden shadow-2xl shadow-primary/30 transition-all hover:scale-[1.05] active:scale-95 text-center"
@@ -184,7 +185,7 @@ export default function Home() {
                   <span className="relative">Pesan Layanan Sekarang</span>
                 </a>
 
-                <a 
+                <a
                   href="#projects"
                   className="glass px-8 lg:px-10 py-4 lg:py-5 rounded-2xl font-bold text-lg lg:text-xl border border-outline-variant/50 text-on-surface hover:bg-white transition-all active:scale-95 flex items-center justify-center gap-3 group"
                 >
@@ -358,7 +359,6 @@ export default function Home() {
                   <h3 className="text-2xl md:text-3xl font-bold text-on-surface mb-8">Metode Pembayaran</h3>
                   <ul className="space-y-6">
                     {[
-                      "Bayar DP 50% (Transfer atau Cash).",
                       "Proses pengerjaan oleh tim teknisi ahli.",
                       "Pelunasan setelah proyek selesai sempurna."
                     ].map((item, i) => (
@@ -472,7 +472,7 @@ export default function Home() {
               <p className="text-xl text-primary-fixed-dim max-w-2xl mx-auto">Jangan biarkan peralatan rusak mengganggu aktivitas Anda. Teknisi kami siaga memberikan layanan cepat dan handal.</p>
               <div className="flex flex-wrap justify-center gap-6">
                 <a
-                  href="https://wa.me/6282299359184"
+                  href={getWhatsAppLink("cta")}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-white text-primary px-10 py-5 rounded-2xl font-bold text-xl hover:shadow-2xl transition-all hover:translate-y-[-2px] active:scale-95 inline-block"
@@ -565,7 +565,7 @@ export default function Home() {
 
       {/* Floating WhatsApp Button */}
       <a
-        href="https://wa.me/6282299359184"
+        href={getWhatsAppLink("general")}
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-8 right-8 z-[60] group"

@@ -69,7 +69,7 @@ export default function RootLayout({
               "image": "https://www.teknohomeservice.com/logos1.png",
               "@id": "https://www.teknohomeservice.com",
               "url": "https://www.teknohomeservice.com",
-              "telephone": "+6282299359184",
+              "telephone": "+62895622759846",
               "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "Jl. Gunungsari No.15, Sawunggaling",

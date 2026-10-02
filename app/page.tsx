@@ -424,7 +424,7 @@ export default function Home() {
               {/* Contact Info Cards */}
               <div className="lg:col-span-5 space-y-6">
                 {[
-                  { label: "Telepon & WA", val: "0822-9935-9184", icon: "fi fi-rr-phone-call", sub: "Tersedia 24 Jam" },
+                  { label: "Telepon & WA", val: "0895-6227-59846", icon: "fi fi-rr-phone-call", sub: "Tersedia 24 Jam" },
                   { label: "Alamat Kantor", val: "Jl. Gunungsari No.15, Surabaya", icon: "fi fi-rr-marker", sub: "Wonokromo, Jawa Timur 60242" },
                   { label: "Jam Operasional", val: "Senin - Minggu: 24 Jam", icon: "fi fi-rr-clock", sub: "Layanan Darurat Siaga" }
                 ].map((item, i) => (
@@ -527,7 +527,14 @@ export default function Home() {
 
                 <div>
                   <p className="text-xs font-bold text-primary uppercase tracking-widest mb-1">Telepon 24/7</p>
-                  <p className="text-lg font-black text-on-surface underline decoration-primary/30">082299359184</p>
+                  <a
+                    href={getWhatsAppLink("general")}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-lg font-black text-on-surface underline decoration-primary/30 hover:text-primary transition-colors block"
+                  >
+                    0895622759846
+                  </a>
                 </div>
               </li>
 

@@ -3,7 +3,7 @@
  * This allows the business to know exactly which button/section the customer clicked.
  */
 export const getWhatsAppLink = (context: "general" | "hero" | "cta" | "portfolio" = "general") => {
-  const phoneNumber = "6282299359184";
+  const phoneNumber = "62895622759846";
   
   let message = "";
   

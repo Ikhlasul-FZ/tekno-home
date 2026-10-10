@@ -44,11 +44,11 @@ export default function CityNavbar({
         {/* Logo */}
         <Link href="/" className="flex items-center shrink-0">
           <Image
-            src="/logos1.png"
+            src="/logo-navbar.webp"
             alt="Tekno Home Services"
             width={240}
-            height={70}
-            className="h-11 sm:h-13 w-auto object-contain"
+            height={182}
+            className="h-14 sm:h-16 md:h-17 w-auto object-contain"
             priority
           />
         </Link>

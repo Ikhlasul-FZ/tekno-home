@@ -47,11 +47,11 @@ export default function Home() {
           {/* Logo */}
           <Link href="/" className="flex items-center shrink-0">
             <Image
-              src="/logos1.png"
+              src="/logo-navbar.webp"
               alt="Tekno Home Services - Spesialis Servis Alat Rumah Tangga Surabaya"
-              width={260}
-              height={80}
-              className="h-11 sm:h-13 w-auto object-contain"
+              width={240}
+              height={182}
+              className="h-14 sm:h-16 md:h-17 w-auto object-contain"
               priority
             />
           </Link>

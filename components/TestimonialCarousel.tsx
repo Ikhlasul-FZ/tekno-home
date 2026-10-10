@@ -4,14 +4,14 @@ import { useState, useEffect } from "react";
 
 export default function TestimonialCarousel() {
   const testimonials = [
-    { name: "Ibu Grace", loc: "Sambikerep, Sby", quote: "Sudah jadi langganan kalau ada kompor listrik & water heater ngadat. Soalnya bisa dipanggil kapan aja saya butuh cepat.", stars: 5 },
+    { name: "Ibu Grace", loc: "Sambikerep, Sby", quote: "Sudah jadi langganan kalau water heater, stove, atau coockerhood di rumah ada kendala. Teknisi selalu gerak cepat begitu dihubungi.", stars: 5 },
     { name: "Ibu Indri", loc: "Kenjeran, Sby", quote: "Teknisi datang tepat waktu dan jelasin masalahnya dengan jelas. Sekarang water heater saya nyala stabil dan aman.", stars: 5 },
-    { name: "Mama Hana", loc: "Wiyung, Sby", quote: "Awalnya ragu, tapi ternyata hasilnya memuaskan. Kompor saya jadi normal lagi, dan harganya juga transparan, nggak ada biaya tambahan aneh-aneh.", stars: 5 },
+    { name: "Mama Hana", loc: "Wiyung, Sby", quote: "Awalnya ragu, tapi ternyata pengerjaan stove tanam sangat memuaskan. Harganya transparan, nggak ada biaya tambahan aneh-aneh.", stars: 5 },
     { name: "Bpk. Hendra", loc: "Rungkut, Sby", quote: "Panggil teknisi untuk maintenance rutin water heater. Pengerjaan sangat detail sampai dibersihkan kerak-keraknya. Sekarang suhu airnya stabil lagi.", stars: 5 },
-    { name: "Ibu Maya", loc: "Gubeng, Sby", quote: "Restorasi kompor peninggalan orang tua yang tadinya macet total. Sekarang jadi kinclong dan nyala apinya biru sempurna. Terima kasih TeknoHome!", stars: 5 },
-    { name: "Bpk. Agus", loc: "Darmo, Sby", quote: "Layanan daruratnya mantap. Kompor gas bocor di hari Minggu tetap dilayani dengan cepat. Teknisi sangat tenang dan solutif.", stars: 5 },
-    { name: "Ibu Shinta", loc: "Mulyorejo, Sby", quote: "Sangat terbantu dengan layanan TeknoHome. Kompor gas yang apinya merah terus sekarang jadi biru bersih lagi. Teknisi juga kasih tips perawatan yang berguna.", stars: 5 },
-    { name: "Bpk. Farhan", loc: "Tandes, Sby", quote: "Layanan servis water heater terbaik di Surabaya. Proses booking via WA gampang banget, teknisi datang tepat waktu dan kerjanya profesional.", stars: 5 }
+    { name: "Ibu Maya", loc: "Gubeng, Sby", quote: "Coockerhood dapur yang tadinya berisik dan daya hisapnya loyo sekarang normal dan bersih kembali. Terima kasih TeknoHome!", stars: 5 },
+    { name: "Bpk. Agus", loc: "Darmo, Sby", quote: "Layanan daruratnya mantap. Stove gas bermasalah di hari Minggu tetap dilayani dengan cepat. Teknisi sangat tenang dan solutif.", stars: 5 },
+    { name: "Ibu Shinta", loc: "Mulyorejo, Sby", quote: "Sangat terbantu dengan layanan TeknoHome. Kompor induksi yang error dan cookerhood yang macet langsung normal dalam sekali kunjungan.", stars: 5 },
+    { name: "Bpk. Farhan", loc: "Tandes, Sby", quote: "Layanan servis water heater & peralatan dapur terbaik di Surabaya. Proses booking via WA gampang banget, teknisi profesional.", stars: 5 }
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -64,7 +64,7 @@ export default function TestimonialCarousel() {
                   <span className="text-[10px] md:text-xs font-black text-secondary uppercase tracking-[0.2em]">Recommended</span>
                 </div>
  
-                <p className="text-on-surface-variant text-base md:text-lg italic leading-relaxed mb-6 md:mb-8 flex-1 line-clamp-6 md:line-clamp-4 font-medium text-balance">"{t.quote}"</p>
+                <p className="text-on-surface-variant text-base md:text-lg italic leading-relaxed mb-6 md:mb-8 flex-1 line-clamp-6 md:line-clamp-4 font-medium text-balance">&ldquo;{t.quote}&rdquo;</p>
                 
                 <div className="flex items-center gap-3 md:gap-4 border-t border-outline-variant/20 pt-5 md:pt-6 mt-auto">
                   <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-primary rounded-full flex items-center justify-center text-white font-bold shadow-lg shadow-primary/20 text-sm md:text-base">

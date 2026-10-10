@@ -9,16 +9,16 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Tekno Home Services | Spesialis Servis Kompor Listrik & Water Heater Surabaya",
-  description: "Spesialis Jasa Servis Kompor Listrik & Water Heater Surabaya. Teknisi Ahli, Pengerjaan di Tempat, Suku Cadang Original & Bergaransi. Solusi Cepat untuk Ariston, Modena & Brand Lainnya.",
-  keywords: "servis water heater surabaya, servis kompor listrik surabaya, teknisi water heater ariston, perbaikan peralatan rumah tangga, tekno home services, servis kompor tanam surabaya",
+  title: "Tekno Home Services | Spesialis Servis Water Heater, Stove & Coockerhood",
+  description: "Spesialis Jasa Servis Water Heater, Stove (Kompor Listrik/Gas) & Coockerhood Surabaya. Teknisi Ahli, Pengerjaan di Tempat, Suku Cadang Original & Bergaransi Resmi.",
+  keywords: "servis water heater surabaya, servis stove surabaya, servis coockerhood surabaya, servis kompor listrik surabaya, teknisi water heater ariston, modena, tekno home services",
   metadataBase: new URL("https://www.teknohomeservice.com"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Tekno Home Services | Solusi Cepat Perbaikan Alat Rumah Tangga",
-    description: "Jasa servis water heater dan kompor listrik profesional 24 jam di Surabaya. Teknisi berpengalaman, respon cepat, dan bergaransi resmi.",
+    title: "Tekno Home Services | Solusi Servis Water Heater, Stove & Coockerhood",
+    description: "Jasa servis water heater, stove (kompor), dan coockerhood profesional 24 jam. Teknisi berpengalaman, respon cepat, dan bergaransi resmi.",
     url: "https://www.teknohomeservice.com",
     siteName: "Tekno Home",
     locale: "id_ID",
@@ -26,8 +26,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tekno Home Services | Servis Alat Rumah Tangga Surabaya",
-    description: "Jasa servis water heater dan kompor listrik profesional 24 jam di Surabaya. Teknisi berpengalaman, respon cepat, dan bergaransi resmi.",
+    title: "Tekno Home Services | Servis Water Heater, Stove & Coockerhood",
+    description: "Jasa servis water heater, stove (kompor), dan coockerhood profesional 24 jam. Teknisi berpengalaman, respon cepat, dan bergaransi resmi.",
   },
   icons: {
     icon: [

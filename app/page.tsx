@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import Link from "next/link";
+import { useState } from "react";
 import ProjectGrid from "@/components/ProjectGrid";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
 import { getWhatsAppLink } from "@/utils/whatsapp";
@@ -11,106 +12,256 @@ import { getWhatsAppLink } from "@/utils/whatsapp";
 
 export default function Home() {
 
-  const [scrolled, setScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [comingSoonModal, setComingSoonModal] = useState<{
+    isOpen: boolean;
+    title: string;
+    category: string;
+  }>({
+    isOpen: false,
+    title: "",
+    category: "",
+  });
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const servicesList = [
+    { name: "Water Heater", id: "water-heater", icon: "fi fi-rr-flame" },
+    { name: "Stove", id: "stove", icon: "fi fi-rr-gas-pump" },
+    { name: "Coockerhood", id: "coockerhood", icon: "fi fi-rr-wind" },
+  ];
+
+  const citiesList = [
+    { name: "Jakarta", slug: "jakarta" },
+    { name: "Tangerang", slug: "tangerang" },
+    { name: "Bogor", slug: "bogor" },
+    { name: "Bali", slug: "bali" },
+    { name: "Surabaya", slug: "surabaya" },
+    { name: "Medan", slug: "medan" },
+  ];
 
   return (
     <div className="flex flex-col min-h-screen selection:bg-primary/20 selection:text-primary">
-      {/* Adaptive Sticky Navbar */}
-      <nav className={`fixed left-1/2 -translate-x-1/2 z-[999] transition-all duration-700 ${scrolled
-        ? "top-2 w-[95%] h-20 bg-white/90 backdrop-blur-2xl border border-primary/5 shadow-xl rounded-2xl"
-        : "top-6 w-[92%] max-w-7xl h-24 bg-white/10 backdrop-blur-md border border-white/20 rounded-[32px]"
-        }`}>
-        <div className="w-full h-full px-6 md:px-10 flex justify-between items-center relative">
-          <div className="flex items-center h-full">
+      {/* Consistent Sticky Navbar */}
+      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-2xl border-b border-primary/10 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center relative">
+          {/* Logo */}
+          <Link href="/" className="flex items-center shrink-0">
             <Image
               src="/logos1.png"
               alt="Tekno Home Services - Spesialis Servis Alat Rumah Tangga Surabaya"
-              width={300}
-              height={100}
-              className={`object-contain transition-all duration-700 ${scrolled ? "h-16 w-auto" : "h-20 w-auto"} scale-150`}
+              width={260}
+              height={80}
+              className="h-11 sm:h-13 w-auto object-contain"
               priority
-              sizes="(max-width: 768px) 150px, 300px"
             />
-          </div>
+          </Link>
 
+          {/* Desktop Navigation (>= md) */}
+          <nav className="hidden md:flex items-center gap-5 lg:gap-7 text-xs font-bold uppercase tracking-wider text-on-surface-variant">
+            {/* Beranda (Active) */}
+            <Link href="/" className="text-primary font-black py-2 relative flex items-center gap-1.5">
+              <span>Beranda</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-primary inline-block"></span>
+            </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8 text-on-surface-variant font-semibold">
-            {["Layanan", "Alur Kerja", "Testimoni"].map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase().replace(" ", "") === "layanan" ? "services" : item.toLowerCase().replace(" ", "") === "alurkerja" ? "process" : "testimonials"}`}
-                className="hover:text-primary transition-all py-2 relative group uppercase text-[10px] tracking-widest font-bold"
+            {/* Dropdowns: Water Heater, Stove, Coockerhood */}
+            {servicesList.map((service) => (
+              <div
+                key={service.id}
+                className="relative py-2"
+                onMouseEnter={() => setActiveDropdown(service.id)}
+                onMouseLeave={() => setActiveDropdown(null)}
               >
-                {item}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
-              </a>
-            ))}
-          </div>
+                <button
+                  type="button"
+                  onClick={() => setActiveDropdown(activeDropdown === service.id ? null : service.id)}
+                  className={`flex items-center gap-1 font-bold transition-colors py-1 ${
+                    activeDropdown === service.id ? "text-primary" : "text-on-surface-variant hover:text-primary"
+                  }`}
+                >
+                  <span>{service.name}</span>
+                  <i className={`fi fi-rr-angle-small-down text-xs transition-transform duration-200 ${
+                    activeDropdown === service.id ? "rotate-180 text-primary" : "text-on-surface-variant/60"
+                  }`}></i>
+                </button>
 
-          <div className="flex items-center gap-3 md:gap-4">
+                {/* Dropdown Card */}
+                <div
+                  className={`absolute top-full left-0 pt-2 w-56 transition-all duration-200 z-50 ${
+                    activeDropdown === service.id
+                      ? "opacity-100 translate-y-0 pointer-events-auto"
+                      : "opacity-0 -translate-y-2 pointer-events-none"
+                  }`}
+                >
+                  <div className="bg-white rounded-2xl shadow-xl border border-primary/10 p-2 flex flex-col gap-1 ring-1 ring-black/5">
+                    <div className="px-3 py-1.5 text-[10px] uppercase font-bold text-on-surface-variant/70 border-b border-primary/5">
+                      Wilayah Layanan {service.name}
+                    </div>
+                    {citiesList.map((city) => (
+                      <Link
+                        key={city.slug}
+                        href={`/${service.id}/${city.slug}`}
+                        className="px-3 py-2 rounded-xl text-xs font-semibold text-on-surface hover:bg-primary/5 hover:text-primary flex items-center justify-between transition-colors group/item"
+                      >
+                        <span className="group-hover/item:translate-x-1 transition-transform">{city.name}</span>
+                        <i className="fi fi-rr-angle-small-right text-xs opacity-40 group-hover/item:opacity-100 group-hover/item:text-primary transition-all"></i>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+
+            {/* Anchors */}
+            <a href="#services" className="hover:text-primary transition-colors py-2">
+              Layanan
+            </a>
+            <a href="#projects" className="hover:text-primary transition-colors py-2">
+              Portofolio
+            </a>
+            <a href="#testimonials" className="hover:text-primary transition-colors py-2">
+              Testimoni
+            </a>
+          </nav>
+
+          {/* Right CTA & Mobile Hamburger Button */}
+          <div className="flex items-center gap-2 sm:gap-3">
             <a
               href={getWhatsAppLink("general")}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:flex group relative bg-gradient-secondary text-white px-6 py-2.5 rounded-full font-bold transition-all duration-300 hover:shadow-2xl hover:shadow-secondary/30 active:scale-95 overflow-hidden text-xs"
+              className="bg-gradient-secondary text-white px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full font-bold text-xs shadow-lg shadow-secondary/20 hover:scale-105 active:scale-95 transition-all flex items-center gap-1.5 sm:gap-2"
             >
-              <span className="relative z-10">Hubungi Sekarang</span>
-              <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform"></div>
+              <i className="fi fi-brands-whatsapp text-sm sm:text-base"></i>
+              <span className="hidden sm:inline">Pesan Teknisi</span>
+              <span className="sm:hidden text-[11px]">Chat WA</span>
             </a>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Hamburger Button (< md) */}
             <button
+              type="button"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 glass rounded-xl border border-primary/10 text-primary active:scale-90 transition-all"
+              aria-label={isMenuOpen ? "Tutup Menu" : "Buka Menu"}
+              className="md:hidden w-10 h-10 rounded-xl bg-primary/10 text-primary flex flex-col items-center justify-center gap-1.5 border border-primary/15 active:scale-90 transition-all"
             >
-              <span className={`w-5 h-0.5 bg-current transition-all ${isMenuOpen ? "rotate-45 translate-y-2" : ""}`}></span>
-              <span className={`w-5 h-0.5 bg-current transition-all ${isMenuOpen ? "opacity-0" : ""}`}></span>
-              <span className={`w-5 h-0.5 bg-current transition-all ${isMenuOpen ? "-rotate-45 -translate-y-2" : ""}`}></span>
+              <span className={`w-5 h-0.5 bg-primary transition-all duration-300 ${
+                isMenuOpen ? "rotate-45 translate-y-2" : ""
+              }`}></span>
+              <span className={`w-5 h-0.5 bg-primary transition-all duration-300 ${
+                isMenuOpen ? "opacity-0" : ""
+              }`}></span>
+              <span className={`w-5 h-0.5 bg-primary transition-all duration-300 ${
+                isMenuOpen ? "-rotate-45 -translate-y-2" : ""
+              }`}></span>
             </button>
           </div>
+        </div>
 
-          {/* Floating Dropdown Menu (Mobile) */}
-          <div className={`absolute left-0 right-0 glass border border-primary/10 rounded-[32px] p-8 flex flex-col gap-6 shadow-2xl transition-all duration-500 md:hidden z-50 ${isMenuOpen ? "opacity-100 translate-y-2 scale-100" : "opacity-0 -translate-y-4 scale-95 pointer-events-none"} ${scrolled ? "top-16" : "top-24"}`}>
-            {["Layanan", "Alur Kerja", "Testimoni"].map((item, i) => (
+        {/* Mobile Drawer Dropdown Menu (< md) */}
+        <div
+          className={`md:hidden overflow-hidden transition-all duration-300 bg-white border-t border-primary/10 shadow-2xl ${
+            isMenuOpen ? "max-h-[90vh] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
+          }`}
+        >
+          <div className="px-5 py-6 space-y-5 overflow-y-auto max-h-[82vh]">
+            {/* Main Navigation Links */}
+            <div className="flex flex-col gap-1">
               <a
-                key={item}
-                href={`#${item.toLowerCase().replace(" ", "") === "layanan" ? "services" : item.toLowerCase().replace(" ", "") === "alurkerja" ? "process" : "testimonials"}`}
+                href="#"
                 onClick={() => setIsMenuOpen(false)}
-                className="text-lg font-bold text-on-surface hover:text-primary transition-colors flex items-center justify-between group"
+                className="px-3 py-2.5 rounded-xl font-bold text-sm bg-primary/10 text-primary flex items-center justify-between"
               >
-                {item}
-                <i className="fi fi-rr-angle-small-right text-primary opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-2"></i>
+                <span>Beranda</span>
+                <i className="fi fi-rr-home text-xs"></i>
               </a>
+
+              <a
+                href="#services"
+                onClick={() => setIsMenuOpen(false)}
+                className="px-3 py-2.5 rounded-xl font-bold text-sm text-on-surface hover:bg-primary/5 hover:text-primary flex items-center justify-between transition-colors"
+              >
+                <span>Layanan Unggulan</span>
+                <i className="fi fi-rr-apps text-primary/50 text-xs"></i>
+              </a>
+
+              <a
+                href="#projects"
+                onClick={() => setIsMenuOpen(false)}
+                className="px-3 py-2.5 rounded-xl font-bold text-sm text-on-surface hover:bg-primary/5 hover:text-primary flex items-center justify-between transition-colors"
+              >
+                <span>Hasil Portofolio</span>
+                <i className="fi fi-rr-picture text-primary/50 text-xs"></i>
+              </a>
+
+              <a
+                href="#process"
+                onClick={() => setIsMenuOpen(false)}
+                className="px-3 py-2.5 rounded-xl font-bold text-sm text-on-surface hover:bg-primary/5 hover:text-primary flex items-center justify-between transition-colors"
+              >
+                <span>Alur Pemesanan</span>
+                <i className="fi fi-rr-calendar-clock text-primary/50 text-xs"></i>
+              </a>
+
+              <a
+                href="#testimonials"
+                onClick={() => setIsMenuOpen(false)}
+                className="px-3 py-2.5 rounded-xl font-bold text-sm text-on-surface hover:bg-primary/5 hover:text-primary flex items-center justify-between transition-colors"
+              >
+                <span>Testimoni Klien</span>
+                <i className="fi fi-rr-star text-primary/50 text-xs"></i>
+              </a>
+            </div>
+
+            {/* Service Categories with 6-City Grid */}
+            {servicesList.map((service) => (
+              <div key={service.id} className="pt-3 border-t border-primary/10">
+                <div className="flex items-center justify-between mb-2 px-1">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-primary flex items-center gap-1.5">
+                    <i className={`${service.icon} text-xs`}></i>
+                    <span>Layanan {service.name}</span>
+                  </span>
+                  <span className="text-[10px] font-semibold text-on-surface-variant/70">
+                    Pilih Kota:
+                  </span>
+                </div>
+                <div className="grid grid-cols-3 gap-1.5">
+                  {citiesList.map((city) => (
+                    <Link
+                      key={city.slug}
+                      href={`/${service.id}/${city.slug}`}
+                      onClick={() => setIsMenuOpen(false)}
+                      className="px-2 py-2 rounded-xl text-xs font-bold text-center bg-surface text-on-surface border border-primary/10 hover:border-primary/40 hover:bg-primary/5 hover:text-primary transition-all"
+                    >
+                      {city.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
             ))}
-            <a
-              href={getWhatsAppLink("general")}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setIsMenuOpen(false)}
-              className="bg-gradient-primary text-white px-6 py-4 rounded-2xl font-bold text-center shadow-xl shadow-primary/20 active:scale-95 transition-all"
-            >
-              Konsultasi Sekarang
-            </a>
+
+            {/* Mobile Bottom WhatsApp CTA */}
+            <div className="pt-3 border-t border-primary/10">
+              <a
+                href={getWhatsAppLink("general")}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsMenuOpen(false)}
+                className="w-full bg-gradient-primary text-white py-3 px-4 rounded-xl font-bold text-xs text-center flex items-center justify-center gap-2 shadow-lg shadow-primary/20"
+              >
+                <i className="fi fi-brands-whatsapp text-base"></i>
+                <span>Hubungi Teknisi via WhatsApp</span>
+              </a>
+            </div>
           </div>
         </div>
-      </nav>
+      </header>
 
       <main>
         {/* Hero Section */}
-        <section className="relative min-h-screen lg:min-h-[900px] flex flex-col justify-center pt-32 pb-20 lg:pt-40 px-6 overflow-hidden">
+        <section className="relative min-h-screen lg:min-h-225 flex flex-col justify-center pt-12 sm:pt-16 pb-20 lg:pt-20 px-6 overflow-hidden">
           {/* Enhanced Background Decorations */}
-          <div className="absolute top-[-10%] left-[-10%] w-[400px] md:w-[800px] h-[400px] md:h-[800px] bg-primary/5 rounded-full blur-[80px] md:blur-[140px] -z-10 animate-pulse-soft"></div>
-          <div className="absolute bottom-[-10%] right-[-10%] w-[400px] md:w-[800px] h-[400px] md:h-[800px] bg-secondary/5 rounded-full blur-[80px] md:blur-[140px] -z-10 animate-pulse-soft"></div>
+          <div className="absolute top-[-10%] left-[-10%] w-100 md:w-200 h-100 md:h-200 bg-primary/5 rounded-full blur-[80px] md:blur-[140px] -z-10 animate-pulse-soft"></div>
+          <div className="absolute bottom-[-10%] right-[-10%] w-100 md:w-200 h-100 md:h-200 bg-secondary/5 rounded-full blur-[80px] md:blur-[140px] -z-10 animate-pulse-soft"></div>
           <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.02] -z-20"></div>
 
           <div className="max-w-7xl mx-auto w-full flex flex-col items-center lg:items-start relative z-10 mb-6 md:mb-8">
@@ -119,30 +270,30 @@ export default function Home() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
               </span>
-              <span className="text-primary text-[10px] md:text-xs font-black uppercase tracking-[0.2em] md:tracking-[0.25em]">Premium Home Service • 24/7</span>
+              <span className="text-primary text-[10px] md:text-xs font-black uppercase tracking-[0.2em] md:tracking-[0.25em]">Spesialis Water Heater • Stove • Coockerhood • 24/7</span>
             </div>
           </div>
 
           <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 lg:gap-16 items-center w-full">
             {/* Image Column (Order 1 on mobile, 2 on desktop) */}
             <div className="lg:col-span-5 relative animate-fade-in-up order-1 lg:order-2 mb-8 lg:mb-0" style={{ animationDelay: '300ms' }}>
-              <div className="relative group max-w-[400px] md:max-w-[500px] mx-auto lg:max-w-none">
+              <div className="relative group max-w-100 md:max-w-125 mx-auto lg:max-w-none">
                 {/* Main Image: Stove */}
-                <div className="relative z-20 rounded-[40px] lg:rounded-[56px] overflow-hidden shadow-[0_32px_64px_-12px_rgba(0,0,0,0.3)] border-8 lg:border-[12px] border-white/40 transform lg:rotate-2 group-hover:rotate-0 transition-all duration-700">
+                <div className="relative z-20 rounded-[40px] lg:rounded-[56px] overflow-hidden shadow-[0_32px_64px_-12px_rgba(0,0,0,0.3)] border-8 lg:border-12 border-white/40 transform lg:rotate-2 group-hover:rotate-0 transition-all duration-700">
                   <Image
                     src="/stove-hero.png"
-                    alt="Layanan Profesional Servis Kompor Listrik di Surabaya - Tekno Home"
+                    alt="Layanan Profesional Servis Stove & Kompor Listrik di Surabaya - Tekno Home"
                     width={500}
                     height={650}
                     priority
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover aspect-[4/5] w-full"
+                    className="object-cover aspect-4/5 w-full"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  <div className="absolute inset-0 bg-linear-to-t from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 </div>
 
                 {/* Secondary Image: Water Heater */}
-                <div className="absolute -bottom-6 -left-6 md:-bottom-12 md:-left-12 lg:-left-24 z-30 w-[60%] md:w-[70%] rounded-[32px] lg:rounded-[48px] overflow-hidden shadow-2xl border-4 lg:border-[10px] border-white/60 transform -rotate-6 group-hover:rotate-0 transition-all duration-700">
+                <div className="absolute -bottom-6 -left-6 md:-bottom-12 md:-left-12 lg:-left-24 z-30 w-[60%] md:w-[70%] rounded-[32px] lg:rounded-[48px] overflow-hidden shadow-2xl border-4 lg:border-10 border-white/60 transform -rotate-6 group-hover:rotate-0 transition-all duration-700">
                   <Image
                     src="/water-heater-hero.png"
                     alt="Spesialis Servis Water Heater Ariston & Modena Surabaya - Tekno Home"
@@ -169,8 +320,8 @@ export default function Home() {
                   <span className="text-gradient-primary">Hati Tenang.</span>
                 </h1>
                 <p className="text-lg md:text-xl lg:text-2xl text-on-surface-variant leading-relaxed max-w-xl font-medium opacity-90 mx-auto lg:mx-0">
-                  Solusi ahli untuk <span className="text-primary font-bold">Water Heater</span> & <span className="text-secondary font-bold">Kompor Listrik</span> (Free Standing & Tanam).
-                  Teknisi bersertifikat kami siap mengembalikan kenyamanan Anda hari ini.
+                  Solusi ahli & bergaransi untuk <span className="text-primary font-bold">Water Heater</span>, <span className="text-secondary font-bold">Stove (Kompor)</span>, dan <span className="text-primary font-bold">Coockerhood</span>.
+                  Teknisi berpengalaman kami siap menuntaskan kendala peralatan rumah Anda hari ini.
                 </p>
               </div>
 
@@ -202,12 +353,12 @@ export default function Home() {
         <section className="px-6 py-12 md:py-16">
           <div className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
             {[
-              { label: "Panggil ke rumah", val: "Teknisi", icon: "fi fi-rr-map-marker-home" },
-              { label: "Tanya-tanya gratis", val: "Konsultasi", icon: "fi fi-rr-headset" },
-              { label: "Ekspres & Bergaransi", val: "Cepat", icon: "fi fi-rr-time-fast" },
-              { label: "Ahli bertahun-tahun", val: "Berpengalaman", icon: "fi fi-rr-shield-check" }
+              { label: "Panggilan Cepat", val: "Teknisi ke Rumah", icon: "fi fi-rr-map-marker-home" },
+              { label: "Konsultasi Gratis", val: "Tanya Kapan Saja", icon: "fi fi-rr-headset" },
+              { label: "Suku Cadang Asli", val: "Resmi & Bergaransi", icon: "fi fi-rr-shield-check" },
+              { label: "Multi-Brand Ahli", val: "Teknisi Handal", icon: "fi fi-rr-time-fast" }
             ].map((stat, i) => (
-              <div key={i} className="glass p-5 md:p-8 rounded-[32px] text-center border border-primary/5 hover:border-primary/20 transition-all duration-500 hover:translate-y-[-8px] group">
+              <div key={i} className="glass p-5 md:p-8 rounded-[32px] text-center border border-primary/5 hover:border-primary/20 transition-all duration-500 hover:-translate-y-2 group">
                 <div className="w-10 h-10 md:w-14 md:h-14 bg-gradient-primary/10 rounded-2xl flex items-center justify-center text-primary mx-auto mb-4 text-xl md:text-3xl transition-transform group-hover:scale-110 group-hover:rotate-6">
                   <i className={stat.icon}></i>
                 </div>
@@ -225,22 +376,22 @@ export default function Home() {
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
               <div className="space-y-4">
                 <div className="inline-block bg-primary text-white px-6 py-3 rounded-xl font-bold text-xl shadow-lg shadow-primary/20">
-                  Layanan Service
+                  Layanan Utama
                 </div>
-                <h2 className="text-4xl md:text-5xl font-bold text-on-surface tracking-tight">Solusi Masalah Peralatan Anda</h2>
-                <p className="text-lg text-on-surface-variant max-w-2xl">Solusi cepat untuk kendala kompor listrik (free standing & tanam) serta water heater Anda.</p>
+                <h2 className="text-4xl md:text-5xl font-bold text-on-surface tracking-tight">Solusi Lengkap Peralatan Rumah Anda</h2>
+                <p className="text-lg text-on-surface-variant max-w-2xl">Penanganan profesional untuk Water Heater, Stove (Kompor Listrik & Gas), dan Coockerhood segala merk ternama.</p>
 
               </div>
             </div>            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
               {[
-                { title: "Kelistrikan", desc: "Mati total atau korslet? Kami perbaiki.", icon: "fi fi-rr-bolt" },
-                { title: "Pengapian", desc: "Susah nyala? Langsung stabil & siap.", icon: "fi fi-rr-settings" },
-                { title: "Kebersihan", desc: "Kotor/Macet? Kami bersihkan tuntas.", icon: "fi fi-rr-vacuum" },
-                { title: "Kondisi Ekstrem", desc: "Ledakan/Banjir? Kami tangani aman.", icon: "fi fi-rr-exclamation" },
-                { title: "Restorasi Unit", desc: "Unit lama mati? Kami hidupkan baru.", icon: "fi fi-rr-refresh" },
-                { title: "Servis Heater", desc: "Tidak panas/korslet? Kami atasi.", icon: "fi fi-rr-water" }
+                { title: "Servis Water Heater", desc: "Air tidak panas, korslet, bocor, atau tekanan air melemah? Kami tuntaskan.", icon: "fi fi-rr-water" },
+                { title: "Servis Stove (Kompor)", desc: "Kompor gas, tanam, atau induksi susah nyala, api merah, dan modul error.", icon: "fi fi-rr-bolt" },
+                { title: "Servis Coockerhood", desc: "Daya hisap asap loyo, motor bising, lampu mati, atau filter berminyak.", icon: "fi fi-rr-wind" },
+                { title: "Kelistrikan & Modul", desc: "Mati total, short circuit, penggantian sensor & perkabelan berstandar aman.", icon: "fi fi-rr-settings" },
+                { title: "Deep Clean & Perawatan", desc: "Pembersihan tuntas kerak air, kerak minyak gosong, dan tune-up performa.", icon: "fi fi-rr-vacuum" },
+                { title: "Restorasi & Pasang Baru", desc: "Instalasi rapi unit baru atau restorasi unit lama agar normal seperti baru.", icon: "fi fi-rr-refresh" }
               ].map((service, i) => (
-                <div key={i} className="glass p-5 md:p-8 rounded-[32px] border border-primary/5 hover:border-primary/20 transition-all duration-500 hover:translate-y-[-8px] group">
+                <div key={i} className="glass p-5 md:p-8 rounded-[32px] border border-primary/5 hover:border-primary/20 transition-all duration-500 hover:-translate-y-2 group">
                   <div className="w-10 h-10 md:w-16 md:h-16 bg-gradient-primary/10 rounded-2xl flex items-center justify-center text-primary mb-4 md:mb-6 group-hover:bg-primary group-hover:text-white transition-all duration-500 text-xl md:text-3xl">
                     <i className={service.icon}></i>
                   </div>
@@ -272,12 +423,12 @@ export default function Home() {
               <h2 className="text-3xl md:text-4xl font-black text-on-surface leading-tight">Mengapa Memilih <span className="text-primary">TeknoHome</span>?</h2>
               <div className="space-y-6 md:space-y-8">
                 {[
-                  { title: "Berlisensi & Bergaransi", desc: "Ketenangan total untuk setiap servis. Kualitas pengerjaan terjamin.", icon: "fi fi-rr-shield-check" },
-                  { title: "Harga Transparan", desc: "Tanpa biaya tersembunyi. Estimasi harga jujur di awal.", icon: "fi fi-rr-money" },
-                  { title: "Jadwal Fleksibel", desc: "Tersedia pagi, siang, atau sore menyesuaikan waktu Anda.", icon: "fi fi-rr-calendar-clock" }
+                  { title: "Berlisensi & Bergaransi", desc: "Ketenangan total untuk setiap pengerjaan Water Heater, Stove, dan Coockerhood dengan garansi resmi.", icon: "fi fi-rr-shield-check" },
+                  { title: "Harga Transparan", desc: "Tanpa biaya tersembunyi. Estimasi harga jujur di awal dengan suku cadang original terjamin.", icon: "fi fi-rr-money" },
+                  { title: "Jadwal Fleksibel & Home Service", desc: "Teknisi datang tepat waktu ke lokasi Anda, menyesuaikan waktu luang pagi, siang, atau sore.", icon: "fi fi-rr-calendar-clock" }
                 ].map((item, i) => (
                   <div key={i} className="flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-6 group">
-                    <div className="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 bg-gradient-primary/10 rounded-2xl flex items-center justify-center text-primary text-2xl md:text-3xl group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                    <div className="shrink-0 w-12 h-12 md:w-14 md:h-14 bg-gradient-primary/10 rounded-2xl flex items-center justify-center text-primary text-2xl md:text-3xl group-hover:bg-primary group-hover:text-white transition-all duration-300">
                       <i className={item.icon}></i>
                     </div>
 
@@ -300,7 +451,7 @@ export default function Home() {
                 Portofolio Kami
               </div>
               <h2 className="text-4xl md:text-5xl font-bold text-on-surface tracking-tight">Hasil Pekerjaan Kami</h2>
-              <p className="text-lg text-on-surface-variant max-w-2xl mx-auto">Dokumentasi perbaikan dan pemasangan tim TeknoHome di berbagai lokasi.</p>
+              <p className="text-lg text-on-surface-variant max-w-2xl mx-auto">Dokumentasi perbaikan dan instalasi Water Heater, Stove, dan Coockerhood oleh tim TeknoHome.</p>
             </div>
 
             <ProjectGrid />
@@ -320,7 +471,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto relative">
             <div className="text-center mb-16 space-y-4">
               <h2 className="text-4xl md:text-5xl font-bold text-on-surface tracking-tight">Pemesanan Mudah & Aman</h2>
-              <p className="text-lg text-on-surface-variant max-w-2xl mx-auto">Transparan dan nyaman di setiap tahapan layanan kami.</p>
+              <p className="text-lg text-on-surface-variant max-w-2xl mx-auto">Prosedur praktis dan transparan di setiap tahapan servis kami.</p>
             </div>
 
 
@@ -334,13 +485,13 @@ export default function Home() {
                 <h3 className="text-2xl md:text-3xl font-bold text-on-surface mb-8">Cara Pemesanan</h3>
                 <ul className="space-y-6">
                   {[
-                    "Konsultasi via WA/Telepon ke admin.",
-                    "Survei lokasi & penawaran harga rinci.",
-                    "Deal & penjadwalan proses pengerjaan."
+                    "Konsultasi kendala Water Heater, Stove, atau Coockerhood via WA/Telepon.",
+                    "Survei lokasi & diagnosa teknisi dengan penawaran harga rinci di awal.",
+                    "Deal & pengerjaan langsung di tempat hingga berfungsi normal bergaransi."
                   ].map((item, i) => (
 
                     <li key={i} className="flex gap-5 items-start">
-                      <div className="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold text-sm">
+                      <div className="shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold text-sm">
                         {i + 1}
                       </div>
                       <p className="text-on-surface-variant leading-relaxed pt-1">{item}</p>
@@ -364,7 +515,7 @@ export default function Home() {
                     ].map((item, i) => (
 
                       <li key={i} className="flex gap-5 items-start">
-                        <div className="flex-shrink-0 w-8 h-8 bg-secondary text-white rounded-full flex items-center justify-center font-bold text-sm">
+                        <div className="shrink-0 w-8 h-8 bg-secondary text-white rounded-full flex items-center justify-center font-bold text-sm">
                           {i + 1}
                         </div>
                         <p className="text-on-surface-variant leading-relaxed pt-1">{item}</p>
@@ -442,7 +593,7 @@ export default function Home() {
               </div>
 
               {/* Google Maps Embed */}
-              <div className="lg:col-span-7 relative group min-h-[400px]">
+              <div className="lg:col-span-7 relative group min-h-100">
                 <div className="absolute inset-0 bg-primary/10 rounded-[40px] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                 <div className="relative h-full w-full rounded-[40px] overflow-hidden border-8 border-white shadow-2xl">
                   <iframe
@@ -453,7 +604,7 @@ export default function Home() {
                     allowFullScreen={true}
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
-                    className="grayscale-[20%] hover:grayscale-0 transition-all duration-700"
+                    className="grayscale-20 hover:grayscale-0 transition-all duration-700"
                   ></iframe>
                 </div>
               </div>
@@ -468,14 +619,14 @@ export default function Home() {
           <div className="max-w-7xl mx-auto rounded-[40px] overflow-hidden relative bg-gradient-primary p-12 md:p-24 text-center text-white">
             <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
             <div className="relative space-y-8">
-              <h2 className="text-4xl md:text-6xl font-black">Butuh perbaikan segera? <br /> Kami siap membantu.</h2>
-              <p className="text-xl text-primary-fixed-dim max-w-2xl mx-auto">Jangan biarkan peralatan rusak mengganggu aktivitas Anda. Teknisi kami siaga memberikan layanan cepat dan handal.</p>
+              <h2 className="text-4xl md:text-6xl font-black">Water Heater, Stove, atau Coockerhood Bermasalah? <br /> Kami Siap Membantu.</h2>
+              <p className="text-xl text-primary-fixed-dim max-w-2xl mx-auto">Jangan biarkan kenyamanan dapur & rumah Anda terganggu. Teknisi TeknoHome siaga memberikan layanan perbaikan cepat, rapi, dan bergaransi resmi.</p>
               <div className="flex flex-wrap justify-center gap-6">
                 <a
                   href={getWhatsAppLink("cta")}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-white text-primary px-10 py-5 rounded-2xl font-bold text-xl hover:shadow-2xl transition-all hover:translate-y-[-2px] active:scale-95 inline-block"
+                  className="bg-white text-primary px-10 py-5 rounded-2xl font-bold text-xl hover:shadow-2xl transition-all hover:-translate-y-0.5 active:scale-95 inline-block"
                 >
                   Hubungi Kami Sekarang
                 </a>
@@ -505,15 +656,16 @@ export default function Home() {
                 sizes="(max-width: 768px) 300px, 600px"
               />
             </div>
-            <p className="text-on-surface-variant max-w-sm">Solusi layanan rumah profesional untuk water heater dan kompor listrik Anda. Terpercaya, cepat, dan bersertifikat.</p>
+            <p className="text-on-surface-variant max-w-sm">Solusi layanan rumah profesional untuk Water Heater, Stove (Kompor Gas & Listrik), dan Coockerhood Anda. Terpercaya, cepat, dan bergaransi resmi.</p>
           </div>
 
           <div className="md:justify-self-center">
             <h4 className="font-bold text-on-surface mb-6">Layanan Kami</h4>
             <ul className="space-y-4 text-on-surface-variant">
-              <li><a href="#" className="hover:text-primary transition-colors">Servis Water Heater</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Servis Kompor Listrik</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Layanan Darurat</a></li>
+              <li><a href="#services" className="hover:text-primary transition-colors">Servis Water Heater</a></li>
+              <li><a href="#services" className="hover:text-primary transition-colors">Servis Stove (Kompor)</a></li>
+              <li><a href="#services" className="hover:text-primary transition-colors">Servis Coockerhood</a></li>
+              <li><a href="#services" className="hover:text-primary transition-colors">Layanan Darurat 24 Jam</a></li>
             </ul>
           </div>
 
@@ -521,7 +673,7 @@ export default function Home() {
             <h4 className="font-bold text-on-surface mb-6">Info Kontak</h4>
             <ul className="space-y-6 text-on-surface-variant">
               <li className="flex gap-4 items-start">
-                <div className="w-10 h-10 bg-primary/5 rounded-xl flex items-center justify-center text-primary flex-shrink-0 text-xl">
+                <div className="w-10 h-10 bg-primary/5 rounded-xl flex items-center justify-center text-primary shrink-0 text-xl">
                   <i className="fi fi-rr-phone-call"></i>
                 </div>
 
@@ -539,7 +691,7 @@ export default function Home() {
               </li>
 
               <li className="flex gap-4 items-start">
-                <div className="w-10 h-10 bg-primary/5 rounded-xl flex items-center justify-center text-primary flex-shrink-0 text-xl">
+                <div className="w-10 h-10 bg-primary/5 rounded-xl flex items-center justify-center text-primary shrink-0 text-xl">
                   <i className="fi fi-rr-marker"></i>
                 </div>
 
@@ -575,13 +727,77 @@ export default function Home() {
         href={getWhatsAppLink("general")}
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-8 right-8 z-[60] group"
+        className="fixed bottom-8 right-8 z-60 group"
       >
         <div className="absolute inset-0 bg-secondary rounded-full animate-pulse-slow opacity-40"></div>
         <div className="relative glass w-16 h-16 rounded-full flex items-center justify-center text-secondary shadow-2xl border border-secondary/20 hover:scale-110 transition-transform duration-300 text-3xl">
           <i className="fi fi-brands-whatsapp"></i>
         </div>
       </a>
+
+      {/* Coming Soon Modal */}
+      {comingSoonModal.isOpen && (
+        <div className="fixed inset-0 z-[1002] flex items-center justify-center p-4 sm:p-6">
+          {/* Backdrop */}
+          <div
+            className="absolute inset-0 bg-black/75 backdrop-blur-md animate-fade-in cursor-pointer"
+            onClick={() => setComingSoonModal({ isOpen: false, title: "", category: "" })}
+          ></div>
+
+          {/* Modal Container */}
+          <div className="relative w-full max-w-lg bg-white rounded-[32px] md:rounded-[40px] p-6 sm:p-10 shadow-2xl border border-primary/10 overflow-hidden animate-fade-in-up z-10 text-center">
+            {/* Subtle background glow */}
+            <div className="absolute -top-20 -right-20 w-44 h-44 bg-secondary/15 rounded-full blur-3xl pointer-events-none"></div>
+            <div className="absolute -bottom-20 -left-20 w-44 h-44 bg-primary/15 rounded-full blur-3xl pointer-events-none"></div>
+
+            {/* Close Button */}
+            <button
+              onClick={() => setComingSoonModal({ isOpen: false, title: "", category: "" })}
+              className="absolute top-5 right-5 w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-red-50 hover:text-red-500 transition-all active:scale-90"
+              aria-label="Tutup"
+            >
+              <i className="fi fi-rr-cross text-xs"></i>
+            </button>
+
+            {/* Icon */}
+            <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-secondary/10 rounded-3xl mx-auto flex items-center justify-center text-secondary text-3xl sm:text-4xl mb-5 shadow-inner">
+              <i className="fi fi-rr-rocket-lunch"></i>
+            </div>
+
+            <div className="inline-block bg-secondary/10 text-secondary border border-secondary/20 px-3.5 py-1 rounded-full text-[10px] sm:text-xs font-black uppercase tracking-widest mb-4">
+              Segera Hadir • Coming Soon
+            </div>
+
+            <h3 className="text-2xl sm:text-3xl font-black text-on-surface tracking-tight mb-3">
+              {comingSoonModal.title}
+            </h3>
+
+            <p className="text-on-surface-variant text-sm sm:text-base leading-relaxed mb-8 max-w-md mx-auto">
+              Halaman dan ketersediaan teknisi untuk <strong>{comingSoonModal.title}</strong> saat ini sedang dipersiapkan. Untuk pemesanan langsung atau pertanyaan wilayah cakupan, Anda dapat menghubungi tim kami melalui WhatsApp.
+            </p>
+
+            {/* Actions */}
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <a
+                href={getWhatsAppLink("comingsoon", comingSoonModal.title)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-gradient-primary text-white px-6 py-3.5 rounded-2xl font-bold text-sm shadow-xl shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-2"
+              >
+                <i className="fi fi-brands-whatsapp text-lg"></i>
+                <span>Tanya via WhatsApp</span>
+              </a>
+
+              <button
+                onClick={() => setComingSoonModal({ isOpen: false, title: "", category: "" })}
+                className="glass px-6 py-3.5 rounded-2xl font-bold text-sm text-on-surface hover:bg-surface-container transition-all active:scale-95"
+              >
+                Tutup
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

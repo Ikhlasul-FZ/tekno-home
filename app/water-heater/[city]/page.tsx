@@ -339,23 +339,38 @@ export default async function WaterHeaterCityPage({ params }: PageProps) {
         </section>
 
         {/* Supported Brands Section */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-surface-container-high/40 border-y border-primary/5">
-          <div className="max-w-7xl mx-auto text-center space-y-8">
-            <div>
+        <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-surface-container-high/40 border-y border-primary/5">
+          <div className="max-w-7xl mx-auto text-center space-y-10">
+            <div className="max-w-2xl mx-auto space-y-2">
               <p className="text-xs font-bold uppercase tracking-widest text-primary mb-2">Multi-Brand Ahli</p>
-              <h2 className="text-2xl sm:text-3xl font-black text-on-surface">Merk Water Heater yang Kami Layani di {data.name}</h2>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-on-surface">Merk Water Heater yang Kami Layani di {data.name}</h2>
+              <p className="text-sm md:text-base text-on-surface-variant font-medium">Melayani perbaikan, instalasi, dan perawatan water heater listrik (storage & instan), gas, serta tenaga surya (solar) berbagai merk ternama.</p>
             </div>
 
-            <div className="flex flex-wrap justify-center gap-3 md:gap-4 max-w-4xl mx-auto">
+            {/* Showcase Image Merk Water Heater */}
+            <div className="max-w-4xl mx-auto bg-white rounded-3xl md:rounded-[40px] p-4 sm:p-6 md:p-8 shadow-xl border border-primary/10 relative overflow-hidden group">
+              <div className="relative w-full aspect-[16/9] max-h-[460px] rounded-2xl md:rounded-3xl overflow-hidden flex items-center justify-center bg-stone-50">
+                <Image
+                  src="/merkwh.webp"
+                  alt={`Merk dan Tipe Water Heater yang Dilayani di ${data.name} - Tekno Home Services`}
+                  width={1024}
+                  height={572}
+                  className="object-contain w-full h-full transition-transform duration-700 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, 850px"
+                />
+              </div>
+            </div>
+
+            <div className="flex flex-wrap justify-center gap-2.5 sm:gap-3 md:gap-4 max-w-4xl mx-auto">
               {supportedBrands.map((brand) => (
                 <div
                   key={brand}
-                  className="bg-white px-5 py-3 rounded-2xl shadow-sm border border-primary/10 font-bold text-sm md:text-base text-on-surface hover:border-primary/40 hover:text-primary transition-colors"
+                  className="bg-white px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl shadow-sm border border-primary/10 font-bold text-xs sm:text-sm md:text-base text-on-surface hover:border-primary/40 hover:text-primary transition-colors"
                 >
                   {brand}
                 </div>
               ))}
-              <div className="bg-primary/10 text-primary px-5 py-3 rounded-2xl font-bold text-sm md:text-base">
+              <div className="bg-primary/10 text-primary px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl font-bold text-xs sm:text-sm md:text-base">
                 & Merk Lainnya
               </div>
             </div>
@@ -514,7 +529,7 @@ export default async function WaterHeaterCityPage({ params }: PageProps) {
               {/* Google Maps Embed Frame */}
               <div className="lg:col-span-7 relative min-h-[360px] sm:min-h-[420px] rounded-[32px] md:rounded-[40px] overflow-hidden border-4 md:border-8 border-white shadow-2xl group">
                 <iframe
-                  src={`https://maps.google.com/maps?q=${encodeURIComponent(data.mapQuery)}&t=&z=12&ie=UTF8&iwloc=&output=embed`}
+                  src={`https://maps.google.com/maps?q=${encodeURIComponent(data.mapQuery)}&t=&z=${data.slug === "bali" ? 10 : 12}&ie=UTF8&iwloc=&output=embed`}
                   width="100%"
                   height="100%"
                   style={{ border: 0, minHeight: "360px" }}

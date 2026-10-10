@@ -111,9 +111,9 @@ export const cookerhoodCities: Record<string, CityData> = {
     slug: "tangerang",
     name: "Tangerang",
     province: "Banten",
-    headline: "Service Cooker Hood Panggilan Tangerang & Tangsel — Bergaransi Resmi",
+    headline: "Service Cooker Hood Panggilan Tangerang  — Bergaransi Resmi",
     subheadline: "Layanan perbaikan dan perawatan cooker hood penghisap asap dapur di BSD City, Gading Serpong, Alam Sutera, Bintaro, Karawaci, dan sekitarnya.",
-    statusBadge: "Layanan Panggilan Area Tangerang & Tangsel",
+    statusBadge: "Layanan Panggilan Area Tangerang",
     coverageAreas: [
       "BSD City, Serpong & Cisauk",
       "Gading Serpong, Paramount & Kelapa Dua",
@@ -185,7 +185,7 @@ export const cookerhoodCities: Record<string, CityData> = {
     statusBadge: "Layanan Panggilan Area Bogor & Sekitarnya",
     coverageAreas: [
       "Bogor Kota (Pajajaran, Baranangsiang, Bantarjati, Bogor Timur & Tengah)",
-      "Sentul City, Babakan Madang & Sentul Alaya",
+      "Sentul City, Babakan Madang",
       "Cibinong, Bojonggede & Cikeas",
       "Cimahpar, Sukaraja & Tanah Sareal",
       "Ciomas, Dramaga & Yasmin",
@@ -262,7 +262,7 @@ export const cookerhoodCities: Record<string, CityData> = {
     ],
     serviceHighlight: "Layanan prima untuk villa sewa dan resto pariwisata agar dapur selalu bersih, higienis, bebas bau asap, dan nyaman bagi tamu.",
     technicianEta: "Teknisi Siap Meluncur ke Lokasi",
-    mapQuery: "Denpasar, Bali, Indonesia",
+    mapQuery: "Bali, Indonesia",
     commonIssues: [
       {
         title: "Daya Hisap Melemah di Dapur Villa",

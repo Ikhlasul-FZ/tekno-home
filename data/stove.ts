@@ -53,7 +53,7 @@ export const stoveCities: Record<string, CityData> = {
     slug: "jakarta",
     name: "Jakarta",
     province: "DKI Jakarta",
-    headline: "Service Kompor (Stove) Panggilan Jakarta — Bergaransi & Teknisi Ahli",
+    headline: "Service Kompor Panggilan Jakarta — Bergaransi & Teknisi Ahli",
     subheadline: "Solusi cepat dan aman untuk perbaikan kompor gas tanam (built-in hob), freestanding oven cooker, dan kompor induksi. Teknisi siap datang langsung ke rumah, apartemen, kafe, & resto di seluruh Jakarta.",
     statusBadge: "Layanan Panggilan Kompor Area Jakarta & Sekitarnya",
     coverageAreas: [
@@ -171,9 +171,9 @@ export const stoveCities: Record<string, CityData> = {
     slug: "tangerang",
     name: "Tangerang",
     province: "Banten",
-    headline: "Service Kompor Panggilan Tangerang & Tangsel — Bergaransi Resmi",
+    headline: "Service Kompor Panggilan Tangerang — Bergaransi Resmi",
     subheadline: "Layanan perbaikan kompor gas tanam, freestanding cooker, dan induksi di BSD City, Gading Serpong, Alam Sutera, Bintaro, Karawaci, dan seluruh Tangerang.",
-    statusBadge: "Layanan Panggilan Area Tangerang & Tangsel",
+    statusBadge: "Layanan Panggilan Area Tangerang",
     coverageAreas: [
       "BSD City, Serpong & Cisauk",
       "Gading Serpong, Paramount & Kelapa Dua",
@@ -295,7 +295,7 @@ export const stoveCities: Record<string, CityData> = {
     statusBadge: "Layanan Panggilan Area Bogor & Sekitarnya",
     coverageAreas: [
       "Bogor Kota (Pajajaran, Baranangsiang, Bantarjati, Bogor Timur & Tengah)",
-      "Sentul City, Babakan Madang & Sentul Alaya",
+      "Sentul City, Babakan Madang",
       "Cibinong, Bojonggede & Cikeas",
       "Cimahpar, Sukaraja & Tanah Sareal",
       "Ciomas, Dramaga & Yasmin",
@@ -422,7 +422,7 @@ export const stoveCities: Record<string, CityData> = {
     ],
     serviceHighlight: "Fasilitas servis profesional untuk villa sewa, restoran, resort, dan hunian pribadi dengan teknisi komunikatif & standar pengerjaan rapi.",
     technicianEta: "Teknisi Siap Meluncur ke Lokasi",
-    mapQuery: "Denpasar, Bali, Indonesia",
+    mapQuery: "Bali, Indonesia",
     commonIssues: [
       {
         title: "Korosi Burner Akibat Udara Pantai",

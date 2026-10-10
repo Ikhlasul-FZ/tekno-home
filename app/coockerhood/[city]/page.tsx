@@ -508,7 +508,7 @@ export default async function CookerhoodCityPage({ params }: PageProps) {
               {/* Google Maps Embed Frame */}
               <div className="lg:col-span-7 relative min-h-[360px] sm:min-h-[420px] rounded-[32px] md:rounded-[40px] overflow-hidden border-4 md:border-8 border-white shadow-2xl group">
                 <iframe
-                  src={`https://maps.google.com/maps?q=${encodeURIComponent(data.mapQuery)}&t=&z=12&ie=UTF8&iwloc=&output=embed`}
+                  src={`https://maps.google.com/maps?q=${encodeURIComponent(data.mapQuery)}&t=&z=${data.slug === "bali" ? 10 : 12}&ie=UTF8&iwloc=&output=embed`}
                   width="100%"
                   height="100%"
                   style={{ border: 0, minHeight: "360px" }}

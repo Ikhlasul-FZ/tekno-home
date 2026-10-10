@@ -129,9 +129,9 @@ export const waterHeaterCities: Record<string, CityData> = {
     slug: "tangerang",
     name: "Tangerang",
     province: "Banten",
-    headline: "Service Water Heater Tangerang & Tangsel — Bergaransi Resmi",
+    headline: "Service Water Heater Tangerang — Bergaransi Resmi",
     subheadline: "Teknisi ahli berpengalaman untuk perbaikan water heater di kawasan BSD, Gading Serpong, Karawaci, Alam Sutera, Bintaro, dan seluruh wilayah Tangerang.",
-    statusBadge: "Layanan Panggilan Area Tangerang & Tangsel",
+    statusBadge: "Layanan Panggilan Area Tangerang",
     coverageAreas: [
       "BSD City & Serpong",
       "Gading Serpong & Kelapa Dua",
@@ -220,9 +220,9 @@ export const waterHeaterCities: Record<string, CityData> = {
     slug: "bogor",
     name: "Bogor",
     province: "Jawa Barat",
-    headline: "Service Water Heater Bogor & Sentul — Respon Cepat & Bergaransi",
+    headline: "Service Water Heater Bogor — Respon Cepat & Bergaransi",
     subheadline: "Layanan perbaikan water heater untuk wilayah Kota Bogor, Sentul City, Cibinong, dan sekitarnya. Air hangat kembali nyaman untuk keluarga Anda.",
-    statusBadge: "Layanan Panggilan Area Bogor & Sentul",
+    statusBadge: "Layanan Panggilan Area Bogor",
     coverageAreas: [
       "Sentul City & Babakan Madang",
       "Bogor Kota (Baranangsiang, Pajajaran, Yasmin)",
@@ -318,7 +318,7 @@ export const waterHeaterCities: Record<string, CityData> = {
     ],
     serviceHighlight: "Pengalaman tinggi menangani unit kapasitas besar untuk villa privat, guest house, serta hunian residensial.",
     technicianEta: "Siaga Wilayah Denpasar & Badung",
-    mapQuery: "Denpasar, Bali, Indonesia",
+    mapQuery: "Bali, Indonesia",
     commonIssues: [
       { title: "Korosi Akibat Udara Laut", desc: "Udara pesisir pantai mempercepat korosi pada komponen luar dan pipa fitting water heater.", icon: "fi fi-rr-shield-exclamation" },
       { title: "Pemanas Solar Tidak Panas", desc: "Kolektor surya berdebu, sirkulasi pipa tersumbat, atau backup heater listrik mati.", icon: "fi fi-rr-sun" },

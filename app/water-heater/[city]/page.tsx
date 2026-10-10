@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { waterHeaterCities, supportedBrands } from "@/data/water-heater";
 import { getCityWhatsAppLink } from "@/utils/whatsapp";
 import CityNavbar from "@/components/CityNavbar";
+import WaterHeaterGallery from "@/components/WaterHeaterGallery";
 
 interface PageProps {
   params: Promise<{
@@ -24,14 +25,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!data) {
     return {
-      title: "Servis Water Heater Panggilan | Tekno Home Services",
+      title: "Servis Water Heater | Tekno Home Services",
     };
   }
 
   return {
     title: `Servis Water Heater ${data.name} | Teknisi Panggilan Bergaransi`,
-    description: `Jasa servis water heater panggilan profesional di ${data.name} (${data.province}). Teknisi ahli pengerjaan di tempat, suku cadang original, respon cepat & garansi resmi.`,
-    keywords: `servis water heater ${data.name.toLowerCase()}, perbaikan water heater ${data.name.toLowerCase()}, teknisi ariston ${data.name.toLowerCase()}, teknisi modena ${data.name.toLowerCase()}, servis water heater panggilan`,
+    description: `Service water heater profesional di ${data.name} (${data.province}). Teknisi ahli pengerjaan di tempat, suku cadang original, respon cepat & garansi resmi.`,
+    keywords: `servis water heater ${data.name.toLowerCase()}, perbaikan water heater ${data.name.toLowerCase()}, teknisi ariston ${data.name.toLowerCase()}, teknisi modena ${data.name.toLowerCase()}, servis water heater`,
     alternates: {
       canonical: `/water-heater/${data.slug}`,
     },
@@ -72,11 +73,11 @@ export default async function WaterHeaterCityPage({ params }: PageProps) {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            "name": `Jasa Servis Water Heater ${data.name}`,
+            "name": `Service Water Heater ${data.name}`,
             "provider": {
               "@type": "LocalBusiness",
               "name": "Tekno Home Services",
-              "telephone": "+62895622759846",
+              "telephone": "+6282299359184",
               "url": "https://www.teknohomeservice.com",
               "address": {
                 "@type": "PostalAddress",
@@ -361,6 +362,11 @@ export default async function WaterHeaterCityPage({ params }: PageProps) {
           </div>
         </section>
 
+        {/* Portfolio Gallery Section */}
+        {data.portfolio && data.portfolio.length > 0 && (
+          <WaterHeaterGallery cityName={data.name} items={data.portfolio} />
+        )}
+
         {/* Process Section */}
         <section className="py-20 px-4 sm:px-6 lg:px-8 bg-surface">
           <div className="max-w-7xl mx-auto">
@@ -606,8 +612,8 @@ export default async function WaterHeaterCityPage({ params }: PageProps) {
         className="fixed bottom-6 right-6 z-50 group"
         aria-label="Pesan teknisi water heater via WhatsApp"
       >
-        <div className="absolute inset-0 bg-secondary rounded-full animate-pulse-slow opacity-40"></div>
-        <div className="relative glass w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center text-secondary shadow-2xl border border-secondary/20 hover:scale-110 transition-transform duration-300 text-2xl md:text-3xl">
+        <div className="absolute inset-0 bg-[#25D366] rounded-full animate-pulse-slow opacity-40"></div>
+        <div className="relative bg-white w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center text-[#25D366] shadow-2xl shadow-[#25D366]/30 border border-[#25D366]/30 hover:scale-110 active:scale-95 transition-transform duration-300 text-2xl md:text-3xl">
           <i className="fi fi-brands-whatsapp"></i>
         </div>
       </a>

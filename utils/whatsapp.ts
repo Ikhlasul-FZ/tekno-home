@@ -6,7 +6,7 @@ export const getWhatsAppLink = (
   context: "general" | "hero" | "cta" | "portfolio" | "comingsoon" = "general",
   customService?: string
 ) => {
-  const phoneNumber = "62895622759846";
+  const phoneNumber = "6282299359184";
   
   let message = "";
   
@@ -39,11 +39,24 @@ export const getCityWhatsAppLink = (
   cityName: string,
   issue?: string
 ) => {
-  const phoneNumber = "62895622759846";
+  const phoneNumber = "6282299359184";
   const message = issue
     ? `Halo Tekno Home Services, saya butuh bantuan perbaikan ${service} di wilayah ${cityName}. Kendalanya: ${issue}. Apakah ada teknisi yang bisa dijadwalkan ke lokasi saya?`
     : `Halo Tekno Home Services, saya ingin memesan layanan servis ${service} untuk area ${cityName}. Bagaimana jadwal kunjungan teknisi terdekat?`;
 
   return `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 };
+
+export const getPortfolioWhatsAppLink = (
+  service: string,
+  cityName: string,
+  projectTitle: string,
+  location: string
+) => {
+  const phoneNumber = "6282299359184";
+  const message = `Halo Tekno Home Services, saya melihat hasil pengerjaan "${projectTitle}" di ${location} (${cityName}). Saya ingin konsultasi kendala ${service} saya di rumah. Bisa dijadwalkan teknisi?`;
+
+  return `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+};
+
 

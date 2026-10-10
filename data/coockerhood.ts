@@ -43,7 +43,7 @@ export const cookerhoodCities: Record<string, CityData> = {
     slug: "jakarta",
     name: "Jakarta",
     province: "DKI Jakarta",
-    headline: "Jasa Servis Cooker Hood Panggilan Jakarta — Spesialis Penghisap Asap Dapur Bergaransi",
+    headline: "Service Cooker Hood Panggilan Jakarta — Spesialis Penghisap Asap Dapur Bergaransi",
     subheadline: "Solusi perbaikan dan deep cleaning cooker hood model slim, chimney, island, dan built-in. Teknisi siap datang langsung ke rumah, apartemen, kafe, & resto di seluruh Jakarta.",
     statusBadge: "Layanan Panggilan Cooker Hood Area Jakarta & Sekitarnya",
     coverageAreas: [
@@ -103,7 +103,7 @@ export const cookerhoodCities: Record<string, CityData> = {
       },
       {
         q: "Berapa lama garansi yang diberikan untuk servis cooker hood?",
-        a: "Kami memberikan garansi resmi 30 hingga 90 hari untuk suku cadang pengganti (seperti motor, kapasitor, switch) serta jasa servis teknisi."
+        a: "Kami memberikan garansi resmi 30 hingga 90 hari untuk suku cadang pengganti (seperti motor, kapasitor, switch) serta Service teknisi."
       }
     ]
   },
@@ -111,7 +111,7 @@ export const cookerhoodCities: Record<string, CityData> = {
     slug: "tangerang",
     name: "Tangerang",
     province: "Banten",
-    headline: "Jasa Servis Cooker Hood Panggilan Tangerang & Tangsel — Bergaransi Resmi",
+    headline: "Service Cooker Hood Panggilan Tangerang & Tangsel — Bergaransi Resmi",
     subheadline: "Layanan perbaikan dan perawatan cooker hood penghisap asap dapur di BSD City, Gading Serpong, Alam Sutera, Bintaro, Karawaci, dan sekitarnya.",
     statusBadge: "Layanan Panggilan Area Tangerang & Tangsel",
     coverageAreas: [
@@ -180,7 +180,7 @@ export const cookerhoodCities: Record<string, CityData> = {
     slug: "bogor",
     name: "Bogor",
     province: "Jawa Barat",
-    headline: "Jasa Servis Cooker Hood Panggilan Bogor — Cepat, Bersih & Bergaransi",
+    headline: "Service Cooker Hood Panggilan Bogor — Cepat, Bersih & Bergaransi",
     subheadline: "Panggilan servis dan pembersihan exhaust penghisap asap dapur ke rumah tinggal, villa, kafe, & restoran di Bogor Kota, Sentul City, Cibubur, hingga Puncak.",
     statusBadge: "Layanan Panggilan Area Bogor & Sekitarnya",
     coverageAreas: [
@@ -249,7 +249,7 @@ export const cookerhoodCities: Record<string, CityData> = {
     slug: "bali",
     name: "Bali",
     province: "Bali",
-    headline: "Jasa Servis Cooker Hood Panggilan Bali — Solusi Villa, Resto & Rumah Tinggal",
+    headline: "Service Cooker Hood Panggilan Bali — Solusi Villa, Resto & Rumah Tinggal",
     subheadline: "Spesialis servis dan pembersihan cooker hood merk Eropa dan Asia di Denpasar, Badung, Seminyak, Canggu, Sanur, Ubud, dan sekitarnya.",
     statusBadge: "Layanan Panggilan Area Bali & Sekitarnya",
     coverageAreas: [
@@ -318,7 +318,7 @@ export const cookerhoodCities: Record<string, CityData> = {
     slug: "surabaya",
     name: "Surabaya",
     province: "Jawa Timur",
-    headline: "Jasa Servis Cooker Hood Panggilan Surabaya — Teknisi Ahli & Bergaransi Resmi",
+    headline: "Service Cooker Hood Panggilan Surabaya — Teknisi Ahli & Bergaransi Resmi",
     subheadline: "Layanan servis dinamo, ganti filter karbon, dan deep cleaning cooker hood panggilan terpercaya di Surabaya Barat, Timur, Pusat, Selatan, dan Utara.",
     statusBadge: "Pusat Layanan Teknisi Area Surabaya & Sekitarnya",
     coverageAreas: [
@@ -387,7 +387,7 @@ export const cookerhoodCities: Record<string, CityData> = {
     slug: "medan",
     name: "Medan",
     province: "Sumatera Utara",
-    headline: "Jasa Servis Cooker Hood Panggilan Medan — Cepat, Bersih & Bergaransi",
+    headline: "Service Cooker Hood Panggilan Medan — Cepat, Bersih & Bergaransi",
     subheadline: "Teknisi panggilan ahli perbaikan dan pembersihan exhaust cooker hood di Medan Petisah, Medan Selayang, Medan Sunggal, Medan Timur, Polonia, dan sekitarnya.",
     statusBadge: "Layanan Panggilan Area Kota Medan & Sekitarnya",
     coverageAreas: [

@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: `Servis Cooker Hood ${data.name} | Teknisi Panggilan Bergaransi`,
-    description: `Jasa servis cooker hood (penghisap asap dapur) panggilan profesional di ${data.name} (${data.province}). Teknisi ahli di tempat, deep cleaning minyak, sparepart original & garansi resmi.`,
+    description: `Service cooker hood (penghisap asap dapur) panggilan profesional di ${data.name} (${data.province}). Teknisi ahli di tempat, deep cleaning minyak, sparepart original & garansi resmi.`,
     keywords: `servis cooker hood ${data.name.toLowerCase()}, servis penghisap asap dapur ${data.name.toLowerCase()}, teknisi cooker hood modena ${data.name.toLowerCase()}, teknisi cooker hood electrolux ${data.name.toLowerCase()}, cuci cooker hood ${data.name.toLowerCase()}, perbaikan exhaust dapur`,
     alternates: {
       canonical: `/coockerhood/${data.slug}`,
@@ -72,11 +72,11 @@ export default async function CookerhoodCityPage({ params }: PageProps) {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            "name": `Jasa Servis Cooker Hood ${data.name}`,
+            "name": `Service Cooker Hood ${data.name}`,
             "provider": {
               "@type": "LocalBusiness",
               "name": "Tekno Home Services",
-              "telephone": "+62895622759846",
+              "telephone": "+6282299359184",
               "url": "https://www.teknohomeservice.com",
               "address": {
                 "@type": "PostalAddress",
@@ -606,8 +606,8 @@ export default async function CookerhoodCityPage({ params }: PageProps) {
         className="fixed bottom-6 right-6 z-50 group"
         aria-label="Pesan teknisi cooker hood via WhatsApp"
       >
-        <div className="absolute inset-0 bg-secondary rounded-full animate-pulse-slow opacity-40"></div>
-        <div className="relative glass w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center text-secondary shadow-2xl border border-secondary/20 hover:scale-110 transition-transform duration-300 text-2xl md:text-3xl">
+        <div className="absolute inset-0 bg-[#25D366] rounded-full animate-pulse-slow opacity-40"></div>
+        <div className="relative bg-white w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center text-[#25D366] shadow-2xl shadow-[#25D366]/30 border border-[#25D366]/30 hover:scale-110 active:scale-95 transition-transform duration-300 text-2xl md:text-3xl">
           <i className="fi fi-brands-whatsapp"></i>
         </div>
       </a>

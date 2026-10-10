@@ -575,7 +575,7 @@ export default function Home() {
               {/* Contact Info Cards */}
               <div className="lg:col-span-5 space-y-6">
                 {[
-                  { label: "Telepon & WA", val: "0895-6227-59846", icon: "fi fi-rr-phone-call", sub: "Tersedia 24 Jam" },
+                  { label: "Telepon & WA", val: "+62 822-9935-9184", icon: "fi fi-rr-phone-call", sub: "Tersedia 24 Jam" },
                   { label: "Alamat Kantor", val: "Jl. Gunungsari No.15, Surabaya", icon: "fi fi-rr-marker", sub: "Wonokromo, Jawa Timur 60242" },
                   { label: "Jam Operasional", val: "Senin - Minggu: 24 Jam", icon: "fi fi-rr-clock", sub: "Layanan Darurat Siaga" }
                 ].map((item, i) => (
@@ -685,7 +685,7 @@ export default function Home() {
                     rel="noopener noreferrer"
                     className="text-lg font-black text-on-surface underline decoration-primary/30 hover:text-primary transition-colors block"
                   >
-                    0895622759846
+                    +62 822-9935-9184
                   </a>
                 </div>
               </li>
@@ -729,8 +729,8 @@ export default function Home() {
         rel="noopener noreferrer"
         className="fixed bottom-8 right-8 z-60 group"
       >
-        <div className="absolute inset-0 bg-secondary rounded-full animate-pulse-slow opacity-40"></div>
-        <div className="relative glass w-16 h-16 rounded-full flex items-center justify-center text-secondary shadow-2xl border border-secondary/20 hover:scale-110 transition-transform duration-300 text-3xl">
+        <div className="absolute inset-0 bg-[#25D366] rounded-full animate-pulse-slow opacity-40"></div>
+        <div className="relative bg-white w-16 h-16 rounded-full flex items-center justify-center text-[#25D366] shadow-2xl shadow-[#25D366]/30 border border-[#25D366]/30 hover:scale-110 active:scale-95 transition-transform duration-300 text-3xl">
           <i className="fi fi-brands-whatsapp"></i>
         </div>
       </a>

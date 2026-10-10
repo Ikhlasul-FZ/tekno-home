@@ -121,3 +121,10 @@ body {
   background: linear-gradient(135deg, #914c00 0%, #FF8A00 100%);
 }
 
+/* Original WhatsApp Brand Green (#25D366) */
+.fi-brands-whatsapp,
+.fi-rr-whatsapp {
+  color: #25D366 !important;
+}
+
+

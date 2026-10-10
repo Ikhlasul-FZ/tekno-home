@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { stoveCities, supportedStoveBrands } from "@/data/stove";
 import { getCityWhatsAppLink } from "@/utils/whatsapp";
 import CityNavbar from "@/components/CityNavbar";
+import StoveGallery from "@/components/StoveGallery";
 
 interface PageProps {
   params: Promise<{
@@ -30,7 +31,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: `Servis Kompor ${data.name} | Teknisi Panggilan Bergaransi`,
-    description: `Jasa servis kompor gas tanam, freestanding cooker, & kompor induksi panggilan di ${data.name} (${data.province}). Teknisi ahli pengerjaan di tempat, sparepart original & garansi resmi.`,
+    description: `Service kompor gas tanam, freestanding cooker, & kompor induksi panggilan di ${data.name} (${data.province}). Teknisi ahli pengerjaan di tempat, sparepart original & garansi resmi.`,
     keywords: `servis kompor ${data.name.toLowerCase()}, perbaikan kompor ${data.name.toLowerCase()}, teknisi kompor modena ${data.name.toLowerCase()}, teknisi kompor ariston ${data.name.toLowerCase()}, servis kompor freestanding ${data.name.toLowerCase()}, servis kompor induksi ${data.name.toLowerCase()}`,
     alternates: {
       canonical: `/stove/${data.slug}`,
@@ -72,11 +73,11 @@ export default async function StoveCityPage({ params }: PageProps) {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            "name": `Jasa Servis Kompor (Stove) ${data.name}`,
+            "name": `Service Kompor (Stove) ${data.name}`,
             "provider": {
               "@type": "LocalBusiness",
               "name": "Tekno Home Services",
-              "telephone": "+62895622759846",
+              "telephone": "+6282299359184",
               "url": "https://www.teknohomeservice.com",
               "address": {
                 "@type": "PostalAddress",
@@ -361,6 +362,11 @@ export default async function StoveCityPage({ params }: PageProps) {
           </div>
         </section>
 
+        {/* Portfolio Gallery Section */}
+        {data.portfolio && data.portfolio.length > 0 && (
+          <StoveGallery cityName={data.name} items={data.portfolio} />
+        )}
+
         {/* Process Section */}
         <section className="py-20 px-4 sm:px-6 lg:px-8 bg-surface">
           <div className="max-w-7xl mx-auto">
@@ -483,7 +489,7 @@ export default async function StoveCityPage({ params }: PageProps) {
                     </div>
                     <div className="flex items-center gap-3 text-xs sm:text-sm font-semibold text-on-surface">
                       <i className="fi fi-rr-check-circle text-primary text-base shrink-0"></i>
-                      <span>Garansi Resmi Suku Cadang & Jasa Servis</span>
+                      <span>Garansi Resmi Suku Cadang & Service</span>
                     </div>
                     <div className="flex items-center gap-3 text-xs sm:text-sm font-semibold text-on-surface">
                       <i className="fi fi-rr-check-circle text-primary text-base shrink-0"></i>
@@ -606,8 +612,8 @@ export default async function StoveCityPage({ params }: PageProps) {
         className="fixed bottom-6 right-6 z-50 group"
         aria-label="Pesan teknisi kompor via WhatsApp"
       >
-        <div className="absolute inset-0 bg-secondary rounded-full animate-pulse-slow opacity-40"></div>
-        <div className="relative glass w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center text-secondary shadow-2xl border border-secondary/20 hover:scale-110 transition-transform duration-300 text-2xl md:text-3xl">
+        <div className="absolute inset-0 bg-[#25D366] rounded-full animate-pulse-slow opacity-40"></div>
+        <div className="relative bg-white w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center text-[#25D366] shadow-2xl shadow-[#25D366]/30 border border-[#25D366]/30 hover:scale-110 active:scale-95 transition-transform duration-300 text-2xl md:text-3xl">
           <i className="fi fi-brands-whatsapp"></i>
         </div>
       </a>

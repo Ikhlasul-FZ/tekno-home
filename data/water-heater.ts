@@ -1,3 +1,12 @@
+export interface PortfolioItem {
+  src: string;
+  title: string;
+  category: "Instalasi Baru" | "Perbaikan & Servis" | "Kuras & Perawatan";
+  location: string;
+  badge?: string;
+  desc?: string;
+}
+
 export interface CityData {
   slug: string;
   name: string;
@@ -18,6 +27,7 @@ export interface CityData {
     q: string;
     a: string;
   }[];
+  portfolio?: PortfolioItem[];
 }
 
 export const waterHeaterCities: Record<string, CityData> = {
@@ -25,7 +35,7 @@ export const waterHeaterCities: Record<string, CityData> = {
     slug: "jakarta",
     name: "Jakarta",
     province: "DKI Jakarta",
-    headline: "Jasa Servis Water Heater Panggilan Jakarta — Bergaransi & Teknisi Berpengalaman",
+    headline: "Service Water Heater Jakarta — Bergaransi & Teknisi Berpengalaman",
     subheadline: "Solusi cepat & aman untuk perbaikan water heater listrik, gas, dan tenaga surya. Layanan panggilan ke rumah, apartemen, dan kantor di seluruh wilayah Jakarta.",
     statusBadge: "Layanan Panggilan Area Jakarta & Sekitarnya",
     coverageAreas: [
@@ -63,13 +73,63 @@ export const waterHeaterCities: Record<string, CityData> = {
         q: "Merk water heater apa saja yang dapat diperbaiki di Jakarta?",
         a: "Kami melayani seluruh merk populer seperti Ariston, Modena, Rinnai, Polaris, Wika, Rheem, Electrolux, Ferroli, Gainsborough, Daalderop, dan lainnya."
       }
+    ],
+    portfolio: [
+      {
+        src: "/ars12.webp",
+        title: "Instalasi Water Heater Ariston Baru",
+        category: "Instalasi Baru",
+        location: "Apartemen Menteng, Jakarta Pusat",
+        badge: "Pemasangan Rapi",
+        desc: "Pemasangan unit water heater baru dengan fitting pipa kuningan anti karat dan pengaman ELCB standar SNI."
+      },
+      {
+        src: "/img2.webp",
+        title: "Pemasangan Water Heater Listrik Residensial",
+        category: "Instalasi Baru",
+        location: "Kebayoran Baru, Jakarta Selatan",
+        badge: "Unit Baru",
+        desc: "Instalasi unit water heater tabung 30L pada rumah tinggal dengan instalasi pipa rapi dan pengetesan suhu optimal."
+      },
+      {
+        src: "/ars1.webp",
+        title: "Penggantian Elemen Pemanas & Thermostat",
+        category: "Perbaikan & Servis",
+        location: "Pondok Indah, Jakarta Selatan",
+        badge: "Garansi 90 Hari",
+        desc: "Mengatasi kendala air tidak mau panas akibat heating element putus. Diganti sparepart original dengan garansi resmi."
+      },
+      {
+        src: "/ars11.webp",
+        title: "Penanganan Korsleting Listrik & MCB Anjlok",
+        category: "Perbaikan & Servis",
+        location: "Kelapa Gading, Jakarta Utara",
+        badge: "Respon Cepat",
+        desc: "Deteksi kebocoran arus dan rekondisi saklar proteksi ELCB demi keselamatan penghuni rumah."
+      },
+      {
+        src: "/ars3.webp",
+        title: "Kuras Kerak Kapur & Ganti Magnesium Anode",
+        category: "Kuras & Perawatan",
+        location: "Puri Indah, Jakarta Barat",
+        badge: "Maintenance",
+        desc: "Flushing total endapan kapur tebal dan pasang magnesium anode baru untuk mencegah tabung keropos."
+      },
+      {
+        src: "/ars (4).webp",
+        title: "Pengecekan Komprehensif Water Heater Apartemen",
+        category: "Perbaikan & Servis",
+        location: "Pantai Indah Kapuk (PIK), Jakarta Utara",
+        badge: "Unit Normal",
+        desc: "Servis kelistrikan dan perbaikan pressure safety valve yang bocor merembes ke dinding kamar mandi."
+      }
     ]
   },
   tangerang: {
     slug: "tangerang",
     name: "Tangerang",
     province: "Banten",
-    headline: "Jasa Servis Water Heater Panggilan Tangerang & Tangsel — Bergaransi Resmi",
+    headline: "Service Water Heater Tangerang & Tangsel — Bergaransi Resmi",
     subheadline: "Teknisi ahli berpengalaman untuk perbaikan water heater di kawasan BSD, Gading Serpong, Karawaci, Alam Sutera, Bintaro, dan seluruh wilayah Tangerang.",
     statusBadge: "Layanan Panggilan Area Tangerang & Tangsel",
     coverageAreas: [
@@ -104,14 +164,64 @@ export const waterHeaterCities: Record<string, CityData> = {
         q: "Berapa biaya servis water heater di Tangerang?",
         a: "Biaya disesuaikan dengan jenis kerusakan setelah teknisi melakukan pengecekan teliti. Estimasi biaya selalu diinfokan di awal tanpa biaya tersembunyi."
       }
+    ],
+    portfolio: [
+      {
+        src: "/ars2.webp",
+        title: "Instalasi Water Heater Kamar Mandi Klaster",
+        category: "Instalasi Baru",
+        location: "BSD City, Serpong",
+        badge: "Klaster Baru",
+        desc: "Instalasi baru unit water heater di perumahan BSD City dengan uji tekanan air dingin dan panas seimbang."
+      },
+      {
+        src: "/ars14.webp",
+        title: "Perbaikan Kebocoran Pipa & Seal Karet Tahan Panas",
+        category: "Perbaikan & Servis",
+        location: "Gading Serpong, Kelapa Dua",
+        badge: "Garansi 90 Hari",
+        desc: "Mengganti seal paking silikon tahan panas dan pipa fleksibel stainless yang rapuh termakan usia."
+      },
+      {
+        src: "/ars (6).webp",
+        title: "Servis Air Tidak Panas & Ganti Sensor Suhu",
+        category: "Perbaikan & Servis",
+        location: "Alam Sutera, Pinang",
+        badge: "Suku Cadang Ori",
+        desc: "Penggantian thermostat sensor ganda agar temperatur air mandi stabil sesuai setelan."
+      },
+      {
+        src: "/ars4.webp",
+        title: "Pembersihan Rutin Kerak Air Kapur Tanah",
+        category: "Kuras & Perawatan",
+        location: "Bintaro Jaya Sektor 9",
+        badge: "Perawatan Rutin",
+        desc: "Pembersihan tabung dari endapan mineral air tanah agar elemen pemanas awet dan hemat pemakaian listrik."
+      },
+      {
+        src: "/ars (13).webp",
+        title: "Penggantian Safety Valve & Cek Tekanan Tabung",
+        category: "Perbaikan & Servis",
+        location: "Lippo Karawaci, Tangerang Kota",
+        badge: "Selesai Rapi",
+        desc: "Mengatasi katup pelepas tekanan yang macet dan menyebabkan aliran air panas menetes tanpa henti."
+      },
+      {
+        src: "/ars10.webp",
+        title: "Instalasi Unit Water Heater Baru Townhouse",
+        category: "Instalasi Baru",
+        location: "Pamulang, Tangerang Selatan",
+        badge: "Instalasi Baru",
+        desc: "Pemasangan unit pemanas air elektrik hemat daya dengan dudukan bracket kokoh dan aman."
+      }
     ]
   },
   bogor: {
     slug: "bogor",
     name: "Bogor",
     province: "Jawa Barat",
-    headline: "Jasa Servis Water Heater Panggilan Bogor & Sentul — Respon Cepat & Bergaransi",
-    subheadline: "Layanan perbaikan water heater panggilan untuk wilayah Kota Bogor, Sentul City, Cibinong, dan sekitarnya. Air hangat kembali nyaman untuk keluarga Anda.",
+    headline: "Service Water Heater Bogor & Sentul — Respon Cepat & Bergaransi",
+    subheadline: "Layanan perbaikan water heater untuk wilayah Kota Bogor, Sentul City, Cibinong, dan sekitarnya. Air hangat kembali nyaman untuk keluarga Anda.",
     statusBadge: "Layanan Panggilan Area Bogor & Sentul",
     coverageAreas: [
       "Sentul City & Babakan Madang",
@@ -140,13 +250,63 @@ export const waterHeaterCities: Record<string, CityData> = {
         q: "Apakah teknisi membawa suku cadang pengganti?",
         a: "Teknisi kami membawa perlengkapan suku cadang umum (thermostat, elemen pemanas, ELCB, seal) untuk penanganan cepat di tempat."
       }
+    ],
+    portfolio: [
+      {
+        src: "/ars5.webp",
+        title: "Servis Rutin Water Heater Villa Sentul",
+        category: "Kuras & Perawatan",
+        location: "Sentul City, Babakan Madang",
+        badge: "Villa & Hunian",
+        desc: "Perawatan berkala dan flushing tabung kapasitas besar untuk memastikan air hangat selalu siap pakai di iklim sejuk Sentul."
+      },
+      {
+        src: "/ars7.webp",
+        title: "Perbaikan Heating Element Terbakar",
+        category: "Perbaikan & Servis",
+        location: "Pajajaran, Bogor Kota",
+        badge: "Garansi 90 Hari",
+        desc: "Penggantian elemen pemanas tembaga original dan pembersihan kerak dasar tabung yang menghambat transfer panas."
+      },
+      {
+        src: "/ars (8).webp",
+        title: "Perbaikan ELCB & Kebocoran Arus Lembab",
+        category: "Perbaikan & Servis",
+        location: "Taman Yasmin, Bogor Barat",
+        badge: "Aman Teruji",
+        desc: "Penanganan korsleting listrik yang membuat saklar ELCB berbunyi dan anjlok setiap unit dinyalakan."
+      },
+      {
+        src: "/ars13.webp",
+        title: "Pemasangan Water Heater Baru Rumah Tinggal",
+        category: "Instalasi Baru",
+        location: "Baranangsiang, Bogor Timur",
+        badge: "Instalasi Baru",
+        desc: "Instalasi water heater listrik efisien lengkap dengan jalur pipa air panas baru dan kran mixer shower."
+      },
+      {
+        src: "/ars (2).webp",
+        title: "Kuras Total Sedimen & Pembersihan Tangki",
+        category: "Kuras & Perawatan",
+        location: "Cibinong, Kabupaten Bogor",
+        badge: "Flushing Tuntas",
+        desc: "Menguras endapan pasir dan lumpur halus dari air tanah yang menyumbat sirkulasi pemanas air."
+      },
+      {
+        src: "/ars9.webp",
+        title: "Kalibrasi Thermostat & Suhu Otomatis",
+        category: "Perbaikan & Servis",
+        location: "Sentul Highlands, Bogor",
+        badge: "Suhu Normal",
+        desc: "Penyetelan sensor pengatur suhu agar air tidak overheating (terlalu mendidih) saat digunakan keluarga."
+      }
     ]
   },
   bali: {
     slug: "bali",
     name: "Bali",
     province: "Bali",
-    headline: "Jasa Servis Water Heater Panggilan Bali — Spesialis Villa, Rumah & Penginapan",
+    headline: "Service Water Heater Bali — Spesialis Villa, Rumah & Penginapan",
     subheadline: "Penanganan profesional untuk water heater tenaga surya (solar), listrik, dan gas di Denpasar, Badung, Kuta, Seminyak, Canggu, Sanur, dan sekitarnya.",
     statusBadge: "Spesialis Villa, Rumah Tinggal & Penginapan Bali",
     coverageAreas: [
@@ -176,13 +336,63 @@ export const waterHeaterCities: Record<string, CityData> = {
         q: "Apakah melayani villa sewa yang sedang ada tamu?",
         a: "Tentu, kami memahami urgensi kenyamanan tamu Anda. Kami memberikan prioritas penanganan darurat dengan pengerjaan senyap dan rapi."
       }
+    ],
+    portfolio: [
+      {
+        src: "/ars6.webp",
+        title: "Maintenance Water Heater Villa Wisatawan",
+        category: "Kuras & Perawatan",
+        location: "Seminyak, Badung",
+        badge: "Spesialis Villa",
+        desc: "Perawatan berkala sistem water heater multi-point villa sewa demi kenyamanan maksimal para tamu mancanegara."
+      },
+      {
+        src: "/ars8.webp",
+        title: "Penanganan Air Kurang Panas & Tekanan Lemah",
+        category: "Perbaikan & Servis",
+        location: "Canggu, Kuta Utara",
+        badge: "Respon Cepat",
+        desc: "Pembersihan kerak kapur pada elemen pemanas dan penyesuaian valve booster pump air hangat."
+      },
+      {
+        src: "/ars (10).webp",
+        title: "Servis Darurat Water Heater Guest House",
+        category: "Perbaikan & Servis",
+        location: "Sanur, Denpasar Selatan",
+        badge: "Darurat 24 Jam",
+        desc: "Penanganan darurat kebocoran nepel pipa dan kabel terbakar yang diselesaikan dalam waktu 1 jam kunjungan."
+      },
+      {
+        src: "/ars (12).webp",
+        title: "Servis Pemanas Air Elektrik Villa Tropis",
+        category: "Perbaikan & Servis",
+        location: "Ubud, Gianyar",
+        badge: "Garansi Resmi",
+        desc: "Penggantian modul kelistrikan dan uji stabilitas panas di tengah suasana sejuk pedalaman Ubud."
+      },
+      {
+        src: "/ars (15).webp",
+        title: "Penggantian Fitting & Anti-Korosi Pesisir",
+        category: "Perbaikan & Servis",
+        location: "Nusa Dua, Badung",
+        badge: "Anti Korosi",
+        desc: "Penggantian komponen fitting logam yang rentan korosi uap garam laut dengan material kuningan tahan lama."
+      },
+      {
+        src: "/ars (1).webp",
+        title: "Instalasi Unit Baru Rumah Residensial",
+        category: "Instalasi Baru",
+        location: "Renon, Denpasar Timur",
+        badge: "Instalasi Baru",
+        desc: "Pemasangan water heater hemat energi untuk hunian keluarga dengan penataan kabel dan pipa tersembunyi rapi."
+      }
     ]
   },
   surabaya: {
     slug: "surabaya",
     name: "Surabaya",
     province: "Jawa Timur",
-    headline: "Jasa Servis Water Heater Surabaya — Pusat Operasional Utama Siaga 24 Jam",
+    headline: "Service Water Heater Surabaya — Pusat Operasional Utama Siaga 24 Jam",
     subheadline: "Spesialis servis water heater terpercaya di Surabaya. Pengerjaan di tempat oleh teknisi berpengalaman, suku cadang original, respon ekspres, dan bergaransi resmi.",
     statusBadge: "Kantor Pusat Operasional • Siaga 24 Jam",
     coverageAreas: [
@@ -216,14 +426,64 @@ export const waterHeaterCities: Record<string, CityData> = {
         q: "Apakah ada layanan panggilan darurat 24 jam?",
         a: "Ya, kami menyediakan hotline WhatsApp 24 jam untuk melayani kendala darurat air bocor atau korslet kapan pun Anda butuhkan."
       }
+    ],
+    portfolio: [
+      {
+        src: "/ars12.webp",
+        title: "Instalasi Water Heater Kapasitas 50L",
+        category: "Instalasi Baru",
+        location: "Citraland, Surabaya Barat",
+        badge: "Pusat Operasional",
+        desc: "Pemasangan water heater tabung 50L melayani 2 kamar mandi sekaligus dengan pembagian debit air merata."
+      },
+      {
+        src: "/ars (14).webp",
+        title: "Flushing Kerak Kapur & Ganti Magnesium Anode",
+        category: "Kuras & Perawatan",
+        location: "Graha Famili, Surabaya Barat",
+        badge: "Perawatan Rutin",
+        desc: "Pembersihan total endapan kapur tebal dan penggantian anoda korban pelindung tangki anti karat."
+      },
+      {
+        src: "/ars (16).webp",
+        title: "Perbaikan Modul Digital & Display Sentuh",
+        category: "Perbaikan & Servis",
+        location: "Pakuwon Mall Area, Surabaya Barat",
+        badge: "Suku Cadang Ori",
+        desc: "Perbaikan board kontrol mikrokontroler water heater seri modern yang error mati mendadak."
+      },
+      {
+        src: "/ars1.webp",
+        title: "Servis Cepat Air Tidak Panas & Elemen Rusak",
+        category: "Perbaikan & Servis",
+        location: "Rungkut, Surabaya Timur",
+        badge: "Garansi 90 Hari",
+        desc: "Penggantian elemen pemanas putus dan pengetesan ketahanan isolasi kabel berstandar keselamatan tinggi."
+      },
+      {
+        src: "/ars11.webp",
+        title: "Perbaikan Kebocoran & Penataan Jalur Pipa",
+        category: "Perbaikan & Servis",
+        location: "Gubeng, Surabaya Pusat",
+        badge: "Selesai Rapi",
+        desc: "Perbaikan kebocoran paking tangki dan penggantian selang fleksibel lapis anyaman stainless steel."
+      },
+      {
+        src: "/ars (5).webp",
+        title: "Kalibrasi Safety Valve & Tekanan Air",
+        category: "Perbaikan & Servis",
+        location: "Dharmahusada, Surabaya Timur",
+        badge: "Garansi Resmi",
+        desc: "Pengecekan one-way safety valve untuk mencegah tekanan balik tabung saat air dipanaskan maksimal."
+      }
     ]
   },
   medan: {
     slug: "medan",
     name: "Medan",
     province: "Sumatera Utara",
-    headline: "Jasa Servis Water Heater Panggilan Medan — Bergaransi & Teknisi Handal",
-    subheadline: "Layanan perbaikan dan perawatan water heater panggilan di Kota Medan dan sekitarnya. Cepat, transparan, dan bergaransi resmi.",
+    headline: "Service Water Heater Medan — Bergaransi & Teknisi Handal",
+    subheadline: "Layanan perbaikan dan perawatan water heater di Kota Medan dan sekitarnya. Cepat, transparan, dan bergaransi resmi.",
     statusBadge: "Layanan Panggilan Area Kota Medan",
     coverageAreas: [
       "Medan Kota & Medan Barat",
@@ -251,6 +511,56 @@ export const waterHeaterCities: Record<string, CityData> = {
       {
         q: "Bagaimana sistem garansi pengerjaannya?",
         a: "Setiap pekerjaan servis disertai nota dan garansi resmi. Jika kendala yang sama terulang dalam masa garansi, kami perbaiki kembali tanpa biaya tambahan."
+      }
+    ],
+    portfolio: [
+      {
+        src: "/ars3.webp",
+        title: "Perbaikan Water Heater Listrik Komplek",
+        category: "Perbaikan & Servis",
+        location: "Komplek Cemara Asri, Medan",
+        badge: "Garansi 90 Hari",
+        desc: "Mengatasi kendala pemanas air mati total dengan penggantian switch daya dan thermostat baru."
+      },
+      {
+        src: "/ars9.webp",
+        title: "Penggantian Saklar Pengaman ELCB Anti-Korslet",
+        category: "Perbaikan & Servis",
+        location: "Medan Baru, Kota Medan",
+        badge: "Suku Cadang Ori",
+        desc: "Mengganti ELCB sensitif 10mA yang melindungi pemakai dari risiko sengatan listrik saat mandi."
+      },
+      {
+        src: "/ars (3).webp",
+        title: "Instalasi Water Heater Kamar Mandi Utama",
+        category: "Instalasi Baru",
+        location: "Medan Petisah, Kota Medan",
+        badge: "Instalasi Baru",
+        desc: "Instalasi unit water heater instan / storage dengan penataan pipa tertutup rapi dan estetis."
+      },
+      {
+        src: "/ars (7).webp",
+        title: "Kuras Total Kerak & Sedimen Air Sumur",
+        category: "Kuras & Perawatan",
+        location: "Medan Helvetia & Sunggal",
+        badge: "Flushing Tuntas",
+        desc: "Membersihkan endapan lumpur halus dan kerak kapur agar tabung air tidak mengeluarkan bau besi atau keruh."
+      },
+      {
+        src: "/ars (9).webp",
+        title: "Perbaikan Air Kurang Panas & Sensor Rusak",
+        category: "Perbaikan & Servis",
+        location: "Medan Johor & Selayang",
+        badge: "Selesai Rapi",
+        desc: "Perbaikan kontak pengatur temperatur dan pemeriksaan kontinuitas listrik heating element."
+      },
+      {
+        src: "/ars (11).webp",
+        title: "Pengecekan Pipa Inlet & Valve Pengaman",
+        category: "Perbaikan & Servis",
+        location: "Medan Barat, Kota Medan",
+        badge: "Garansi Resmi",
+        desc: "Pergantian katup pengaman anti-overpressure dan selang fleksibel berkualitas tinggi."
       }
     ]
   }

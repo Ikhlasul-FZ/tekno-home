@@ -151,6 +151,9 @@ export default function CityNavbar({
           <a href="#issues" className="hover:text-primary transition-colors py-2">
             Kendala
           </a>
+          <a href="#gallery" className="hover:text-primary transition-colors py-2">
+            Galeri
+          </a>
           <a href="#faq" className="hover:text-primary transition-colors py-2">
             FAQ
           </a>
@@ -223,6 +226,15 @@ export default function CityNavbar({
             >
               <span>Gejala Kerusakan & Solusi</span>
               <i className="fi fi-rr-tools text-primary/50 text-xs"></i>
+            </a>
+
+            <a
+              href="#gallery"
+              onClick={closeMobileMenu}
+              className="px-3 py-2.5 rounded-xl font-bold text-sm text-on-surface hover:bg-primary/5 hover:text-primary flex items-center justify-between transition-colors"
+            >
+              <span>Galeri Portofolio</span>
+              <i className="fi fi-rr-gallery text-primary/50 text-xs"></i>
             </a>
 
             <a

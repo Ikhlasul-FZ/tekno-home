@@ -8,6 +8,12 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
+export const viewport = {
+  themeColor: "#006684",
+  width: "device-width",
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
   title: "Tekno Home Services | Spesialis Servis Water Heater, Stove & Coockerhood",
   description: "Spesialis Service Water Heater, Stove (Kompor Listrik/Gas) & Coockerhood Surabaya. Teknisi Ahli, Pengerjaan di Tempat, Suku Cadang Original & Bergaransi Resmi.",
@@ -40,7 +46,10 @@ export const metadata: Metadata = {
     ],
   },
   verification: {
-    google: "wBp-Sk22NGNKx2Oaz2hb1e0odWczOvY6boj0wZYwuus",
+    google: [
+      "j-z1ZgKLlFTs_8oU3JS7uc0aYpmoygTHlfQjbghgLNQ",
+      "wBp-Sk22NGNKx2Oaz2hb1e0odWczOvY6boj0wZYwuus",
+    ],
   },
 };
 
@@ -53,9 +62,11 @@ export default function RootLayout({
   return (
     <html
       lang="id"
-      className={`${inter.variable} h-full antialiased scroll-smooth`}
+      data-scroll-behavior="smooth"
+      className={`${inter.variable} h-full antialiased`}
     >
       <head>
+        <link rel="preconnect" href="https://cdn-uicons.flaticon.com" crossOrigin="anonymous" />
         <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.1.0/uicons-regular-rounded/css/uicons-regular-rounded.css' />
         <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.1.0/uicons-solid-rounded/css/uicons-solid-rounded.css' />
         <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.1.0/uicons-brands/css/uicons-brands.css' />
@@ -99,6 +110,9 @@ export default function RootLayout({
             })
           }}
         />
+      </head>
+
+      <body className="min-h-full flex flex-col bg-surface text-on-surface" suppressHydrationWarning>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-725564218"
           strategy="afterInteractive"
@@ -111,9 +125,6 @@ export default function RootLayout({
             gtag('config', 'AW-725564218');
           `}
         </Script>
-      </head>
-
-      <body className="min-h-full flex flex-col bg-surface text-on-surface" suppressHydrationWarning>
         {children}
       </body>
     </html>

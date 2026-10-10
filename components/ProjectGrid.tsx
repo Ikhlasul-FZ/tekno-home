@@ -132,6 +132,7 @@ export default function ProjectGrid() {
 
               <button
                 onClick={() => setIsModalOpen(false)}
+                aria-label="Tutup Modal Portofolio"
                 className="group w-10 h-10 md:w-14 md:h-14 rounded-full bg-white/5 text-white/70 flex items-center justify-center hover:bg-red-500/20 hover:text-red-400 transition-all border border-white/5"
               >
                 <i className="fi fi-rr-cross text-[10px] md:text-lg group-hover:rotate-90 transition-transform duration-300"></i>

@@ -85,6 +85,7 @@ export default function TestimonialCarousel() {
       <div className="flex justify-center md:block">
         <button 
           onClick={prev}
+          aria-label="Testimoni sebelumnya"
           className="absolute -left-4 md:-left-16 top-1/2 -translate-y-1/2 w-11 h-11 md:w-16 md:h-16 rounded-full bg-white/90 backdrop-blur-md border border-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all shadow-xl z-20 group active:scale-90 opacity-100 md:opacity-0 md:group-hover/carousel:opacity-100"
         >
           <i className="fi fi-rr-angle-left text-lg md:text-2xl group-hover:-translate-x-1 transition-transform"></i>
@@ -92,6 +93,7 @@ export default function TestimonialCarousel() {
  
         <button 
           onClick={next}
+          aria-label="Testimoni selanjutnya"
           className="absolute -right-4 md:-right-16 top-1/2 -translate-y-1/2 w-11 h-11 md:w-16 md:h-16 rounded-full bg-white/90 backdrop-blur-md border border-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all shadow-xl z-20 group active:scale-90 opacity-100 md:opacity-0 md:group-hover/carousel:opacity-100"
         >
           <i className="fi fi-rr-angle-right text-lg md:text-2xl group-hover:translate-x-1 transition-transform"></i>
@@ -104,6 +106,7 @@ export default function TestimonialCarousel() {
           <button
             key={i}
             onClick={() => setCurrentIndex(i)}
+            aria-label={`Lihat slide testimoni ${i + 1}`}
             className={`h-1.5 md:h-2.5 rounded-full transition-all duration-500 ${
               currentIndex === i ? "w-8 md:w-12 bg-primary" : "w-1.5 md:w-2.5 bg-primary/20"
             }`}

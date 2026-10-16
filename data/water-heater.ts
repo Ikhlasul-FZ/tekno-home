@@ -67,7 +67,7 @@ export const waterHeaterCities: Record<string, CityData> = {
       },
       {
         q: "Apakah ada garansi setelah perbaikan?",
-        a: "Tekno Home Services memberikan garansi resmi untuk setiap perbaikan dan penggantian suku cadang demi ketenangan total Anda."
+        a: "Tekno Home Services memberikan garansi layanan untuk setiap perbaikan dan penggantian suku cadang demi ketenangan total Anda."
       },
       {
         q: "Merk water heater apa saja yang dapat diperbaiki di Jakarta?",
@@ -97,7 +97,7 @@ export const waterHeaterCities: Record<string, CityData> = {
         category: "Perbaikan & Servis",
         location: "Pondok Indah, Jakarta Selatan",
         badge: "Garansi 90 Hari",
-        desc: "Mengatasi kendala air tidak mau panas akibat heating element putus. Diganti sparepart original dengan garansi resmi."
+        desc: "Mengatasi kendala air tidak mau panas akibat heating element putus. Diganti sparepart original dengan garansi layanan."
       },
       {
         src: "/ars11.webp",
@@ -510,7 +510,7 @@ export const waterHeaterCities: Record<string, CityData> = {
       },
       {
         q: "Bagaimana sistem garansi pengerjaannya?",
-        a: "Setiap pekerjaan servis disertai nota dan garansi resmi. Jika kendala yang sama terulang dalam masa garansi, kami perbaiki kembali tanpa biaya tambahan."
+        a: "Setiap pekerjaan servis disertai nota dan garansi layanan. Jika kendala yang sama terulang dalam masa garansi, kami perbaiki kembali tanpa biaya tambahan."
       }
     ],
     portfolio: [

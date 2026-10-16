@@ -113,7 +113,7 @@ export const stoveCities: Record<string, CityData> = {
       },
       {
         q: "Apakah ada garansi setelah perbaikan?",
-        a: "Tentu! Kami memberikan garansi resmi 30 hingga 90 hari untuk perbaikan dan suku cadang yang diganti demi kenyamanan dan rasa aman keluarga Anda."
+        a: "Tentu! Kami memberikan garansi layanan 30 hingga 90 hari untuk perbaikan dan suku cadang yang diganti demi kenyamanan dan rasa aman keluarga Anda."
       }
     ],
     portfolio: [
@@ -224,7 +224,7 @@ export const stoveCities: Record<string, CityData> = {
       },
       {
         q: "Bagaimana sistem garansi pengerjaan di Tangerang?",
-        a: "Setiap pengerjaan perbaikan dan penggantian suku cadang dilengkapi nota dan garansi resmi selama 30-90 hari."
+        a: "Setiap pengerjaan perbaikan dan penggantian suku cadang dilengkapi nota dan garansi layanan selama 30-90 hari."
       },
       {
         q: "Berapa lama estimasi pengerjaan servis kompor?",
@@ -700,7 +700,7 @@ export const stoveCities: Record<string, CityData> = {
       },
       {
         q: "Berapa lama garansi yang diberikan untuk perbaikan kompor di Medan?",
-        a: "Setiap perbaikan disertai dengan garansi resmi 30 hingga 90 hari untuk suku cadang dan jasa perbaikan teknisi."
+        a: "Setiap perbaikan disertai dengan garansi layanan 30 hingga 90 hari untuk suku cadang dan jasa perbaikan teknisi."
       },
       {
         q: "Apakah pengerjaan dilakukan langsung di tempat?",
@@ -758,7 +758,7 @@ export const stoveCities: Record<string, CityData> = {
         category: "Kompor Tanam",
         location: "Medan Barat, Kota Medan",
         badge: "Instalasi Baru",
-        desc: "Pemasangan kompor gas tanam baru dengan uji kebocoran gas presisi dan garansi resmi."
+        desc: "Pemasangan kompor gas tanam baru dengan uji kebocoran gas presisi dan garansi layanan."
       }
     ]
   }

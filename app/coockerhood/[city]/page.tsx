@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { cookerhoodCities, supportedCookerhoodBrands } from "@/data/coockerhood";
 import { getCityWhatsAppLink } from "@/utils/whatsapp";
 import CityNavbar from "@/components/CityNavbar";
+import CookerhoodArticlesSection from "@/components/CookerhoodArticlesSection";
 
 interface PageProps {
   params: Promise<{
@@ -30,7 +31,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: `Servis Cooker Hood ${data.name} | Teknisi Panggilan Bergaransi`,
-    description: `Service cooker hood (penghisap asap dapur) panggilan profesional di ${data.name} (${data.province}). Teknisi ahli di tempat, deep cleaning minyak, sparepart original & garansi resmi.`,
+    description: `Service cooker hood (penghisap asap dapur) panggilan profesional di ${data.name} (${data.province}). Teknisi ahli di tempat, deep cleaning minyak, sparepart original & garansi layanan.`,
     keywords: `servis cooker hood ${data.name.toLowerCase()}, servis penghisap asap dapur ${data.name.toLowerCase()}, teknisi cooker hood modena ${data.name.toLowerCase()}, teknisi cooker hood electrolux ${data.name.toLowerCase()}, cuci cooker hood ${data.name.toLowerCase()}, perbaikan exhaust dapur`,
     alternates: {
       canonical: `/coockerhood/${data.slug}`,
@@ -99,7 +100,7 @@ export default async function CookerhoodCityPage({ params }: PageProps) {
 
       {/* Header / Navbar with Desktop & Mobile Responsive Navigation */}
       <CityNavbar
-        currentService="Coockerhood"
+        currentService="Coocker Hood"
         serviceSlug="coockerhood"
         cityName={data.name}
         citySlug={data.slug}
@@ -119,7 +120,7 @@ export default async function CookerhoodCityPage({ params }: PageProps) {
                 Beranda
               </Link>
               <span>/</span>
-              <span>Coockerhood (Penghisap Asap)</span>
+              <span>Coocker Hood (Penghisap Asap)</span>
               <span>/</span>
               <span className="text-primary font-bold">{data.name}</span>
             </div>
@@ -396,7 +397,7 @@ export default async function CookerhoodCityPage({ params }: PageProps) {
                 {
                   step: "04",
                   title: "Uji Daya Sedot & Garansi",
-                  desc: "Uji hisap asap masakan, pembersihan area kerja, dan penyerahan nota garansi resmi.",
+                  desc: "Uji hisap asap masakan, pembersihan area kerja, dan penyerahan nota garansi layanan.",
                   icon: "fi fi-rr-shield-check"
                 }
               ].map((item, i) => (
@@ -412,6 +413,9 @@ export default async function CookerhoodCityPage({ params }: PageProps) {
             </div>
           </div>
         </section>
+
+        {/* Cooker Hood Articles & Education Section */}
+        <CookerhoodArticlesSection cityName={data.name} citySlug={data.slug} />
 
         {/* FAQ Section */}
         <section id="faq" className="py-20 px-4 sm:px-6 lg:px-8 bg-surface-container-low/40">
@@ -590,7 +594,7 @@ export default async function CookerhoodCityPage({ params }: PageProps) {
             Tekno Home Services — Spesialis Servis Cooker Hood {data.name}
           </p>
           <p className="text-xs text-on-surface-variant max-w-md mx-auto">
-            Melayani perbaikan dinamo blower, penggantian filter karbon, dan deep cleaning cooker hood panggilan dengan garansi resmi.
+            Melayani perbaikan dinamo blower, penggantian filter karbon, dan deep cleaning cooker hood panggilan dengan garansi layanan.
           </p>
           <div className="pt-4 text-xs text-on-surface-variant/70 border-t border-outline-variant/20">
             © 2026 Tekno Home Services. Seluruh hak cipta dilindungi.

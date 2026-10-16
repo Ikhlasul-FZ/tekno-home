@@ -4,14 +4,14 @@ import { useState, useEffect } from "react";
 
 export default function TestimonialCarousel() {
   const testimonials = [
-    { name: "Ibu Grace", loc: "Sambikerep, Sby", quote: "Sudah jadi langganan kalau water heater, stove, atau coockerhood di rumah ada kendala. Teknisi selalu gerak cepat begitu dihubungi.", stars: 5 },
-    { name: "Ibu Indri", loc: "Kenjeran, Sby", quote: "Teknisi datang tepat waktu dan jelasin masalahnya dengan jelas. Sekarang water heater saya nyala stabil dan aman.", stars: 5 },
-    { name: "Mama Hana", loc: "Wiyung, Sby", quote: "Awalnya ragu, tapi ternyata pengerjaan stove tanam sangat memuaskan. Harganya transparan, nggak ada biaya tambahan aneh-aneh.", stars: 5 },
-    { name: "Bpk. Hendra", loc: "Rungkut, Sby", quote: "Panggil teknisi untuk maintenance rutin water heater. Pengerjaan sangat detail sampai dibersihkan kerak-keraknya. Sekarang suhu airnya stabil lagi.", stars: 5 },
-    { name: "Ibu Maya", loc: "Gubeng, Sby", quote: "Coockerhood dapur yang tadinya berisik dan daya hisapnya loyo sekarang normal dan bersih kembali. Terima kasih TeknoHome!", stars: 5 },
-    { name: "Bpk. Agus", loc: "Darmo, Sby", quote: "Layanan daruratnya mantap. Stove gas bermasalah di hari Minggu tetap dilayani dengan cepat. Teknisi sangat tenang dan solutif.", stars: 5 },
-    { name: "Ibu Shinta", loc: "Mulyorejo, Sby", quote: "Sangat terbantu dengan layanan TeknoHome. Kompor induksi yang error dan cookerhood yang macet langsung normal dalam sekali kunjungan.", stars: 5 },
-    { name: "Bpk. Farhan", loc: "Tandes, Sby", quote: "Layanan servis water heater & peralatan dapur terbaik di Surabaya. Proses booking via WA gampang banget, teknisi profesional.", stars: 5 }
+    { name: "Ibu Grace", loc: "Pondok Indah, Jakarta", quote: "Sudah jadi langganan kalau water heater, stove, atau cooker hood di rumah ada kendala. Teknisi selalu gerak cepat begitu dihubungi.", stars: 5 },
+    { name: "Bpk. Hendra", loc: "BSD City, Tangerang", quote: "Panggil teknisi untuk maintenance rutin water heater. Pengerjaan sangat detail sampai dibersihkan kerak-keraknya. Sekarang suhu airnya stabil lagi.", stars: 5 },
+    { name: "Mama Hana", loc: "Wiyung, Surabaya", quote: "Awalnya ragu, tapi ternyata pengerjaan kompor tanam sangat memuaskan. Harganya transparan, nggak ada biaya tambahan aneh-aneh.", stars: 5 },
+    { name: "Bpk. Wayan", loc: "Sanur, Bali", quote: "Sangat terbantu untuk servis water heater di villa kami. Respon cepat, teknisi sopan dan teliti, unit langsung normal kembali.", stars: 5 },
+    { name: "Ibu Maya", loc: "Sentul City, Bogor", quote: "Cooker hood dapur yang tadinya berisik dan daya hisapnya loyo sekarang normal dan bersih kembali. Terima kasih Tekno Home!", stars: 5 },
+    { name: "Bpk. Ricky", loc: "Cemara Asri, Medan", quote: "Layanan daruratnya mantap. Kompor gas dapur usaha bermasalah di hari Minggu tetap dilayani dengan cepat. Teknisi sangat tenang dan solutif.", stars: 5 },
+    { name: "Ibu Shinta", loc: "Kelapa Gading, Jakarta", quote: "Sangat terbantu dengan layanan Tekno Home. Kompor induksi yang error dan cooker hood yang macet langsung normal dalam sekali kunjungan.", stars: 5 },
+    { name: "Bpk. Farhan", loc: "Gading Serpong, Tangerang", quote: "Layanan servis water heater & peralatan dapur terbaik. Proses booking via WA gampang banget, teknisi profesional dan bergaransi resmi.", stars: 5 }
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);

@@ -27,7 +27,7 @@ export default function Home() {
   const servicesList = [
     { name: "Water Heater", id: "water-heater", icon: "fi fi-rr-flame" },
     { name: "Stove", id: "stove", icon: "fi fi-rr-gas-pump" },
-    { name: "Coockerhood", id: "coockerhood", icon: "fi fi-rr-wind" },
+    { name: "Coocker Hood", id: "coockerhood", icon: "fi fi-rr-wind" },
   ];
 
   const citiesList = [
@@ -48,7 +48,7 @@ export default function Home() {
           <Link href="/" className="flex items-center shrink-0">
             <Image
               src="/logo-navbar.webp"
-              alt="Tekno Home Services - Spesialis Servis Alat Rumah Tangga Surabaya"
+              alt="Tekno Home Services - Spesialis Servis Alat Rumah Tangga Panggilan"
               width={240}
               height={182}
               className="h-14 sm:h-16 md:h-17 w-auto object-contain"
@@ -64,7 +64,7 @@ export default function Home() {
               <span className="w-1.5 h-1.5 rounded-full bg-primary inline-block"></span>
             </Link>
 
-            {/* Dropdowns: Water Heater, Stove, Coockerhood */}
+            {/* Dropdowns: Water Heater, Stove, Coocker Hood */}
             {servicesList.map((service) => (
               <div
                 key={service.id}
@@ -270,7 +270,7 @@ export default function Home() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
               </span>
-              <span className="text-primary text-[10px] md:text-xs font-black uppercase tracking-[0.2em] md:tracking-[0.25em]">Spesialis Water Heater • Stove • Coockerhood • 24/7</span>
+              <span className="text-primary text-[10px] md:text-xs font-black uppercase tracking-[0.2em] md:tracking-[0.25em]">Spesialis Water Heater • Stove • Coocker Hood • 24/7</span>
             </div>
           </div>
 
@@ -282,7 +282,7 @@ export default function Home() {
                 <div className="relative z-20 rounded-[40px] lg:rounded-[56px] overflow-hidden shadow-[0_32px_64px_-12px_rgba(0,0,0,0.3)] border-8 lg:border-12 border-white/40 transform lg:rotate-2 group-hover:rotate-0 transition-all duration-700">
                   <Image
                     src="/stove-hero.png"
-                    alt="Layanan Profesional Servis Stove & Kompor Listrik di Surabaya - Tekno Home"
+                    alt="Layanan Profesional Servis Stove & Kompor Gas Listrik - Tekno Home"
                     width={500}
                     height={650}
                     priority
@@ -296,7 +296,7 @@ export default function Home() {
                 <div className="absolute -bottom-6 -left-6 md:-bottom-12 md:-left-12 lg:-left-24 z-30 w-[60%] md:w-[70%] rounded-[32px] lg:rounded-[48px] overflow-hidden shadow-2xl border-4 lg:border-10 border-white/60 transform -rotate-6 group-hover:rotate-0 transition-all duration-700">
                   <Image
                     src="/water-heater-hero.png"
-                    alt="Spesialis Servis Water Heater Ariston & Modena Surabaya - Tekno Home"
+                    alt="Spesialis Servis Water Heater Ariston, Modena & Multi-Brand - Tekno Home"
                     width={400}
                     height={400}
                     priority
@@ -320,7 +320,7 @@ export default function Home() {
                   <span className="text-gradient-primary">Hati Tenang.</span>
                 </h1>
                 <p className="text-lg md:text-xl lg:text-2xl text-on-surface-variant leading-relaxed max-w-xl font-medium opacity-90 mx-auto lg:mx-0">
-                  Solusi ahli & bergaransi untuk <span className="text-primary font-bold">Water Heater</span>, <span className="text-secondary font-bold">Stove (Kompor)</span>, dan <span className="text-primary font-bold">Coockerhood</span>.
+                  Solusi ahli & bergaransi untuk <span className="text-primary font-bold">Water Heater</span>, <span className="text-secondary font-bold">Stove (Kompor)</span>, dan <span className="text-primary font-bold">Coocker Hood</span>.
                   Teknisi berpengalaman kami siap menuntaskan kendala peralatan rumah Anda hari ini.
                 </p>
               </div>
@@ -379,14 +379,14 @@ export default function Home() {
                   Layanan Utama
                 </div>
                 <h2 className="text-4xl md:text-5xl font-bold text-on-surface tracking-tight">Solusi Lengkap Peralatan Rumah Anda</h2>
-                <p className="text-lg text-on-surface-variant max-w-2xl">Penanganan profesional untuk Water Heater, Stove (Kompor Listrik & Gas), dan Coockerhood segala merk ternama.</p>
+                <p className="text-lg text-on-surface-variant max-w-2xl">Penanganan profesional untuk Water Heater, Stove (Kompor Listrik & Gas), dan Coocker Hood segala merk ternama.</p>
 
               </div>
             </div>            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
               {[
                 { title: "Servis Water Heater", desc: "Air tidak panas, korslet, bocor, atau tekanan air melemah? Kami tuntaskan.", icon: "fi fi-rr-water" },
                 { title: "Servis Stove (Kompor)", desc: "Kompor gas, tanam, atau induksi susah nyala, api merah, dan modul error.", icon: "fi fi-rr-bolt" },
-                { title: "Servis Coockerhood", desc: "Daya hisap asap loyo, motor bising, lampu mati, atau filter berminyak.", icon: "fi fi-rr-wind" },
+                { title: "Servis Coocker Hood", desc: "Daya hisap asap loyo, motor bising, lampu mati, atau filter berminyak.", icon: "fi fi-rr-wind" },
                 { title: "Kelistrikan & Modul", desc: "Mati total, short circuit, penggantian sensor & perkabelan berstandar aman.", icon: "fi fi-rr-settings" },
                 { title: "Deep Clean & Perawatan", desc: "Pembersihan tuntas kerak air, kerak minyak gosong, dan tune-up performa.", icon: "fi fi-rr-vacuum" },
                 { title: "Restorasi & Pasang Baru", desc: "Instalasi rapi unit baru atau restorasi unit lama agar normal seperti baru.", icon: "fi fi-rr-refresh" }
@@ -429,7 +429,7 @@ export default function Home() {
               <h2 className="text-3xl md:text-4xl font-black text-on-surface leading-tight">Mengapa Memilih <span className="text-primary">TeknoHome</span>?</h2>
               <div className="space-y-6 md:space-y-8">
                 {[
-                  { title: "Berlisensi & Bergaransi", desc: "Ketenangan total untuk setiap pengerjaan Water Heater, Stove, dan Coockerhood dengan garansi resmi.", icon: "fi fi-rr-shield-check" },
+                  { title: "Berlisensi & Bergaransi", desc: "Ketenangan total untuk setiap pengerjaan Water Heater, Stove, dan Coocker Hood dengan garansi layanan.", icon: "fi fi-rr-shield-check" },
                   { title: "Harga Transparan", desc: "Tanpa biaya tersembunyi. Estimasi harga jujur di awal dengan suku cadang original terjamin.", icon: "fi fi-rr-money" },
                   { title: "Jadwal Fleksibel & Home Service", desc: "Teknisi datang tepat waktu ke lokasi Anda, menyesuaikan waktu luang pagi, siang, atau sore.", icon: "fi fi-rr-calendar-clock" }
                 ].map((item, i) => (
@@ -457,7 +457,7 @@ export default function Home() {
                 Portofolio Kami
               </div>
               <h2 className="text-4xl md:text-5xl font-bold text-on-surface tracking-tight">Hasil Pekerjaan Kami</h2>
-              <p className="text-lg text-on-surface-variant max-w-2xl mx-auto">Dokumentasi perbaikan dan instalasi Water Heater, Stove, dan Coockerhood oleh tim TeknoHome.</p>
+              <p className="text-lg text-on-surface-variant max-w-2xl mx-auto">Dokumentasi perbaikan dan instalasi Water Heater, Stove, dan Coocker Hood oleh tim TeknoHome.</p>
             </div>
 
             <ProjectGrid />
@@ -491,7 +491,7 @@ export default function Home() {
                 <h3 className="text-2xl md:text-3xl font-bold text-on-surface mb-8">Cara Pemesanan</h3>
                 <ul className="space-y-6">
                   {[
-                    "Konsultasi kendala Water Heater, Stove, atau Coockerhood via WA/Telepon.",
+                    "Konsultasi kendala Water Heater, Stove, atau Coocker Hood via WA/Telepon.",
                     "Survei lokasi & diagnosa teknisi dengan penawaran harga rinci di awal.",
                     "Deal & pengerjaan langsung di tempat hingga berfungsi normal bergaransi."
                   ].map((item, i) => (
@@ -573,7 +573,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto rounded-[40px] overflow-hidden relative bg-gradient-primary p-12 md:p-24 text-center text-white">
             <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
             <div className="relative space-y-8">
-              <h2 className="text-4xl md:text-6xl font-black">Water Heater, Stove, atau Coockerhood Bermasalah? <br /> Kami Siap Membantu.</h2>
+              <h2 className="text-4xl md:text-6xl font-black">Water Heater, Stove, atau Coocker Hood Bermasalah? <br /> Kami Siap Membantu.</h2>
               <p className="text-xl text-white/95 font-medium max-w-2xl mx-auto">Jangan biarkan kenyamanan dapur & rumah Anda terganggu. Teknisi TeknoHome siaga memberikan layanan perbaikan cepat, rapi, dan bergaransi resmi.</p>
               <div className="flex flex-wrap justify-center gap-6">
                 <a
@@ -603,14 +603,14 @@ export default function Home() {
             <div className="flex items-center">
               <Image
                 src="/logos1.png"
-                alt="Logo Tekno Home Services Surabaya"
+                alt="Logo Tekno Home Services"
                 width={600}
                 height={200}
                 className="h-48 md:h-56 w-auto object-contain -ml-4"
                 sizes="(max-width: 768px) 300px, 600px"
               />
             </div>
-            <p className="text-on-surface-variant max-w-sm">Solusi layanan rumah profesional untuk Water Heater, Stove (Kompor Gas & Listrik), dan Coockerhood Anda. Terpercaya, cepat, dan bergaransi resmi.</p>
+            <p className="text-on-surface-variant max-w-sm">Solusi layanan rumah profesional untuk Water Heater, Stove (Kompor Gas & Listrik), dan Coocker Hood Anda. Terpercaya, cepat, dan bergaransi resmi.</p>
           </div>
 
           <div className="md:justify-self-center">
@@ -618,7 +618,7 @@ export default function Home() {
             <ul className="space-y-4 text-on-surface-variant">
               <li><a href="#services" className="hover:text-primary transition-colors">Servis Water Heater</a></li>
               <li><a href="#services" className="hover:text-primary transition-colors">Servis Stove (Kompor)</a></li>
-              <li><a href="#services" className="hover:text-primary transition-colors">Servis Coockerhood</a></li>
+              <li><a href="#services" className="hover:text-primary transition-colors">Servis Coocker Hood</a></li>
               <li><a href="#services" className="hover:text-primary transition-colors">Layanan Darurat 24 Jam</a></li>
             </ul>
           </div>
@@ -650,8 +650,8 @@ export default function Home() {
                 </div>
 
                 <div>
-                  <p className="text-xs font-bold text-primary uppercase tracking-widest mb-1">Alamat Kantor</p>
-                  <p className="text-sm font-medium leading-relaxed">Jl. Gunungsari No.15, Sawunggaling, Kec. Wonokromo, Surabaya<br />Area Layanan: Surabaya & Sekitarnya</p>
+                  <p className="text-xs font-bold text-primary uppercase tracking-widest mb-1">Layanan Panggilan</p>
+                  <p className="text-sm font-medium leading-relaxed">Layanan Home Service Teknisi Ahli ke Rumah & Tempat Usaha.<br />Pengerjaan Langsung di Tempat & Bergaransi Resmi.</p>
                 </div>
               </li>
 

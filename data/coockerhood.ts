@@ -103,7 +103,7 @@ export const cookerhoodCities: Record<string, CityData> = {
       },
       {
         q: "Berapa lama garansi yang diberikan untuk servis cooker hood?",
-        a: "Kami memberikan garansi resmi 30 hingga 90 hari untuk suku cadang pengganti (seperti motor, kapasitor, switch) serta Service teknisi."
+        a: "Kami memberikan garansi layanan 30 hingga 90 hari untuk suku cadang pengganti (seperti motor, kapasitor, switch) serta Service teknisi."
       }
     ]
   },
@@ -241,7 +241,7 @@ export const cookerhoodCities: Record<string, CityData> = {
       },
       {
         q: "Apakah pengerjaan bergaransi?",
-        a: "Ya, kami memberikan garansi resmi hingga 90 hari untuk pergantian suku cadang dan perbaikan dinamo."
+        a: "Ya, kami memberikan garansi layanan hingga 90 hari untuk pergantian suku cadang dan perbaikan dinamo."
       }
     ]
   },
@@ -379,7 +379,7 @@ export const cookerhoodCities: Record<string, CityData> = {
       },
       {
         q: "Apakah ada garansi pengerjaan?",
-        a: "Tentu! Kami memberikan nota garansi resmi 30 hingga 90 hari untuk suku cadang pengganti dan jasa perbaikan teknisi."
+        a: "Tentu! Kami memberikan nota garansi layanan 30 hingga 90 hari untuk suku cadang pengganti dan jasa perbaikan teknisi."
       }
     ]
   },
@@ -444,7 +444,7 @@ export const cookerhoodCities: Record<string, CityData> = {
       },
       {
         q: "Berapa lama garansi yang diberikan di Medan?",
-        a: "Kami memberikan garansi resmi 30 hingga 90 hari untuk jasa perbaikan teknisi dan suku cadang yang diganti."
+        a: "Kami memberikan garansi layanan 30 hingga 90 hari untuk jasa perbaikan teknisi dan suku cadang yang diganti."
       },
       {
         q: "Bagaimana cara memesan servis cooker hood di Medan?",

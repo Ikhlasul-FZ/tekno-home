@@ -6,6 +6,7 @@ import { stoveCities, supportedStoveBrands } from "@/data/stove";
 import { getCityWhatsAppLink } from "@/utils/whatsapp";
 import CityNavbar from "@/components/CityNavbar";
 import StoveGallery from "@/components/StoveGallery";
+import StoveArticlesSection from "@/components/StoveArticlesSection";
 
 interface PageProps {
   params: Promise<{
@@ -31,7 +32,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: `Servis Kompor ${data.name} | Teknisi Panggilan Bergaransi`,
-    description: `Service kompor gas tanam, freestanding cooker, & kompor induksi panggilan di ${data.name} (${data.province}). Teknisi ahli pengerjaan di tempat, sparepart original & garansi resmi.`,
+    description: `Service kompor gas tanam, freestanding cooker, & kompor induksi panggilan di ${data.name} (${data.province}). Teknisi ahli pengerjaan di tempat, sparepart original & garansi layanan.`,
     keywords: `servis kompor ${data.name.toLowerCase()}, perbaikan kompor ${data.name.toLowerCase()}, teknisi kompor modena ${data.name.toLowerCase()}, teknisi kompor ariston ${data.name.toLowerCase()}, servis kompor freestanding ${data.name.toLowerCase()}, servis kompor induksi ${data.name.toLowerCase()}`,
     alternates: {
       canonical: `/stove/${data.slug}`,
@@ -419,6 +420,9 @@ export default async function StoveCityPage({ params }: PageProps) {
           </div>
         </section>
 
+        {/* Stove Articles & Education Section */}
+        <StoveArticlesSection cityName={data.name} citySlug={data.slug} />
+
         {/* FAQ Section */}
         <section id="faq" className="py-20 px-4 sm:px-6 lg:px-8 bg-surface-container-low/40">
           <div className="max-w-4xl mx-auto">
@@ -596,7 +600,7 @@ export default async function StoveCityPage({ params }: PageProps) {
             Tekno Home Services — Spesialis Servis Kompor {data.name}
           </p>
           <p className="text-xs text-on-surface-variant max-w-md mx-auto">
-            Melayani perbaikan kompor gas tanam, oven freestanding, dan kompor induksi panggilan dengan suku cadang original dan garansi resmi.
+            Melayani perbaikan kompor gas tanam, oven freestanding, dan kompor induksi panggilan dengan suku cadang original dan garansi layanan.
           </p>
           <div className="pt-4 text-xs text-on-surface-variant/70 border-t border-outline-variant/20">
             © 2026 Tekno Home Services. Seluruh hak cipta dilindungi.

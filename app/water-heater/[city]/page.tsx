@@ -6,6 +6,7 @@ import { waterHeaterCities, supportedBrands } from "@/data/water-heater";
 import { getCityWhatsAppLink } from "@/utils/whatsapp";
 import CityNavbar from "@/components/CityNavbar";
 import WaterHeaterGallery from "@/components/WaterHeaterGallery";
+import WaterHeaterArticlesSection from "@/components/WaterHeaterArticlesSection";
 
 interface PageProps {
   params: Promise<{
@@ -31,7 +32,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: `Servis Water Heater ${data.name} | Teknisi Panggilan Bergaransi`,
-    description: `Service water heater profesional di ${data.name} (${data.province}). Teknisi ahli pengerjaan di tempat, suku cadang original, respon cepat & garansi resmi.`,
+    description: `Service water heater profesional di ${data.name} (${data.province}). Teknisi ahli pengerjaan di tempat, suku cadang original, respon cepat & garansi layanan.`,
     keywords: `servis water heater ${data.name.toLowerCase()}, perbaikan water heater ${data.name.toLowerCase()}, teknisi ariston ${data.name.toLowerCase()}, teknisi modena ${data.name.toLowerCase()}, servis water heater`,
     alternates: {
       canonical: `/water-heater/${data.slug}`,
@@ -417,7 +418,7 @@ export default async function WaterHeaterCityPage({ params }: PageProps) {
                 {
                   step: "04",
                   title: "Perbaikan & Garansi",
-                  desc: "Pengerjaan tuntas, uji fungsi air panas, dan penyerahan nota garansi resmi.",
+                  desc: "Pengerjaan tuntas, uji fungsi air panas, dan penyerahan nota garansi layanan.",
                   icon: "fi fi-rr-shield-check"
                 }
               ].map((item, i) => (
@@ -433,6 +434,9 @@ export default async function WaterHeaterCityPage({ params }: PageProps) {
             </div>
           </div>
         </section>
+
+        {/* Water Heater Articles & Education Section */}
+        <WaterHeaterArticlesSection cityName={data.name} citySlug={data.slug} />
 
         {/* FAQ Section */}
         <section id="faq" className="py-20 px-4 sm:px-6 lg:px-8 bg-surface-container-low/40">
@@ -611,7 +615,7 @@ export default async function WaterHeaterCityPage({ params }: PageProps) {
             Tekno Home Services — Spesialis Servis Water Heater {data.name}
           </p>
           <p className="text-xs text-on-surface-variant max-w-md mx-auto">
-            Melayani perbaikan, instalasi, dan pembersihan kerak water heater listrik, gas, serta tenaga surya dengan garansi resmi.
+            Melayani perbaikan, instalasi, dan pembersihan kerak water heater listrik, gas, serta tenaga surya dengan garansi layanan.
           </p>
           <div className="pt-4 text-xs text-on-surface-variant/70 border-t border-outline-variant/20">
             © 2026 Tekno Home Services. Seluruh hak cipta dilindungi.

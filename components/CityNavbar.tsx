@@ -6,10 +6,11 @@ import { useState } from "react";
 import { getCityWhatsAppLink } from "@/utils/whatsapp";
 
 interface CityNavbarProps {
-  currentService: "Water Heater" | "Stove" | "Coockerhood";
+  currentService: "Water Heater" | "Stove" | "Coocker Hood" | "Coockerhood";
   serviceSlug: "water-heater" | "stove" | "coockerhood";
   cityName: string;
   citySlug: string;
+  isArticlePage?: boolean;
 }
 
 const allCities = [
@@ -24,7 +25,7 @@ const allCities = [
 const allServices = [
   { name: "Water Heater", id: "water-heater", icon: "fi fi-rr-flame" },
   { name: "Stove", id: "stove", icon: "fi fi-rr-gas-pump" },
-  { name: "Coockerhood", id: "coockerhood", icon: "fi fi-rr-wind" },
+  { name: "Coocker Hood", id: "coockerhood", icon: "fi fi-rr-wind" },
 ];
 
 export default function CityNavbar({
@@ -32,11 +33,13 @@ export default function CityNavbar({
   serviceSlug,
   cityName,
   citySlug,
+  isArticlePage = false,
 }: CityNavbarProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDesktopDropdown, setActiveDesktopDropdown] = useState<string | null>(null);
 
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
+  const getHref = (hash: string) => (isArticlePage ? `/${serviceSlug}/${citySlug}${hash}` : hash);
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-2xl border-b border-primary/10 shadow-sm">
@@ -145,16 +148,20 @@ export default function CityNavbar({
             </div>
           </div>
 
-          <a href="#coverage" className="hover:text-primary transition-colors py-2">
+          <a href={getHref("#coverage")} className="hover:text-primary transition-colors py-2">
             Area
           </a>
-          <a href="#issues" className="hover:text-primary transition-colors py-2">
+          <a href={getHref("#issues")} className="hover:text-primary transition-colors py-2">
             Kendala
           </a>
-          <a href="#gallery" className="hover:text-primary transition-colors py-2">
+          <a href={getHref("#gallery")} className="hover:text-primary transition-colors py-2">
             Galeri
           </a>
-          <a href="#faq" className="hover:text-primary transition-colors py-2">
+          <a href={getHref("#articles")} className="hover:text-primary transition-colors py-2 flex items-center gap-1 text-primary">
+            <span>Artikel</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-secondary inline-block"></span>
+          </a>
+          <a href={getHref("#faq")} className="hover:text-primary transition-colors py-2">
             FAQ
           </a>
         </nav>
@@ -211,7 +218,7 @@ export default function CityNavbar({
             </Link>
 
             <a
-              href="#coverage"
+              href={getHref("#coverage")}
               onClick={closeMobileMenu}
               className="px-3 py-2.5 rounded-xl font-bold text-sm text-on-surface hover:bg-primary/5 hover:text-primary flex items-center justify-between transition-colors"
             >
@@ -220,7 +227,7 @@ export default function CityNavbar({
             </a>
 
             <a
-              href="#issues"
+              href={getHref("#issues")}
               onClick={closeMobileMenu}
               className="px-3 py-2.5 rounded-xl font-bold text-sm text-on-surface hover:bg-primary/5 hover:text-primary flex items-center justify-between transition-colors"
             >
@@ -229,7 +236,7 @@ export default function CityNavbar({
             </a>
 
             <a
-              href="#gallery"
+              href={getHref("#gallery")}
               onClick={closeMobileMenu}
               className="px-3 py-2.5 rounded-xl font-bold text-sm text-on-surface hover:bg-primary/5 hover:text-primary flex items-center justify-between transition-colors"
             >
@@ -238,7 +245,19 @@ export default function CityNavbar({
             </a>
 
             <a
-              href="#faq"
+              href={getHref("#articles")}
+              onClick={closeMobileMenu}
+              className="px-3 py-2.5 rounded-xl font-bold text-sm text-primary bg-primary/5 flex items-center justify-between transition-colors"
+            >
+              <div className="flex items-center gap-2">
+                <span>Artikel & Panduan</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-secondary inline-block"></span>
+              </div>
+              <i className="fi fi-rr-book-alt text-primary text-xs"></i>
+            </a>
+
+            <a
+              href={getHref("#faq")}
               onClick={closeMobileMenu}
               className="px-3 py-2.5 rounded-xl font-bold text-sm text-on-surface hover:bg-primary/5 hover:text-primary flex items-center justify-between transition-colors"
             >
